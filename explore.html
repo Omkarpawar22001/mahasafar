@@ -1,0 +1,356 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Treks & Adventures | Maha Safar</title>
+    <meta name="description"
+        content="Explore curated trekking experiences across the Sahyadris featuring Raigad, Vasota, Torna, and magnificent camping locations.">
+
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Base Global Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/trekking.css">
+
+    <!-- Page Specific Custom Styles (V8 Luxury Aesthetic - Sidebar Left Refined) -->
+
+</head>
+
+<body>
+
+    <!-- Standard Portal Header Integration -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Connected with Raigad design template) -->
+    <section class="hero hero-raigad" id="home">
+        <div class="hero-bg slider-container">
+            <img src="assets/hero.png" class="active" alt="All Treks">
+        </div>
+        <div class="container">
+            <div class="hero-content hero-content-full">
+                <h1 class="reveal active"><span class="gradient-text">TREKKING</span></h1>
+                <div class="breadcrumbs"
+                    style="display: flex; justify-content: center; margin-top: 10px; margin-bottom: 15px;">
+                    <ul class="breadcrumb-list reveal">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+                        <li class="breadcrumb-item">Trekking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Premium Multi-Layered Fluid Waves Shape Divider -->
+        <!-- <div class="custom-shape-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M0,0 C300,100 400,20 600,60 C800,100 1000,0 1200,40 L1200,120 L0,120 Z" class="shape-fill"
+                    fill-opacity="0.15"></path>
+                <path d="M0,30 C250,120 500,40 750,70 C1000,100 1100,20 1200,60 L1200,120 L0,120 Z" class="shape-fill"
+                    fill-opacity="0.4"></path>
+                <path d="M0,60 C300,130 600,50 900,90 C1050,110 1150,50 1200,70 L1200,120 L0,120 Z" class="shape-fill">
+                </path>
+            </svg>
+        </div> -->
+    </section>
+
+    <!-- Main Content Wrapper V8 (Sidebar at Left) -->
+    <section class="listing-content-wrapper">
+        <div class="container">
+            <div class="listing-grid">
+
+                <!-- Filter Sidebar (Shifted strictly to Left Side) -->
+                <aside class="filter-sidebar">
+                    <div class="filter-card">
+
+                        <div class="filter-card-header">
+                            <h2>Filters</h2>
+                            <div class="filter-card-header-flex">
+                                <a href="#" class="clear-filters clear-filters-muted">Reset</a>
+                                <button class="close-sidebar-btn" id="closeSidebarBtn"><i
+                                        class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Search Box Filter - APPEARING AT VERY TOP OF SIDEBAR -->
+                        <div class="filter-block">
+                            <div class="filter-block-title">Search Trek</div>
+                            <div class="search-wrapper">
+                                <input type="text" class="search-input" placeholder="Destination name...">
+                                <i class="fas fa-search search-icon"></i>
+                            </div>
+                        </div>
+
+                        <!-- Select District Dropdown - ADDED IMMEDIATELY AFTER SEARCH -->
+                        <div class="filter-block">
+                            <div class="filter-block-title">
+                                <span>District Region</span>
+                                <i class="fas fa-map-location-dot district-icon"></i>
+                            </div>
+                            <div class="sidebar-select-wrapper">
+                                <select class="sort-select-sidebar" id="sidebar-district-select">
+                                    <option value="all">All Districts</option>
+                                    <option value="pune">Pune District</option>
+                                    <option value="raigad">Raigad District</option>
+                                    <option value="satara">Satara District</option>
+                                    <option value="ahmednagar">Ahmednagar District</option>
+                                    <option value="thane">Thane / Malshej</option>
+                                    <option value="nashik">Nashik Region</option>
+                                    <option value="kolhapur">Kolhapur District</option>
+                                    <option value="mumbai">Mumbai City District</option>
+                                    <option value="aurangabad">Aurangabad District</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Select City Dropdown - ADDED AS REQUESTED -->
+                        <div class="filter-block">
+                            <div class="filter-block-title">
+                                <span>City</span>
+                                <i class="fas fa-city" style="color:var(--primary);"></i>
+                            </div>
+                            <div class="sidebar-select-wrapper">
+                                <select class="sort-select-sidebar" id="sidebar-city-select">
+                                    <option value="all">All Cities</option>
+                                    <option value="mumbai">Mumbai</option>
+                                    <option value="pune">Pune</option>
+                                    <option value="satara">Satara</option>
+                                    <option value="nashik">Nashik</option>
+                                    <option value="kolhapur">Kolhapur</option>
+                                    <option value="panvel">Panvel</option>
+                                    <option value="karjat">Karjat</option>
+                                    <option value="lonavala">Lonavala</option>
+                                    <option value="mahabaleshwar">Mahabaleshwar</option>
+                                    <option value="alibaug">Alibaug</option>
+                                    <option value="bhandardara">Bhandardara</option>
+                                    <option value="malshej">Malshej Ghat</option>
+                                    <option value="ellora">Ellora / Aurangabad</option>
+                                    <option value="shirdi">Shirdi</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Sort By Option Integrated under District -->
+                        <div class="filter-block">
+                            <div class="filter-block-title">
+                                <span>Sort Order</span>
+                                <i class="fas fa-arrow-down-short-wide" style="color:var(--primary);"></i>
+                            </div>
+                            <div class="sidebar-select-wrapper">
+                                <select class="sort-select-sidebar" id="sidebar-sort-select">
+                                    <option value="popularity">Popularity (High to Low)</option>
+                                    <option value="rating">Top Rated First</option>
+                                    <option value="difficulty-asc">Difficulty: Easy First</option>
+                                    <option value="difficulty-desc">Difficulty: Hard First</option>
+                                    <option value="budget">Budget-Friendly</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Posts Per Page Dropdown - ADDED ON SIDEBAR -->
+                        <div class="filter-block">
+                            <div class="filter-block-title">
+                                <span>Display Limit</span>
+                                <i class="fas fa-list-ol" style="color:var(--primary);"></i>
+                            </div>
+                            <div class="sidebar-select-wrapper">
+                                <select class="sort-select-sidebar" id="sidebar-per-page-select">
+                                    <option value="12">12 Posts Per Page</option>
+                                    <option value="24" selected>24 Posts Per Page</option>
+                                    <option value="36">36 Posts Per Page</option>
+                                    <option value="all">View All Posts</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Difficulty Level Filters -->
+                        <div class="filter-block">
+                            <div class="filter-block-title">Difficulty Levels</div>
+                            <div class="difficulty-tags">
+                                <div class="diff-tag active">
+                                    <span><i class="fas fa-circle"
+                                            style="color:#10b981; font-size:0.45rem; margin-right:6px;"></i> Easy</span>
+                                    <span class="count">12</span>
+                                </div>
+                                <div class="diff-tag">
+                                    <span><i class="fas fa-circle"
+                                            style="color:#fbbf24; font-size:0.45rem; margin-right:6px;"></i>
+                                        Moderate</span>
+                                    <span class="count">8</span>
+                                </div>
+                                <div class="diff-tag">
+                                    <span><i class="fas fa-circle"
+                                            style="color:#ef4444; font-size:0.45rem; margin-right:6px;"></i> Hard</span>
+                                    <span class="count">4</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </aside>
+
+                <!-- Main Results Column (Displayed on Right) -->
+                <main class="listing-main">
+
+                    <!-- Luxury Cards Grid View V8 - STRICTLY 3 COLUMNS -->
+                    <div class="cards-results-grid">
+                        <!-- Dynamic Cards Rendered via AJAX -->
+                    </div>
+
+                    <!-- Modern Pagination Layout V8 -->
+                    <div class="pagination-container-v8">
+                        <a href="#" class="page-btn-v8 active">1</a>
+                        <a href="#" class="page-btn-v8">2</a>
+                        <a href="#" class="page-btn-v8">3</a>
+                        <a href="#" class="page-btn-v8"><i class="fas fa-chevron-right"
+                                style="font-size:0.75rem;"></i></a>
+                    </div>
+
+                </main>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Filter Button (Sticky) -->
+    <button class="mobile-filter-btn" id="mobileFilterBtn">
+        <i class="fas fa-filter"></i>
+        <span class="mobile-filter-text">Filters</span>
+    </button>
+
+    <!-- Standard Portal Premium Footer Integration -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
+                        specialize in safe, highly curated, and fully unforgettable travel journeys.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Collections</h4>
+                    <ul>
+                        <li><a href="#">Monsoon Peaks</a></li>
+                        <li><a href="#">Overnight Camps</a></li>
+                        <li><a href="#">Heritage Trails</a></li>
+                        <li><a href="#">Stargazing Expeditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal & Standards</h4>
+                    <ul>
+                        <li><a href="#">Safety Directives</a></li>
+                        <li><a href="#">Terms of Engagement</a></li>
+                        <li><a href="#">Cancellation Policies</a></li>
+                        <li><a href="#">Traveler Protection</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Stay Updated</h4>
+                    <p class="mb-15 font-sm footer-newsletter-text">Receive immediate alerts for new trekking window
+                        unblock announcements.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Your Address" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. State of the Art Expeditions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Core Main JS Engine Integration -->
+    <script src="assets/data/places.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/trekking.js"></script>
+
+    <!-- Micro Interactive Helper Logic -->
+    <script>
+        // Smooth header shadow generation on deep scroll
+        const navBar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navBar?.classList.add('scrolled');
+            } else {
+                navBar?.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Sidebar Filter Logic
+        const mobileFilterBtn = document.getElementById('mobileFilterBtn');
+        const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+        const filterSidebar = document.querySelector('.filter-sidebar');
+        const contentWrapper = document.querySelector('.listing-content-wrapper');
+
+        if (mobileFilterBtn && closeSidebarBtn && filterSidebar) {
+            mobileFilterBtn.addEventListener('click', () => {
+                filterSidebar.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                if (contentWrapper) contentWrapper.style.zIndex = '9999'; // Bring above navbar
+            });
+            const closeAction = () => {
+                filterSidebar.classList.remove('active');
+                document.body.style.overflow = '';
+                if (contentWrapper) contentWrapper.style.zIndex = '10'; // Restore original z-index
+            };
+
+            closeSidebarBtn.addEventListener('click', closeAction);
+        }
+    </script>
+</body>
+
+</html>
+

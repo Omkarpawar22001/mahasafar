@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tulja Bhavani Temple Interactive Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to Tulja Bhavani Temple in Tuljapur. Replicated glassmorphic layout, historical significance, what makes it unique, and travel options.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad" id="home" style="background: linear-gradient(rgba(5, 8, 16, 0.65), rgba(5, 8, 16, 0.85)), url('assets/tuljabhavani_hero.png') no-repeat center center/cover !important;">
+        <div class="container">
+            <h1>TULJA BHAVANI TEMPLE</h1>
+            <p>The Sacred Abode of Strength and Courage in Tuljapur</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Explore</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Tulja Bhavani Temple</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Timings</p>
+                <h4>5:00 AM - 9:00 PM</h4>
+            </div>
+            <div class="stat-item">
+                <p>Entry Fee</p>
+                <h4>Free (General)</h4>
+            </div>
+            <div class="stat-item">
+                <p>Nearest Location</p>
+                <h4>Tuljapur, Osmanabad</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-temple" class="index-link active"><i class="fas fa-circle-info"></i> About
+                            Temple</a></li>
+                    <li><a href="#history-significance" class="index-link"><i class="fas fa-history"></i> History &
+                            Significance</a></li>
+                    <li><a href="#unique-features" class="index-link"><i class="fas fa-monument"></i> What Makes It
+                            Unique</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential
+                            Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location
+                            Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Temple -->
+            <section id="about-temple" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Temple</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Visiting Tulja Bhavani Temple feels powerful and deeply emotional, especially if you are drawn towards goddess temples. The moment you enter the temple complex, there is a strong sense of devotion and energy that you can actually feel. It is not a quiet or slow place – it carries a vibrant spiritual intensity where people come with strong faith and belief. Many devotees visit to seek strength, protection, and courage, making the experience feel more personal and meaningful.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Vibrant Devotion</h4>
+                                <p class="about-fort-pill-text">Feel the Energy</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Inner Strength</h4>
+                                <p class="about-fort-pill-text">Seeking Courage</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/tuljabhavani_about.png" alt="Tulja Bhavani Temple view"
+                            class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: History & Significance -->
+            <section id="history-significance" class="guide-section about-fort-section">
+                <h2>History & <span class="gradient-text">Significance</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-img">
+                        <img src="assets/tuljabhavani_history.png" alt="Shivaji Maharaj receiving Bhavani sword representation"
+                            class="about-fort-image">
+                    </div>
+                    <div class="about-fort-text">
+                        <p>Tulja Bhavani Temple is dedicated to Goddess Bhavani, who is considered a fierce and protective form of Durga. The temple holds great historical importance as it is believed to be the kuldevi (family deity) of Chhatrapati Shivaji Maharaj. According to belief, the goddess blessed him with a sword, symbolizing strength and victory. The temple has been a major spiritual center for centuries and continues to hold deep cultural importance in Maharashtra.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Royal Link</h4>
+                                <p class="about-fort-pill-text">Chhatrapati Shivaji Maharaj</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Bhavani Sword</h4>
+                                <p class="about-fort-pill-text">Strength & Victory</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: What Makes It Unique -->
+            <section id="unique-features" class="guide-section major-attractions-section">
+                <h2>What Makes It <span class="gradient-text">Unique</span></h2>
+                <p class="section-desc">Discover the unique factors that set Tulja Bhavani Temple apart from other shrines.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/tuljabhavani_about.png" alt="Traditional Stone Structure">
+                        <div class="major-attractions-overlay">
+                            <h3>Traditional Structure</h3>
+                            <p>A beautiful temple layout built completely with historic stone architecture, reflecting deep cultural heritage.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/tuljabhavani_unique.png" alt="Descending Pathway">
+                        <div class="major-attractions-overlay">
+                            <h3>Descending Pathway</h3>
+                            <p>Features a unique descending pathway leading directly down to the sanctum sanctorum, unlike typical shrines.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/tuljabhavani_history.png" alt="Royal Heritage">
+                        <div class="major-attractions-overlay">
+                            <h3>Maratha History</h3>
+                            <p>Deep connections to Chhatrapati Shivaji Maharaj and the historic battles fought with the goddess's blessing.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/tuljabhavani_hero.png" alt="Spiritual Intensity">
+                        <div class="major-attractions-overlay">
+                            <h3>Vibrant Rituals</h3>
+                            <p>A lively spiritual sanctuary where the deity is worshipped with intense traditional Marathi devotion.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Convenient ways to reach the temple from different parts of Maharashtra.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: Direct Car/Cab</h3>
+                            <p>Tuljapur is well connected by road. From Pune, it takes around 5–6 hours by car, and from Mumbai around 8–9 hours via national highways.</p>
+                            <span class="travel-guide-cost-badge">Duration: 45 min from Solapur</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: Railways</h3>
+                            <p>The nearest railway station is Solapur (45 km away), which is well-connected to major cities. Taxis and buses are readily available from Solapur to Tuljapur.</p>
+                            <span class="travel-guide-cost-badge">Nearest Junction: Solapur Station</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: ST & Private Buses</h3>
+                            <p>Regular state transport (MSRTC) and private luxury sleeper buses run daily from Pune, Mumbai, Solapur, and other major towns in Maharashtra directly to Tuljapur.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Important details regarding timings, queues, and ideal visiting slots.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-clock"></i> Timings & Crowds</h3>
+                        <p>Opens at 5:00 AM and closes around 9:00 PM. Early morning is ideal to beat the heavy crowds. Weekends and festival days get extremely packed.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wallet"></i> Entry & Darshan</h3>
+                        <p>General entry is free. There are no fees for general darshan, although paid quick darshan options or special pooja slots may be booked.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time to Visit</h3>
+                        <p>October to March is ideal for comfortable weather. Navratri is highly vibrant but brings massive crowds; avoid peak days if seeking peace.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Tulja Bhavani Temple, Tuljapur Town, Dharashiv District (Osmanabad), Maharashtra 413601</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=76.0156%2C18.0014%2C76.0356%2C18.0214&amp;layer=mapnik&amp;marker=18.0114%2C76.0256"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=18.0114&amp;mlon=76.0256#map=16/18.0114/76.0256"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure and spiritual destinations in
+                        Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest travel updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>

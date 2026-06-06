@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahalaxmi Temple Interactive Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to Kolhapur Mahalaxmi Temple. Replicated glassmorphic layout, major attractions, essential stay info, and maps.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad hero-mahalaxmi" id="home">
+        <div class="container">
+            <h1>MAHALAXMI TEMPLE</h1>
+            <p>Sacred Shakti Peeth of Kolhapur</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Trekking</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Mahalaxmi Temple</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Difficulty</p>
+                <h4>Easy (Road Trip)</h4>
+            </div>
+            <div class="stat-item">
+                <p>Duration</p>
+                <h4>1 Day</h4>
+            </div>
+            <div class="stat-item">
+                <p>Type</p>
+                <h4>Shakti Peeth</h4>
+            </div>
+            <div class="stat-item">
+                <p>Distance</p>
+                <h4>~230 Km</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-temple" class="index-link active"><i class="fas fa-history"></i> About Temple</a></li>
+                    <li><a href="#major-attractions" class="index-link"><i class="fas fa-monument"></i> Major Attractions</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Temple -->
+            <section id="about-temple" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Temple</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Mahalaxmi Temple is one of the important Shakti Peeths in India and is dedicated to Goddess Mahalaxmi. Believed to be over a thousand years old, it has been a major spiritual center in Maharashtra for centuries.</p>
+                        <p>The temple is renowned for its ancient stone architecture, beautifully carved idol of Goddess Mahalaxmi, and the famous Kirnotsav phenomenon where sunlight falls directly on the idol.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">History</h4>
+                                <p class="about-fort-pill-text">1000+ Years Old</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Status</h4>
+                                <p class="about-fort-pill-text">Shakti Peeth</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/mahalaxmi_about.png" alt="Mahalaxmi Temple View" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Major Attractions -->
+            <section id="major-attractions" class="guide-section major-attractions-section">
+                <h2>Major <span class="gradient-text">Attractions</span></h2>
+                <p class="section-desc">Explore the unique architecture and phenomena of the temple.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/mahalaxmi_kirnotsav.png" alt="Kirnotsav Phenomenon">
+                        <div class="major-attractions-overlay">
+                            <h3>Kirnotsav Phenomenon</h3>
+                            <p>Twice a year, setting sun rays filter through stone windows to illuminate the deity's face.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/mahalaxmi_architecture.png" alt="Stone Architecture">
+                        <div class="major-attractions-overlay">
+                            <h3>Hemadpanthi Architecture</h3>
+                            <p>Beautifully carved ancient black basalt stone structures featuring intricate patterns.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/mahalaxmi_temple_gate.png" alt="Mahadwar Gate">
+                        <div class="major-attractions-overlay">
+                            <h3>The Grand Mahadwar</h3>
+                            <p>The majestic historic entry stone gate leading into the sacred temple courtyard.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/mahalaxmi_deity.png" alt="Goddess Mahalaxmi Idol">
+                        <div class="major-attractions-overlay">
+                            <h3>Sacred Sanctum</h3>
+                            <p>The inner Garbhagriha housing the beautifully crowned black stone idol of the Goddess.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Comprehensive travel routes to reach the temple from Mumbai and Pune.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: Rail Travel</h3>
+                            <p>Kolhapur Railway Station (CSMT Kolhapur) is well-connected to Mumbai and Pune. The temple is just 2 km away from the station, with autos and local cabs readily available.</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹150 – ₹500 Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: Direct Drive</h3>
+                            <p>A smooth drive along the NH 48 highway. It is around 230 km (4-5 hrs) from Pune and 380 km (7-8 hrs) from Mumbai. Paid vehicle parking is available near the temple zone.</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹1,500 – ₹3,000 Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: Express Bus Transit</h3>
+                            <p>Frequent state transport (MSRTC) and private AC sleeper buses connect Mumbai/Pune to Kolhapur city bus stand daily.</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹500 – ₹1,200 Approx</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Everything you need to know for a smooth visit.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-campground"></i> Stay & Food</h3>
+                        <p>Kolhapur offers excellent hotel options, budget lodges, and temple trust bhaktaniwas lodging. Try local Kolhapuri cuisines including Misal Pav and traditional veg meals.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wallet"></i> Entry & Cost</h3>
+                        <p>General entry for darshan is completely free. Special quick-darshan passes, abhishek poojas, and rituals are available at the official trust offices for a small fee.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time</h3>
+                        <p>October to March is ideal. Navratri festival is celebrated with grand decorations and energy. Early mornings are best to enjoy a peaceful, crowd-free visit.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Kolhapur, Maharashtra, India</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=74.2100%2C16.6800%2C74.2500%2C16.7100&amp;layer=mapnik&amp;marker=16.6956%2C74.2317"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=16.6956&amp;mlon=74.2317#map=16/16.6956/74.2317"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest trek updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>
+
+

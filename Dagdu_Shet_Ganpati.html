@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagdusheth Halwai Ganpati Temple Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to Dagdusheth Halwai Ganpati Temple in Pune. Replicated glassmorphic layout, historical significance, gold-adorned Ganesha idol, and travel guide.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad" id="home" style="background: linear-gradient(rgba(5, 8, 16, 0.65), rgba(5, 8, 16, 0.85)), url('assets/dagdusheth_hero.png') no-repeat center center/cover !important;">
+        <div class="container">
+            <h1>DAGDUSHETH HALWAI GANPATI TEMPLE</h1>
+            <p>The Divine Center of Faith, Positivity, and Public Devotion in Pune</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Explore</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Dagdusheth Halwai Ganpati</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Timings</p>
+                <h4>6:00 AM - 11:00 PM</h4>
+            </div>
+            <div class="stat-item">
+                <p>Entry Fee</p>
+                <h4>Free (General)</h4>
+            </div>
+            <div class="stat-item">
+                <p>Nearest Location</p>
+                <h4>Budhwar Peth, Pune</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-temple" class="index-link active"><i class="fas fa-circle-info"></i> About
+                            Temple</a></li>
+                    <li><a href="#history-significance" class="index-link"><i class="fas fa-history"></i> History &
+                            Significance</a></li>
+                    <li><a href="#unique-features" class="index-link"><i class="fas fa-monument"></i> What Makes It
+                            Unique</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential
+                            Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location
+                            Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Temple -->
+            <section id="about-temple" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Temple</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Visiting Dagdusheth Halwai Ganpati Temple is a vibrant and uplifting experience that reflects the deep devotion people have for Lord Ganesha in Pune. Unlike quiet temples, this one feels alive with energy, especially during aarti when chants and music fill the air. The idol itself is beautifully decorated with gold ornaments and flowers, and just standing in front of it gives a strong sense of positivity and faith. It's a place where people come with wishes and leave with a feeling of hope.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Vibrant & Alive</h4>
+                                <p class="about-fort-pill-text">Chants & Aarti</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Pure Positivity</h4>
+                                <p class="about-fort-pill-text">Deep Devotion</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/dagdusheth_about.png" alt="Dagdusheth Halwai Ganpati Temple view"
+                            class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: History & Significance -->
+            <section id="history-significance" class="guide-section about-fort-section">
+                <h2>History & <span class="gradient-text">Significance</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-img">
+                        <img src="assets/dagdusheth_history.png" alt="Historical photo/representation of Ganesh Festival"
+                            class="about-fort-image">
+                    </div>
+                    <div class="about-fort-text">
+                        <p>The temple was established in the late 1800s by a sweet maker named Dagdusheth Halwai, in memory of his son who passed away during a plague epidemic. With guidance from Lokmanya Tilak, the Ganpati festival here became a public celebration, which later played a key role in India's freedom movement by bringing people together. Over time, the temple became one of the most famous and respected Ganpati temples in Maharashtra.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Late 1800s</h4>
+                                <p class="about-fort-pill-text">Dagdusheth Halwai</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Lokmanya Tilak</h4>
+                                <p class="about-fort-pill-text">Freedom Movement Connection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: What Makes It Unique -->
+            <section id="unique-features" class="guide-section major-attractions-section">
+                <h2>What Makes It <span class="gradient-text">Unique</span></h2>
+                <p class="section-desc">Discover the unique factors that set Dagdusheth Ganpati Temple apart from other shrines.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/dagdusheth_hero.png" alt="Majestic Gold-Adorned Ganesha">
+                        <div class="major-attractions-overlay">
+                            <h3>Adorned Gold Ganesha</h3>
+                            <p>Features a majestic 7.5-foot tall Ganpati idol, decorated with massive quantities of pure gold ornaments.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/dagdusheth_about.png" alt="Central Pune Heritage">
+                        <div class="major-attractions-overlay">
+                            <h3>Budhwar Peth Location</h3>
+                            <p>Centrally located in Pune, historic and easily accessible, serving as the cultural heart of the city.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/dagdusheth_history.png" alt="Public Festival Roots">
+                        <div class="major-attractions-overlay">
+                            <h3>Ganeshotsav Roots</h3>
+                            <p>One of the initial points of public Ganesha celebrations, unifying people since the British Raj.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/dagdusheth_unique.png" alt="Active Social Trust Work">
+                        <div class="major-attractions-overlay">
+                            <h3>Philanthropic Work</h3>
+                            <p>The temple trust runs medical, educational, and disaster support centers across Maharashtra.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Convenient ways to reach the temple located in the heart of Pune.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: Rail Connections</h3>
+                            <p>Pune Junction is the nearest railway station (about 3 km away). Auto-rickshaws, cabs, and local PMT buses can bring you to Budhwar Peth in 10-15 minutes.</p>
+                            <span class="travel-guide-cost-badge">Pune Junction: ~10-15 mins</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: Local City Buses</h3>
+                            <p>Frequent local buses connect to Budhwar Peth and Appa Balwant Chowk from all parts of Pune (Swargate, Kothrud, Hadapsar, Shivaji Nagar).</p>
+                            <span class="travel-guide-cost-badge">Buses: Very frequent</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: Driving & Traffic Warning</h3>
+                            <p>Budhwar Peth is one of Pune's busiest and oldest commercial hubs. Parking is extremely limited, so taking public transit is highly recommended.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Important details regarding timings, fees, and the festival season.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-clock"></i> Timings & Aarti</h3>
+                        <p>Opens daily at 6:00 AM and remains open until 11:00 PM. The evening aarti is a highly lively event that attracts thousands of devotees.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wallet"></i> Entry & Charges</h3>
+                        <p>Entry is entirely free for all devotees. There are no fees for general darshan, and voluntary donations or special pooja bookings are optional.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time to Visit</h3>
+                        <p>Early morning or late night is best for a quiet visit. During Ganesh Chaturthi, the temple is incredibly decorated and active, though crowds are massive.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Budhwar Peth, Shivaji Road, Pune, Maharashtra 411002</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=73.8460%2C18.5065%2C73.8660%2C18.5265&amp;layer=mapnik&amp;marker=18.5165%2C73.8560"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=18.5165&amp;mlon=73.8560#map=16/18.5165/73.8560"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure and spiritual destinations in
+                        Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest travel updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>

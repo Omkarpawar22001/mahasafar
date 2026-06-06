@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandharpur Vitthal Temple Interactive Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to Pandharpur Vitthal Temple in Solapur. Replicated glassmorphic layout, major attractions, essential stay info, and maps.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad" id="home" style="background: linear-gradient(rgba(5, 8, 16, 0.65), rgba(5, 8, 16, 0.85)), url('assets/pandharpur_hero.png') no-repeat center center/cover !important;">
+        <div class="container">
+            <h1>PANDHARPUR TEMPLE</h1>
+            <p>The Holy Abode of Lord Vitthal and Rukmini on the Banks of Chandrabhaga</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Explore</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Pandharpur Temple</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Timings</p>
+                <h4>4:00 AM - 11:00 PM</h4>
+            </div>
+            <div class="stat-item">
+                <p>Entry Fee</p>
+                <h4>Free (General)</h4>
+            </div>
+            <div class="stat-item">
+                <p>Nearest Location</p>
+                <h4>Pandharpur, Solapur</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-temple" class="index-link active"><i class="fas fa-circle-info"></i> About
+                            Temple</a></li>
+                    <li><a href="#history-significance" class="index-link"><i class="fas fa-history"></i> History &
+                            Significance</a></li>
+                    <li><a href="#unique-features" class="index-link"><i class="fas fa-monument"></i> What Makes It
+                            Unique</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential
+                            Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location
+                            Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Temple -->
+            <section id="about-temple" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Temple</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Visiting Pandharpur Vitthal Temple feels like being part of something much bigger than just a temple visit. The place is filled with devotion, especially during the famous Wari pilgrimage, where lakhs of devotees walk for days chanting the name of Lord Vitthal. Even on normal days, the temple carries a strong spiritual energy that feels simple, emotional, and deeply connected to faith. It’s not about silence here, but about devotion expressed through collective belief and tradition.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Wari Pilgrimage</h4>
+                                <p class="about-fort-pill-text">Collective Devotion</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Spiritual Energy</h4>
+                                <p class="about-fort-pill-text">Deeply Connected</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/pandharpur_about.png" alt="Pandharpur Temple view"
+                            class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: History & Significance -->
+            <section id="history-significance" class="guide-section about-fort-section">
+                <h2>History & <span class="gradient-text">Significance</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-img">
+                        <img src="assets/pandharpur_history.png" alt="Saints of Bhakti movement representation"
+                            class="about-fort-image">
+                    </div>
+                    <div class="about-fort-text">
+                        <p>Pandharpur is one of the most important pilgrimage sites in Maharashtra and is dedicated to Lord Vitthal, a form of Lord Krishna. The temple has a strong connection with saints like Sant Tukaram and Sant Dnyaneshwar, who spread the Bhakti movement. The tradition of Wari, where devotees walk from different parts of Maharashtra to Pandharpur, has been followed for centuries and represents deep devotion and discipline.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Bhakti Movement</h4>
+                                <p class="about-fort-pill-text">Tukaram & Dnyaneshwar</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Wari Devotion</h4>
+                                <p class="about-fort-pill-text">Century-Old Path</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: What Makes It Unique -->
+            <section id="unique-features" class="guide-section major-attractions-section">
+                <h2>What Makes It <span class="gradient-text">Unique</span></h2>
+                <p class="section-desc">Discover the unique factors that set Pandharpur Temple apart from other shrines.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/pandharpur_about.png" alt="Touch the Feet tradition">
+                        <div class="major-attractions-overlay">
+                            <h3>Feet Touching Sparsh</h3>
+                            <p>A rare, historic custom allowing devotees to touch the feet of the Lord Vitthal idol.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/pandharpur_history.png" alt="Chandrabhaga River banks">
+                        <div class="major-attractions-overlay">
+                            <h3>Chandrabhaga River</h3>
+                            <p>Situated beautifully on the banks of the sacred river, adding to the holy setting.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/pandharpur_unique.png" alt="Devotional Town Atmosphere">
+                        <div class="major-attractions-overlay">
+                            <h3>Devotional Town</h3>
+                            <p>The entire town's daily life, culture, and economy center around the Vitthal shrine.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/pandharpur_hero.png" alt="Wari Pilgrimage marchers">
+                        <div class="major-attractions-overlay">
+                            <h3>Wari Pilgrimage</h3>
+                            <p>Attracts hundreds of thousands of marching devotees chanting hymns in unison.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Convenient ways to reach the temple in Pandharpur.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: Driving Routes</h3>
+                            <p>From Pune, it is about 210 km and takes around 4–5 hours by car. From Mumbai, it is around 400 km and takes about 7–8 hours via well-paved national highways.</p>
+                            <span class="travel-guide-cost-badge">Pune (4-5 hrs) | Mumbai (7-8 hrs)</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: Railways & Local Cabs</h3>
+                            <p>Pandharpur has its own railway station. Trains run regularly from Pune, Mumbai, Solapur, and other cities. Local transit easily connects to the temple area.</p>
+                            <span class="travel-guide-cost-badge">Rail Connection: Pandharpur Station</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: public sleeper Buses</h3>
+                            <p>Daily government MSRTC buses and private luxury sleeper buses operate from Pune, Mumbai, Kolhapur, and Solapur directly to Pandharpur.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Important details regarding timings, queues, and ideal visiting slots.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-clock"></i> Timings & Queues</h3>
+                        <p>Opens at 4:00 AM and closes at 11:00 PM. Early mornings are best; Wari festival and Ekadashi days see extremely long queues.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wallet"></i> Entry & Darshan</h3>
+                        <p>General entry is free. Devotees can stand in the "Charan Sparsh" (feet touch) line or the much faster "Mukha Darshan" (face view) line.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time to Visit</h3>
+                        <p>October to February is cool. Ashadhi and Kartiki Ekadashi represent the Wari peak, making the town extremely crowded.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Pandharpur town, Solapur district, Maharashtra, India</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=75.3197%2C17.6658%2C75.3397%2C17.6858&amp;layer=mapnik&amp;marker=17.6758%2C75.3297"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=17.6758&amp;mlon=75.3297#map=16/17.6758/75.3297"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure and spiritual destinations in
+                        Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest travel updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>

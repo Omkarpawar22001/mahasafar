@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story & Journey | Maha Safar</title>
+    <meta name="description"
+        content="Discover the team, history, and core values of Maha Safar. Learn how we are building a safer, more sustainable, and accessible trekking community in Maharashtra.">
+
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+
+    <!-- Custom Story Page Styles -->
+    <style>
+        .about-hero {
+            position: relative;
+            height: 55vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .about-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .about-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.35);
+        }
+
+        .about-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: -0.03em;
+        }
+
+        .about-hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            padding: 100px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 24px;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 992px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .value-card {
+            padding: 40px 30px;
+            text-align: left;
+            transition: var(--transition-smooth);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            transition: var(--transition-smooth);
+        }
+
+        body.light-mode .value-icon {
+            background: rgba(37, 99, 235, 0.08);
+        }
+
+        .value-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Team Grid */
+        .team-section {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.01);
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 3D Flip Cards */
+        .team-container {
+            max-width: 1100px;
+            margin: 50px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .team-container {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+
+        .flip-box {
+            background-color: transparent;
+            width: 100%;
+            height: 380px;
+            perspective: 1000px;
+        }
+
+        .flip-box-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-box:hover .flip-box-inner,
+        .flip-box.flipped .flip-box-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-box-front, .flip-box-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 24px;
+            border: 1px solid var(--border-glass);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flip-box-front {
+            background: var(--bg-card);
+        }
+
+        .flip-box-back {
+            background: var(--bg-glass);
+            transform: rotateY(180deg);
+        }
+
+        .flip-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .flip-box:hover .flip-avatar {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .flip-box-front h3, .flip-box-back h3 {
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+        }
+
+        .flip-role {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .flip-box-front p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .flip-box-back p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-main);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            padding: 80px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 640px) {
+            .cta-box h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .cta-box p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg-dark);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+            display: inline-block;
+            box-shadow: 0 4px 15px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--primary-glow);
+        }
+
+        body.light-mode .btn-primary {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Standard Header Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="active">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Parallax Hero Header Section -->
+    <section class="about-hero">
+        <div class="about-hero-bg">
+            <img src="assets/hero.png" alt="Sahyadri Mountain Landscape">
+        </div>
+        <div class="container">
+            <div class="about-hero-content">
+                <h1 class="reveal"><span class="gradient-text">OUR STORY</span></h1>
+                <p class="reveal">Driven by a passion for discovery, safety, and community in the mountains.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <h2>Redefining <span class="gradient-text">Outdoor Exploration</span></h2>
+                    <p>Welcome to Maha Safar — a leading premium outdoor adventure and heritage guide organization in Maharashtra. Founded by a dedicated cohort of mountaineers and local historians, we are committed to changing how explorers experience Maharashtra's raw geography, culture, and ancient history.</p>
+                    <p>We curate premium escapes designed for a wide range of travelers. Whether you want to conquer rugged Sahyadri ridge routes, explore pristine seasonal waterfalls, camp under starry skies, or uncover the history of ancient forts and temples, we ensure your journey is safe, organized, and unforgettable.</p>
+                </div>
+                <div class="about-image-wrapper glass reveal">
+                    <img src="assets/trekking.png" alt="Maha Safar Trekker on Mountain Ridge">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Origin Story Section -->
+    <section class="about-section" style="background: rgba(255,255,255,0.01); border-top: 1px solid var(--border-glass);">
+        <div class="container">
+            <div class="about-grid" style="grid-template-columns: 0.8fr 1.2fr;">
+                <div class="about-image-wrapper glass reveal" style="max-height: 450px; overflow: hidden;">
+                    <img src="assets/camping.png" alt="Starry Lakeside Campsite" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="about-text reveal" style="padding-left: 20px;">
+                    <h2>How We <span class="gradient-text">Began</span></h2>
+                    <p>A decade ago, the true trails of the Sahyadri range were known to only a few. Verified trail data was scarce, local guiding was disorganized, and safety standards were inconsistent. This left many eager outdoor lovers hesitant to explore the wild.</p>
+                    <p>Our journey began in the mountains. Armed with a notebook and a GPS tracker, our founders set out to map and document over 50 offbeat routes, mountain fort corridors, and hidden waterfall tracks. We wanted to make the wilderness simpler, safer, and accessible to anyone seeking adventure.</p>
+                    <p>Today, we strive to build a community where college students on a budget and busy professionals looking to escape city life can step outdoors with confidence. By combining premium wilderness first-aid-certified guides, high-quality gear, and delicious, authentic local meals, we offer budget-friendly travel experiences that prioritize your peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Core Values Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Core <span class="gradient-text">Principles</span></h2>
+                <p>We believe that outdoor adventure is a powerful tool to reconnect with nature, learn history, and push personal boundaries. We guide every trip with three core principles:</p>
+            </div>
+            <div class="values-grid">
+                <!-- Value 1 -->
+                <div class="value-card glass reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <h3>Safety & Preparation</h3>
+                    <p>We never cut corners. Our guides are trained first-responders, our paths are thoroughly vetted, and we carry proper communication and safety equipment on every single trek.</p>
+                </div>
+                <!-- Value 2 -->
+                <div class="value-card glass reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco-Tourism & Stewardship</h3>
+                    <p>We are guests in nature. We strictly follow "Leave No Trace" principles, clean up trails as we go, and teach travelers how to respect and preserve biodiversity.</p>
+                </div>
+                <!-- Value 3 -->
+                <div class="value-card glass reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake-angle"></i>
+                    </div>
+                    <h3>Community & Local Support</h3>
+                    <p>We grow together. We partner directly with villagers at our base camps, employing them as local guides and sourcing authentic home-cooked meals to support rural economies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>The Explorers Behind <span class="gradient-text">Maha Safar</span></h2>
+                <p>Meet our passionate core team. Click or hover on a card to see their background and skills.</p>
+            </div>
+            <div class="team-container">
+                <!-- Founder -->
+                <div class="flip-box reveal">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                            <div class="flip-avatar"><i class="fas fa-mountain"></i></div>
+                            <h3>Ameet Shet</h3>
+                            <div class="flip-role">Founder & Chief Explorer</div>
+                            <p>Trekker since 2010. Vetted 450+ trails across the Western Ghats.</p>
+                        </div>
+                        <div class="flip-box-back">
+                            <h3>Ameet Shet</h3>
+                            <div class="flip-role">Founder & Chief Explorer</div>
+                            <p>A Chartered Accountant by profession, Ameet channels his precision into designing safe, offbeat expeditions. In his free time, he is a cricket fan and loves to cook.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team 1 -->
+                <div class="flip-box reveal">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                            <div class="flip-avatar"><i class="fas fa-heart-pulse"></i></div>
+                            <h3>Rajeev Baravdia</h3>
+                            <div class="flip-role">Safety Director</div>
+                            <p>First-responder. Managed 250+ guided climbs and route setup.</p>
+                        </div>
+                        <div class="flip-box-back">
+                            <h3>Rajeev Baravdia</h3>
+                            <div class="flip-role">Safety Director & Lead Guide</div>
+                            <p>A certified fitness trainer by profession and trekker by passion. He loves recording trail journeys for YouTube and maintaining first-aid preparedness on every climb.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team 2 -->
+                <div class="flip-box reveal">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                            <div class="flip-avatar"><i class="fas fa-route"></i></div>
+                            <h3>Bhavin Jain</h3>
+                            <div class="flip-role">Logistics & Experience</div>
+                            <p>Avid traveler. Coordinated 100+ trek logistics and itineraries.</p>
+                        </div>
+                        <div class="flip-box-back">
+                            <h3>Bhavin Jain</h3>
+                            <div class="flip-role">Logistics Manager</div>
+                            <p>A pharmacist by profession and traveler by passion. Bhavin handles local base camp partnerships, meal sourcing, and seamless transport schedules across Maharashtra.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box glass reveal">
+                <h2>Begin Your <span class="gradient-text">Adventure</span></h2>
+                <p>Step into the wild. Join us on our next expedition and make memories that last a lifetime.</p>
+                <a href="explore.html" class="btn-primary">Explore Destinations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standard Footer Integration -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="explore.html">All Places</a></li>
+                                <li><a href="explore.html?category=treks">Treks</a></li>
+                                <li><a href="explore.html?category=temples">Temples</a></li>
+                                <li><a href="explore.html?category=camping">Camping</a></li>
+                                <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest trek updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+    <script>
+        // Reveal Animations on Scroll
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Interactive 3D Team Profile Tap for Touch Devices
+        const flipBoxes = document.querySelectorAll('.flip-box');
+        flipBoxes.forEach(box => {
+            box.addEventListener('click', () => {
+                box.classList.toggle('flipped');
+            });
+        });
+    </script>
+</body>
+
+</html>

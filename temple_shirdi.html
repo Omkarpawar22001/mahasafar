@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirdi Sai Baba Temple Interactive Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to Shirdi Sai Baba Temple in Ahmednagar. Replicated glassmorphic layout, historical significance, what makes it unique, and travel options.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad hero-shirdi" id="home">
+        <div class="container">
+            <h1>SHIRDI SAI BABA TEMPLE</h1>
+            <p>The Sacred Abode of Faith and Compassion in Shirdi</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Explore</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Shirdi Sai Baba Temple</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Timings</p>
+                <h4>4:00 AM - 11:00 PM</h4>
+            </div>
+            <div class="stat-item">
+                <p>Entry Fee</p>
+                <h4>Free (General)</h4>
+            </div>
+            <div class="stat-item">
+                <p>Nearest Location</p>
+                <h4>Shirdi Town, Ahmednagar</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-temple" class="index-link active"><i class="fas fa-circle-info"></i> About
+                            Temple</a></li>
+                    <li><a href="#history-significance" class="index-link"><i class="fas fa-history"></i> History &
+                            Significance</a></li>
+                    <li><a href="#unique-features" class="index-link"><i class="fas fa-monument"></i> What Makes It
+                            Unique</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential
+                            Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location
+                            Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Temple -->
+            <section id="about-temple" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Temple</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Visiting Shirdi Sai Baba Temple feels like entering a place where faith is simple and deeply emotional. Unlike many temples that feel formal, Shirdi has a very personal connection with devotees. People from all backgrounds come here with different hopes – some for peace, some for solutions, and some just to sit quietly in the presence of Sai Baba. The atmosphere is not silent like remote temples, but it carries a calm energy even within the crowd. Standing in front of the Samadhi gives a feeling of trust and comfort, as if your worries are being heard.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Calm Energy</h4>
+                                <p class="about-fort-pill-text">Deeply Personal</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Samadhi Darshan</h4>
+                                <p class="about-fort-pill-text">Trust & Comfort</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/shirdi_about.png" alt="Shirdi Sai Baba Temple view"
+                            class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: History & Significance -->
+            <section id="history-significance" class="guide-section about-fort-section">
+                <h2>History & <span class="gradient-text">Significance</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-img">
+                        <img src="assets/shirdi_history.png" alt="Dwarkamai mosque historical representation"
+                            class="about-fort-image">
+                    </div>
+                    <div class="about-fort-text">
+                        <p>Shirdi is the place where Sai Baba lived for most of his life and guided people with simple teachings of faith (Shraddha) and patience (Saburi). He did not follow one religion but taught unity, compassion, and humanity. After his samadhi in 1918, the temple was built over it, and it gradually became one of the most important pilgrimage sites in India. The temple complex includes Dwarkamai (the old mosque where he lived) and Chavadi, preserving the simple lifestyle he led.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Est. 1918</h4>
+                                <p class="about-fort-pill-text">Samadhi of Sai Baba</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Key Teachings</h4>
+                                <p class="about-fort-pill-text">Shraddha & Saburi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: What Makes It Unique -->
+            <section id="unique-features" class="guide-section major-attractions-section">
+                <h2>What Makes It <span class="gradient-text">Unique</span></h2>
+                <p class="section-desc">Discover the unique factors that set Shirdi apart from other shrines.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/shirdi_about.png" alt="Samadhi Mandir">
+                        <div class="major-attractions-overlay">
+                            <h3>Samadhi Mandir</h3>
+                            <p>The main hall housing the sacred tomb of Sai Baba and his life-like white marble statue, radiating intense peace.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/shirdi_history.png" alt="Dwarkamai Mosque">
+                        <div class="major-attractions-overlay">
+                            <h3>Dwarkamai Mosque</h3>
+                            <p>A unique symbol of unity where Sai Baba spent his days, featuring the ever-burning sacred fire (dhuni).</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/shirdi_unique.png" alt="Chavadi">
+                        <div class="major-attractions-overlay">
+                            <h3>Chavadi</h3>
+                            <p>The place where Sai Baba slept on alternate nights, preserving early 20th-century historical artefacts.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/shirdi_hero.png" alt="Unified Faith">
+                        <div class="major-attractions-overlay">
+                            <h3>Unified Faith & Teachings</h3>
+                            <p>A holy site welcoming people of all castes, religions, and backgrounds with his message of 'Sabka Malik Ek'.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Convenient ways to reach the temple from different parts of Maharashtra.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: Direct Car/Cab</h3>
+                            <p>Drive via Samruddhi Mahamarg or NH 160. Shirdi is located around 240 km from Mumbai and 180 km from Pune, offering well-paved roads and beautiful scenic routes.</p>
+                            <span class="travel-guide-cost-badge">Travel Duration: 4 - 5 Hours Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: Trains & Flights</h3>
+                            <p>Sainagar Shirdi (SNSI) station connects directly to major cities across India. Shirdi International Airport (SAG) offers direct flights from Mumbai, Delhi, Hyderabad, Bengaluru, and more.</p>
+                            <span class="travel-guide-cost-badge">Flight/Train: Varies by Source</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: ST/Private Buses</h3>
+                            <p>Frequent state transport (MSRTC) and private luxury sleeper buses run daily from Mumbai, Pune, Nashik, and other major towns in Maharashtra directly to Shirdi.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Important details regarding timings, queues, and ideal visiting slots.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-clock"></i> Timings & Aarti</h3>
+                        <p>Open from 4:00 AM to 11:00 PM. Highly famous for the four daily Aartis: Kakad (morning), Madhyan (noon), Dhoop (evening), and Shej (night).</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wallet"></i> Entry & Booking</h3>
+                        <p>General Darshan is free. Paid VIP/Quick Darshan passes are available online via the official trust website to save waiting time.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time</h3>
+                        <p>October to March is ideal for pleasant weather. Thursdays and festivals like Guru Purnima and Vijayadashami are extremely crowded.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Shirdi, Rahata Taluka, Ahmednagar District, Maharashtra 423109</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=74.4654%2C19.7562%2C74.4854%2C19.7762&amp;layer=mapnik&amp;marker=19.7662%2C74.4754"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=19.7662&amp;mlon=74.4754#map=16/19.7662/74.4754"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure and spiritual destinations in
+                        Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest travel updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>

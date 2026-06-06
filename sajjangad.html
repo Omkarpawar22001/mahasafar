@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sajjangad Fort Interactive Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to Sajjangad Fort. Replicated glassmorphic layout, major attractions, essential stay info, and maps.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad hero-sajjangad-fort" id="home">
+        <div class="container">
+            <h1>SAJJANGAD FORT GUIDE</h1>
+            <p>Spiritual Fortress & Final Resting Place of Sant Ramdas</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Trekking</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Sajjangad Fort</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Difficulty</p>
+                <h4>Easy</h4>
+            </div>
+            <div class="stat-item">
+                <p>Duration</p>
+                <h4>20 - 30 Minutes</h4>
+            </div>
+            <div class="stat-item">
+                <p>Altitude</p>
+                <h4>914 Meters</h4>
+            </div>
+            <div class="stat-item">
+                <p>Access</p>
+                <h4>Road Access</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-fort" class="index-link active"><i class="fas fa-history"></i> About Fort</a></li>
+                    <li><a href="#major-attractions" class="index-link"><i class="fas fa-monument"></i> Major Attractions</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Fort -->
+            <section id="about-fort" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Fort</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Sajjangad Fort is a sacred and historic fort located near Satara in Maharashtra. It is famous as the final resting place of Sant Ramdas, the spiritual guru of Chhatrapati Shivaji Maharaj.</p>
+                        <p>More of a spiritual destination than a trekking challenge, it offers peaceful surroundings, religious importance, and scenic Sahyadri views. The name 'Sajjangad' translates to the 'Fort of Good People'.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Spiritual Guru</h4>
+                                <p class="about-fort-pill-text">Sant Ramdas</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Access</h4>
+                                <p class="about-fort-pill-text">Road Access</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/sajjangad_fort_about.png" alt="Sajjangad Fort View" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Major Attractions -->
+            <section id="major-attractions" class="guide-section major-attractions-section">
+                <h2>Major <span class="gradient-text">Attractions</span></h2>
+                <p class="section-desc">Explore the holy shrines and peaceful complex inside Sajjangad Fort.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/sajjangad_samadhi.png" alt="Sant Ramdas Samadhi">
+                        <div class="major-attractions-overlay">
+                            <h3>Sant Ramdas Samadhi</h3>
+                            <p>The sacred final resting place and shrine of the revered saint Sant Ramdas.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/sajjangad_temple.png" alt="Temple Complex">
+                        <div class="major-attractions-overlay">
+                            <h3>Temple Complex</h3>
+                            <p>Ancient stone temples hosting daily prayers and serving free prasad meals.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/sajjangad_walls.png" alt="Fort Walls and Gates">
+                        <div class="major-attractions-overlay">
+                            <h3>Fort Walls & Gates</h3>
+                            <p>Robust stone defensive gates and fortification ramparts protecting the holy grounds.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/sajjangad_viewpoint.png" alt="Panoramic Valley Views">
+                        <div class="major-attractions-overlay">
+                            <h3>Valley Viewpoints</h3>
+                            <p>High viewpoints offering spectacular, peaceful views of the surrounding Sahyadri hills.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Comprehensive routes to reach the fort from Mumbai.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: Rail & Local Transit from Satara</h3>
+                            <p>Take a train or bus from Mumbai to Satara city. From Satara Railway Station or bus stand, local buses and auto-rickshaws are frequently available to reach the Sajjangad base village (~18 km).</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹150 – ₹350 Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: Direct Bus Routes</h3>
+                            <p>Government ST buses run directly from Satara city stand to the foothill of Sajjangad. Shared autos are also a popular choice.</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹50 – ₹100 Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: Direct Drive</h3>
+                            <p>A scenic ~260 km road trip from Mumbai via the Pune-Satara Highway (NH 48). A fully motorable road is available almost all the way to the top, with a parking lot located near the entrance.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Everything you need to know for a smooth adventure.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-campground"></i> Stay & Food</h3>
+                        <p>Free/donation-based basic accommodation is available at the temple complex. Free afternoon prasad meals are served daily to all devotees and visitors. Hotels are available in Satara city.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-backpack"></i> Essentials</h3>
+                        <p>Wear comfortable walking shoes to climb the 200+ stone steps leading to the fort. Dress in respectful clothing suitable for a place of worship. Carry water and a camera.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time</h3>
+                        <p>October to February is ideal for pleasant weather. Monsoons are also beautiful with misty hill ranges and rolling clouds surrounding the holy fort.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Sajjangad Fort, Near Satara, Maharashtra, India</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=73.9050%2C17.6380%2C73.9250%2C17.6580&amp;layer=mapnik&amp;marker=17.6480%2C73.9150"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=17.6480&amp;mlon=73.9150#map=16/17.6480/73.9150"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest trek updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>
+
+

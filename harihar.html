@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harihar Fort Interactive Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to Harihar Fort. Replicated glassmorphic layout, major attractions, essential stay info, and maps.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad hero-harihar" id="home">
+        <div class="container">
+            <h1>HARIHAR FORT GUIDE</h1>
+            <p>Home of the Legendary 80-Degree Rock-Cut Steps</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Trekking</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Harihar Fort</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Difficulty</p>
+                <h4>Moderate - Hard</h4>
+            </div>
+            <div class="stat-item">
+                <p>Duration</p>
+                <h4>2 - 3 Hours</h4>
+            </div>
+            <div class="stat-item">
+                <p>Altitude</p>
+                <h4>1120 Meters</h4>
+            </div>
+            <div class="stat-item">
+                <p>Steps</p>
+                <h4>80° Vertical Steps</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-fort" class="index-link active"><i class="fas fa-history"></i> About Fort</a></li>
+                    <li><a href="#major-attractions" class="index-link"><i class="fas fa-monument"></i> Major Attractions</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Fort -->
+            <section id="about-fort" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Fort</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Harihar Fort is one of the most thrilling and unique forts in Maharashtra, famous for its near-vertical 80° rock-cut steps. Located near Nashik, it offers an adrenaline-filled trekking experience and stunning views of surrounding peaks such as Brahmagiri and Anjaneri.</p>
+                        <p>It is a favorite destination for adventure seekers and experienced trekkers. Built on a triangular prism of rock, the fort was constructed during the Yadava dynasty period to guard the Gonda Ghat trade route.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Unique Design</h4>
+                                <p class="about-fort-pill-text">80° Rock Steps</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Adrenaline</h4>
+                                <p class="about-fort-pill-text">High Thrill</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/harihar_about.png" alt="Harihar Fort View" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Major Attractions -->
+            <section id="major-attractions" class="guide-section major-attractions-section">
+                <h2>Major <span class="gradient-text">Attractions</span></h2>
+                <p class="section-desc">Explore the highlights of Harihar Fort's vertical stone path.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/harihar_steps.png" alt="Iconic Vertical Rock-Cut Steps">
+                        <div class="major-attractions-overlay">
+                            <h3>Vertical Rock Steps</h3>
+                            <p>An amazing set of 117 stone-carved vertical steps at a steep 80-degree incline, with handholds carved for safety.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/harihar_plateau.png" alt="Harihar Fort Top Plateau">
+                        <div class="major-attractions-overlay">
+                            <h3>Summit Plateau</h3>
+                            <p>A flat, grassy triangular tableland at the top, offering breathtaking 360-degree lookouts over the Sahyadri mountains.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/harihar_temple.png" alt="Water Tanks and Small Temple">
+                        <div class="major-attractions-overlay">
+                            <h3>Tanks & Temple</h3>
+                            <p>Small temples dedicated to Lord Hanuman and Shiva, alongside rock-cut water cisterns filled with fresh water.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/harihar_views.png" alt="Views of Brahmagiri and peaks">
+                        <div class="major-attractions-overlay">
+                            <h3>Brahmagiri Peak Views</h3>
+                            <p>Incredible vantage points offering vistas of the surrounding Brahmagiri, Vaitarna, and Anjaneri mountain peaks.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Comprehensive routes to reach the base village from Mumbai.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: Rail & Local Bus via Nirgudpada</h3>
+                            <p>Take a train from Mumbai to Nashik Road station. From Nashik, take a local state transport (ST) bus or a shared taxi heading towards Trimbakeshwar and Nirgudpada village, the starting point of the trek.</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹250 – ₹450 Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: Alternative Route via Harshewadi</h3>
+                            <p>Alternatively, hire local private vehicles from Nashik directly to Harshewadi village. The climb from Harshewadi has slightly gentler paths before joining the steep stairs.</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹300 – ₹600 Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: Direct Drive</h3>
+                            <p>A scenic ~165 km drive from Mumbai along the Mumbai-Nasik Highway (NH 3), exiting at Ghoti or Nashik towards Trimbakeshwar and Nirgudpada village. Parking space is available at the base village.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Everything you need to know for a smooth adventure.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-campground"></i> Stay & Food</h3>
+                        <p>Overnight stays are not allowed on the fort top. Abundant guest lodges, hotels, and resorts are available in Nashik or nearby Trimbakeshwar town. Local food stalls operate at the base village.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-backpack"></i> Essentials</h3>
+                        <p>Carry 3L water, high-grip trekking shoes, climbing gloves (useful for cold stone steps), a raincoat (monsoon), a flashlight/torch, and a personal first aid kit.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time</h3>
+                        <p>October to February is ideal. Monsoon (June-Sept) is also extremely popular but requires extreme caution as the steep 80° rock steps can get very slippery under wet conditions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Harihar Fort, Near Nashik, Maharashtra, India</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=73.4490%2C19.8850%2C73.4890%2C19.9250&amp;layer=mapnik&amp;marker=19.9050%2C73.4690"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=19.9050&amp;mlon=73.4690#map=16/19.9050/73.4690"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest trek updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>
+
+

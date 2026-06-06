@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raigad Fort Interactive Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to Raigad Fort. Replicated glassmorphic layout, major attractions, essential stay info, and maps.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad" id="home">
+        <div class="container">
+            <h1>RAIGAD FORT GUIDE</h1>
+            <p>Capital of the Maratha Empire</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Trekking</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Raigad Fort</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Difficulty</p>
+                <h4>Easy - Moderate</h4>
+            </div>
+            <div class="stat-item">
+                <p>Duration</p>
+                <h4>1.5 - 2 Hours</h4>
+            </div>
+            <div class="stat-item">
+                <p>Altitude</p>
+                <h4>820 Meters</h4>
+            </div>
+            <div class="stat-item">
+                <p>Steps</p>
+                <h4>~1700 Steps</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-fort" class="index-link active"><i class="fas fa-history"></i> About Fort</a></li>
+                    <li><a href="#major-attractions" class="index-link"><i class="fas fa-monument"></i> Major Attractions</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Fort -->
+            <section id="about-fort" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Fort</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Raigad Fort is one of the most historically significant forts in Maharashtra and served as
+                            the capital of Chhatrapati Shivaji Maharaj. It is the place where Shivaji Maharaj was
+                            crowned as the king of the Maratha Empire.</p>
+                        <p>Located at an altitude of around 820 meters, the fort offers a mix of history, architecture,
+                            and scenic beauty. Unlike many other forts, Raigad has both trekking and ropeway options,
+                            making it accessible for all kinds of travelers.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">History</h4>
+                                <p class="about-fort-pill-text">Rich & Royal</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Access</h4>
+                                <p class="about-fort-pill-text">Trek/Ropeway</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/raigad_hero.png" alt="Raigad Fort View" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Major Attractions -->
+            <section id="major-attractions" class="guide-section major-attractions-section">
+                <h2>Major <span class="gradient-text">Attractions</span></h2>
+                <p class="section-desc">Explore the architectural wonders of the capital.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/raj_bhavan.png" alt="Raj Bhavan">
+                        <div class="major-attractions-overlay">
+                            <h3>Raj Bhavan</h3>
+                            <p>The majestic ruins of the King's Palace, where historical decisions were made.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/hero.png" alt="Shivaji Samadhi">
+                        <div class="major-attractions-overlay">
+                            <h3>Shivaji Samadhi</h3>
+                            <p>The final resting place of Chhatrapati Shivaji Maharaj, a place of immense respect.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/takmak_tok.png" alt="Takmak Tok">
+                        <div class="major-attractions-overlay">
+                            <h3>Takmak Tok</h3>
+                            <p>A thrilling cliff viewpoint offering panoramic views of the Sahyadri range.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/jagdishwar.png" alt="Jagdishwar Temple">
+                        <div class="major-attractions-overlay">
+                            <h3>Jagdishwar Temple</h3>
+                            <p>A beautiful temple dedicated to Lord Shiva, reflecting ancient Maratha art.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Comprehensive routes to reach the fort from Mumbai.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: The Rail Route</h3>
+                            <p>Take a train from Mumbai (CSMT/Dadar) to Mangaon (~3 hrs). From Mangaon, shared jeeps or
+                                autos are easily available to Pachad village (~45 min).</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹250 – ₹700 Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: The Bus Route</h3>
+                            <p>Take a ST or Private Bus from Mumbai to Mahad (5–6 hrs). From Mahad, local jeeps connect
+                                directly to the Pachad base village.</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹500 – ₹1000 Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: Direct Drive</h3>
+                            <p>A scenic 170 km drive (4–5 hrs) via the Mumbai–Goa highway. Ample parking is available
+                                near the Pachad base village.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Everything you need to know for a smooth adventure.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-campground"></i> Stay & Food</h3>
+                        <p>Hotels and homestays are available at Pachad and Mahad. Basic food is available at both top
+                            and base. MTDC resort is available for a comfortable stay.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-backpack"></i> Essentials</h3>
+                        <p>Carry 2–3L water, trekking shoes, cap, and sunscreen. During monsoon, a raincoat is
+                            mandatory. Carry a power bank.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time</h3>
+                        <p>October to February is ideal. Monsoon (June-Sept) for lush greenery. Avoid summer afternoons.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Pachad, Raigad, Maharashtra</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=73.4357%2C18.2255%2C73.4552%2C18.2435&amp;layer=mapnik&amp;marker=18.2346%2C73.4440"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=18.2346&amp;mlon=73.4440#map=16/18.2346/73.4440"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest trek updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>
+

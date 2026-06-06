@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalaram Temple Interactive Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to Kalaram Temple in Nashik. Replicated glassmorphic layout, major attractions, essential stay info, and maps.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad" id="home" style="background: linear-gradient(rgba(5, 8, 16, 0.65), rgba(5, 8, 16, 0.85)), url('assets/kalaram_hero.png') no-repeat center center/cover !important;">
+        <div class="container">
+            <h1>KALARAM TEMPLE</h1>
+            <p>The Historic Black Stone Rama Temple of Panchavati in Nashik</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Explore</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Kalaram Temple</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Timings</p>
+                <h4>5:30 AM - 10:00 PM</h4>
+            </div>
+            <div class="stat-item">
+                <p>Entry Fee</p>
+                <h4>Free (General)</h4>
+            </div>
+            <div class="stat-item">
+                <p>Nearest Location</p>
+                <h4>Panchavati, Nashik</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-temple" class="index-link active"><i class="fas fa-circle-info"></i> About
+                            Temple</a></li>
+                    <li><a href="#history-significance" class="index-link"><i class="fas fa-history"></i> History &
+                            Significance</a></li>
+                    <li><a href="#unique-features" class="index-link"><i class="fas fa-monument"></i> What Makes It
+                            Unique</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential
+                            Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location
+                            Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Temple -->
+            <section id="about-temple" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Temple</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Visiting Kalaram Temple in Nashik feels peaceful and spiritually grounded, especially if you are looking for a calm temple experience without too much crowd or noise. Located near the banks of the Godavari River in the Panchavati area, the temple has a simple yet powerful presence. It’s the kind of place where you can spend time quietly, take darshan at your own pace, and feel connected to the deeper roots of Ramayana-related history.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Ramayana History</h4>
+                                <p class="about-fort-pill-text">Panchavati Area</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Peaceful & Calm</h4>
+                                <p class="about-fort-pill-text">Quiet Reflection</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/kalaram_about.png" alt="Kalaram Temple view"
+                            class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: History & Significance -->
+            <section id="history-significance" class="guide-section about-fort-section">
+                <h2>History & <span class="gradient-text">Significance</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-img">
+                        <img src="assets/kalaram_history.png" alt="Lord Rama idol representation"
+                            class="about-fort-image">
+                    </div>
+                    <div class="about-fort-text">
+                        <p>Kalaram Temple is dedicated to Lord Rama and is believed to be closely connected with the Ramayana, as Nashik is said to be part of the region where Lord Rama stayed during his exile. The temple was built in the 18th century by Sardar Rangarao Odhekar. The name "Kalaram" comes from the black-colored idol of Lord Rama, which is the main attraction of the temple. It has also played an important role in social history, especially during movements for equality and temple entry.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Est. 18th Cent.</h4>
+                                <p class="about-fort-pill-text">Sardar Rangarao Odhekar</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Social History</h4>
+                                <p class="about-fort-pill-text">Equality Movements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: What Makes It Unique -->
+            <section id="unique-features" class="guide-section major-attractions-section">
+                <h2>What Makes It <span class="gradient-text">Unique</span></h2>
+                <p class="section-desc">Discover the unique factors that set Kalaram Temple apart from other shrines.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/kalaram_about.png" alt="Black Stone Idols">
+                        <div class="major-attractions-overlay">
+                            <h3>Black Stone Idols</h3>
+                            <p>Exquisite black stone carved statues of Lord Rama, Sita Devi, and Lakshmana.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/kalaram_history.png" alt="Black Basalt Temple structure">
+                        <div class="major-attractions-overlay">
+                            <h3>Black Basalt Temple</h3>
+                            <p>Constructed entirely using black basalt stone, presenting a beautiful traditional structure.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/kalaram_unique.png" alt="Panchavati exile site">
+                        <div class="major-attractions-overlay">
+                            <h3>Exile Site Link</h3>
+                            <p>Set in Panchavati, where Lord Rama, Sita, and Lakshmana spent their days in forest exile.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/kalaram_hero.png" alt="Equality landmark">
+                        <div class="major-attractions-overlay">
+                            <h3>Social Equality site</h3>
+                            <p>Significant historic venue for Dr. B. R. Ambedkar's temple entry movement in 1930.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Convenient ways to reach the temple in Nashik.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: City Rail & Road Transit</h3>
+                            <p>Located directly in Nashik city, the temple is extremely easy to access. Cabs, shared auto-rickshaws, and city transport buses are easily available to travel directly to Panchavati.</p>
+                            <span class="travel-guide-cost-badge">Nashik Transit Connections</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: Driving Routes</h3>
+                            <p>From Mumbai, it takes around 3–4 hours by car (~170 km). From Pune, it is around 5–6 hours via the Nashik highways.</p>
+                            <span class="travel-guide-cost-badge">Mumbai (3-4 hrs) | Pune (5-6 hrs)</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: Local Walking Access</h3>
+                            <p>Panchavati is a compact spiritual zone. Devotees regularly walk from nearby attractions like Ram Kund and Sita Gufa straight to the temple.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Important details regarding timings, queues, and ideal visiting slots.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-clock"></i> Timings & Crowds</h3>
+                        <p>Opens at 5:30 AM and closes at 10:00 PM. Morning hours are highly peaceful; evening aarti attracts more local devotees.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wallet"></i> Entry & Offerings</h3>
+                        <p>General entry for darshan is completely free. Traditional offerings can be bought outside the main gates but are not compulsory.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time to Visit</h3>
+                        <p>October to March is ideal. Ram Navami and Kumbh Mela bring deep devotional vibes though Nashik becomes extremely crowded.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Panchavati area, Nashik city, Maharashtra, India</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=73.7855%2C19.9971%2C73.8055%2C20.0171&amp;layer=mapnik&amp;marker=20.0071%2C73.7955"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=20.0071&amp;mlon=73.7955#map=16/20.0071/73.7955"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure and spiritual destinations in
+                        Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest travel updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>

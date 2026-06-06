@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harishchandragad Fort Interactive Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to Harishchandragad Fort. Replicated glassmorphic layout, major attractions, essential stay info, and maps.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad hero-harishchandragad" id="home">
+        <div class="container">
+            <h1>HARISHCHANDRAGAD GUIDE</h1>
+            <p>Home of the Majestic Konkan Kada</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Trekking</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Harishchandragad</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Difficulty</p>
+                <h4>Easy to Hard</h4>
+            </div>
+            <div class="stat-item">
+                <p>Duration</p>
+                <h4>2 - 8 Hours</h4>
+            </div>
+            <div class="stat-item">
+                <p>Altitude</p>
+                <h4>1422 Meters</h4>
+            </div>
+            <div class="stat-item">
+                <p>Best Time</p>
+                <h4>Oct - Feb</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-fort" class="index-link active"><i class="fas fa-history"></i> About Fort</a></li>
+                    <li><a href="#major-attractions" class="index-link"><i class="fas fa-monument"></i> Major Attractions</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Fort -->
+            <section id="about-fort" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Fort</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Harishchandragad is one of the most iconic trekking destinations in Maharashtra, famous for the breathtaking Konkan Kada cliff. It offers a perfect mix of adventure, caves, temples, camping opportunities, and panoramic Sahyadri views.</p>
+                        <p>With multiple trekking routes ranging from easy to difficult, it is a must-visit destination for trekkers and nature lovers. The fort dates back to the 6th century during the Kalachuri dynasty, and the various caves on top show signs of ancient settlements.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Famous For</h4>
+                                <p class="about-fort-pill-text">Konkan Kada</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Campsite</h4>
+                                <p class="about-fort-pill-text">Caves & Tents</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/harishchandragad_about.png" alt="Harishchandragad Fort View" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Major Attractions -->
+            <section id="major-attractions" class="guide-section major-attractions-section">
+                <h2>Major <span class="gradient-text">Attractions</span></h2>
+                <p class="section-desc">Explore the highlights of Harishchandragad's historic tableland.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/harishchandragad_konkan_kada.png" alt="Konkan Kada">
+                        <div class="major-attractions-overlay">
+                            <h3>Konkan Kada</h3>
+                            <p>A semicircular vertical cliff offering a spectacular view of the surrounding valleys and stunning sunset vistas.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/harishchandragad_kedareshwar.png" alt="Kedareshwar Cave">
+                        <div class="major-attractions-overlay">
+                            <h3>Kedareshwar Cave</h3>
+                            <p>An ancient cave holding a Shiva Lingam surrounded by water, supported by a single massive stone pillar.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/harishchandragad_taramati.png" alt="Taramati Peak">
+                        <div class="major-attractions-overlay">
+                            <h3>Taramati Peak</h3>
+                            <p>The highest point on the fort tableland, offering panoramic views of the Naneghat and Malshej Ghat regions.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/harishchandragad_temple.png" alt="Harishchandreshwar Temple">
+                        <div class="major-attractions-overlay">
+                            <h3>Harishchandreshwar Temple</h3>
+                            <p>A beautiful carvings-rich temple dedicated to Lord Shiva, showcasing ancient Indian stone architecture.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Comprehensive routes to reach the fort from Mumbai.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: Rail & Jeep via Pachnai (Easy Route)</h3>
+                            <p>Take a local train from Mumbai to Kasara station. From Kasara, hire a shared local taxi/jeep to Pachnai village. The trek from Pachnai is the easiest and most direct route to the fort top (~2 hours).</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹250 – ₹500 Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: Bus or Jeep via Khireshwar (Moderate Route)</h3>
+                            <p>Board a train or bus to Kalyan, then travel to Murbad. From Murbad, take a bus or jeep heading towards Malshej Ghat and get down at the base village of Khireshwar. The trek via Khireshwar is moderate but scenic (~3–4 hours).</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹300 – ₹700 Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: Direct Drive</h3>
+                            <p>A scenic ~170–200 km road trip from Mumbai. You can drive directly to either Pachnai village (via Ghoti) or Khireshwar village (via Malshej Ghat highway). Secure parking spaces are available at both base villages.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Everything you need to know for a smooth adventure.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-campground"></i> Stay & Food</h3>
+                        <p>Unique overnight stays are available inside the natural caves or in tents on the tableland. Basic local meals (Pithla Bhakri, Maggie, tea) are served by villagers near the temple area.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-backpack"></i> Essentials</h3>
+                        <p>Carry 3–4L water, good trekking shoes, a warm sleeping bag (temperatures drop at night), a torch/flashlight, a raincoat (monsoon), and a basic first aid kit.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time</h3>
+                        <p>October to February is ideal for pleasant cooler weather and camping. Monsoon (June-Sept) is also extremely popular for misty trail walks and lush waterfalls.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Harishchandragad Fort, Ahmednagar District, Maharashtra, India</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=73.7550%2C19.3730%2C73.7950%2C19.4130&amp;layer=mapnik&amp;marker=19.3930%2C73.7750"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=19.3930&amp;mlon=73.7750#map=16/19.3930/73.7750"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest trek updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>
+
+

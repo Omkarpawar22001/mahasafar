@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashtavinayak Temple Pilgrimage Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to the Ashtavinayak Temple Yatra. Replicated glassmorphic layout, major attractions, essential stay info, and maps.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad hero-ashtavinayak" id="home">
+        <div class="container">
+            <h1>ASHTAVINAYAK YATRA</h1>
+            <p>Spiritual Journey of Eight Swayambhu Ganesha Temples</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Trekking</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Ashtavinayak Temple</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Difficulty</p>
+                <h4>Easy (Road Trip)</h4>
+            </div>
+            <div class="stat-item">
+                <p>Duration</p>
+                <h4>2 - 3 Days</h4>
+            </div>
+            <div class="stat-item">
+                <p>Temples</p>
+                <h4>8 Swayambhu</h4>
+            </div>
+            <div class="stat-item">
+                <p>Distance</p>
+                <h4>~650 Km</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-yatra" class="index-link active"><i class="fas fa-history"></i> About Yatra</a></li>
+                    <li><a href="#major-temples" class="index-link"><i class="fas fa-monument"></i> Major Temples</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Yatra -->
+            <section id="about-yatra" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Yatra</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>The Ashtavinayak refers to eight ancient temples of Lord Ganesha, each connected to a unique legend from Hindu mythology. These temples are spread across Pune and nearby regions in Maharashtra and are believed to be self-manifested (Swayambhu). The yatra traditionally starts and ends at Moreshwar Temple and has deep cultural and religious value.</p>
+                        <p>Each temple has a different idol, story, structure, and setting. Some are in villages, some near hills, and others in peaceful countryside locations. The journey across all eight temples makes it a special spiritual road trip.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Temples</h4>
+                                <p class="about-fort-pill-text">8 Self-Manifested</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Tradition</h4>
+                                <p class="about-fort-pill-text">Starts & Ends at Morgaon</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/ashtavinayak_about.png" alt="Ashtavinayak Yatra View" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Major Temples -->
+            <section id="major-temples" class="guide-section major-attractions-section">
+                <h2>Major <span class="gradient-text">Temples</span></h2>
+                <p class="section-desc">Explore the unique legends and settings of key temples on the pilgrimage.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/ashtavinayak_moreshwar.png" alt="Moreshwar Temple">
+                        <div class="major-attractions-overlay">
+                            <h3>Moreshwar Temple (Morgaon)</h3>
+                            <p>The starting and ending point of the pilgrimage, featuring a fort-like structure.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/ashtavinayak_lenyadri.png" alt="Girijatmaj Temple">
+                        <div class="major-attractions-overlay">
+                            <h3>Girijatmaj Temple (Lenyadri)</h3>
+                            <p>Carved into a hill cliff inside a Buddhist cave complex, accessed by 307 stone steps.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/ashtavinayak_ballaleshwar.png" alt="Ballaleshwar Temple">
+                        <div class="major-attractions-overlay">
+                            <h3>Ballaleshwar Temple (Pali)</h3>
+                            <p>The only Ganesha temple named after a devotee (Ballal), built with beautiful stone architecture.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/ashtavinayak_varadavinayak.png" alt="Varadavinayak Temple">
+                        <div class="major-attractions-overlay">
+                            <h3>Varadavinayak Temple (Mahad)</h3>
+                            <p>Famous for its simple, traditional look and a holy oil lamp that has burned since 1892.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Comprehensive travel options to complete the sacred pilgrimage.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: Direct Car / Cab (Recommended)</h3>
+                            <p>Driving or hiring a private cab is the best way to complete the yatra. It gives complete flexibility in route planning and timing. Most people start from Pune and easily complete the journey in 2 to 3 days.</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹6,000 – ₹12,000 Approx</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: Guided Tour Packages</h3>
+                            <p>Several tour operators and temple trusts offer 2-day or 3-day guided bus tours starting from Pune and Mumbai. This includes travel, food, and pre-booked accommodation.</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹3,000 – ₹5,000 Per Person</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: Public Transport</h3>
+                            <p>State transport (MSRTC) buses connect all major towns on the route. While budget-friendly, it takes longer and is less convenient for completing all eight temples in a single trip.</p>
+                            <span class="travel-guide-cost-badge">Cost: ₹800 – ₹1,500 Approx</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Everything you need to plan a comfortable pilgrimage.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-campground"></i> Stay & Food</h3>
+                        <p>Bhaktaniwas lodging run by temple trusts is available at Morgaon, Pali, and Ozar. Clean vegetarian food and traditional Maharashtrian prasad are widely available.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wallet"></i> Entry & Cost</h3>
+                        <p>Temple entry is completely free. Special darshan or pooja options can be booked at the counters for a small fee. Main expenses are transport, stay, and food.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time</h3>
+                        <p>October to March is ideal for comfortable travel. Monsoon (June-Sept) is beautiful and green, but roads can be rough. Summer is very hot and tiring.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Pune District and surrounding areas, Maharashtra, India</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=73.0000%2C18.0000%2C74.5000%2C19.5000&amp;layer=mapnik&amp;marker=18.5204%2C73.8567"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=18.5204&amp;mlon=73.8567#map=9/18.5204/73.8567"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest trek updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maha Safar | Premium Adventure & Heritage Tours</title>
+    <meta name="description"
+        content="Experience the best of Sahyadri with Maha Safar. Expertly guided trekking, camping, and heritage tours in Maharashtra.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/lib/swiper-bundle.min.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section: Swiper Content Slider -->
+    <section class="hero hero-home-slider" id="home">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide hero-slide">
+                    <div class="hero-slide-bg">
+                        <img src="assets/hero.png" alt="Sahyadri Mountains">
+                    </div>
+                    <div class="container">
+                        <div class="hero-content">
+                            <h1 class="reveal">Explore the <span class="gradient-text">Unexplored</span> Sahyadri.</h1>
+                            <p class="reveal">Discover the hidden gems of Maharashtra through expert-led treks, serene
+                                camping experiences, and breathtaking waterfall trails.</p>
+                            <div class="hero-btns reveal">
+                                <a href="explore.html" class="btn-primary">Explore Treks</a>
+                                <!-- <a href="about.html" class="btn-secondary">Learn More</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide hero-slide">
+                    <div class="hero-slide-bg">
+                        <img src="assets/trekking.png" alt="Trekking Adventures">
+                    </div>
+                    <div class="container">
+                        <div class="hero-content">
+                            <h1 class="reveal">Conquer Ancient <span class="gradient-text">Forts</span>.</h1>
+                            <p class="reveal">Walk the path of legends. From Raigad to Harishchandragad, experience
+                                history on every step of your trek.</p>
+                            <div class="hero-btns reveal">
+                                <a href="explore.html" class="btn-primary">Explore Treks</a>
+                                <!-- <a href="explore.html" class="btn-secondary">Explore More</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide hero-slide">
+                    <div class="hero-slide-bg">
+                        <img src="assets/camping.png" alt="Starry Camping">
+                    </div>
+                    <div class="container">
+                        <div class="hero-content">
+                            <h1 class="reveal">Nights Under the <span class="gradient-text">Stars</span>.</h1>
+                            <p class="reveal">Escape the city lights. Relax by the bonfire and sleep under the open sky
+                                in our premium lakeside camps.</p>
+                            <div class="hero-btns reveal">
+                                <a href="explore.html" class="btn-primary">Explore Treks</a>
+                                <!-- <a href="#contact" class="btn-secondary">Inquire Now</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Controls -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- Upcoming Expeditions (Scrolled Section Style) -->
+    <section id="expeditions">
+        <div class="container relative-wrapper">
+            <div class="section-title reveal">
+                <h2>Mansoon <span class="gradient-text">Specials</span></h2>
+                <p>Curated Sahyadri experiences departing every single day from Mumbai and Pune.</p>
+            </div>
+            <div class="relative-wrapper">
+                <div class="swiper expedition-swiper">
+                    <div class="swiper-wrapper" id="monsoon-swiper-wrapper">
+                        <!-- Dynamic Monsoon Specials will be injected here -->
+                    </div>
+                    <!-- Slider Controls - Now relative to this wrapper -->
+                    <div class="swiper-button-next exp-next"></div>
+                    <div class="swiper-button-prev exp-prev"></div>
+                </div>
+                <div class="swiper-pagination exp-pagination"></div>
+            </div>
+    </section>
+
+    <!-- Top Categories Section -->
+    <section id="top-categories">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Top <span class="gradient-text">Categories</span></h2>
+                <p>Browse Sahyadri experiences by your favorite activity type.</p>
+            </div>
+            <div class="dest-grid reveal">
+                <!-- Category 1: Treks -->
+                <a href="explore.html?category=treks" class="dest-card">
+                    <img src="assets/trekking.png" alt="Treks">
+                    <div class="dest-overlay">
+                        <h3>Treks</h3>
+                    </div>
+                </a>
+                <!-- Category 2: Temples -->
+                <a href="explore.html?category=temples" class="dest-card">
+                    <img src="assets/ashtavinayak_hero.png" alt="Temples">
+                    <div class="dest-overlay">
+                        <h3>Temples</h3>
+                    </div>
+                </a>
+                <!-- Category 3: Camping -->
+                <a href="explore.html?category=camping" class="dest-card">
+                    <img src="assets/camping.png" alt="Camping">
+                    <div class="dest-overlay">
+                        <h3>Camping</h3>
+                    </div>
+                </a>
+                <!-- Category 4: Waterfalls -->
+                <a href="explore.html?category=waterfalls" class="dest-card">
+                    <img src="assets/waterfalls.png" alt="Waterfalls">
+                    <div class="dest-overlay">
+                        <h3>Waterfalls</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Expeditions (Scrolled Section Style) -->
+    <section id="expeditions">
+        <div class="container relative-wrapper">
+            <div class="section-title reveal">
+                <h2>Popular <span class="gradient-text">Locations</span></h2>
+                <p>Curated Sahyadri experiences departing every single day from Mumbai and Pune.</p>
+            </div>
+            <div class="relative-wrapper">
+                <div class="swiper expedition-swiper">
+                    <div class="swiper-wrapper" id="popular-swiper-wrapper">
+                        <!-- Dynamic Popular Locations will be injected here -->
+                    </div>
+                    <!-- Slider Controls - Now relative to this wrapper -->
+                    <div class="swiper-button-next exp-next"></div>
+                    <div class="swiper-button-prev exp-prev"></div>
+                </div>
+                <div class="swiper-pagination exp-pagination"></div>
+            </div>
+    </section>
+
+    <!-- Explore Destinations Grid -->
+    <section id="destinations">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Explore <span class="gradient-text">Cities</span></h2>
+                <p>Iconic locations across india curated for the true explorer.</p>
+            </div>
+            <div class="dest-grid reveal">
+                <!-- Dest 1 (Mumbai) -->
+                <a href="explore.html?city=mumbai" class="dest-card">
+                    <img src="assets/siddhivinayak_hero.png" alt="Mumbai">
+                    <div class="dest-overlay">
+                        <h3>Mumbai</h3>
+                    </div>
+                </a>
+                <!-- Dest 2 (Pune) -->
+                <a href="explore.html?city=pune" class="dest-card">
+                    <img src="assets/rajgad_fort_hero.png" alt="Pune">
+                    <div class="dest-overlay">
+                        <h3>Pune</h3>
+                    </div>
+                </a>
+                <!-- Dest 3 (Lonavala) -->
+                <a href="explore.html?city=lonavala" class="dest-card">
+                    <img src="assets/rajmachi_hero.png" alt="Lonavala">
+                    <div class="dest-overlay">
+                        <h3>Lonavala</h3>
+                    </div>
+                </a>
+                <!-- Dest 4 (Karjat) -->
+                <a href="explore.html?city=karjat" class="dest-card">
+                    <img src="assets/devkund_hero.png" alt="Karjat">
+                    <div class="dest-overlay">
+                        <h3>Karjat</h3>
+                    </div>
+                </a>
+                <!-- Dest 5 (Satara) -->
+                <a href="explore.html?city=satara" class="dest-card">
+                    <img src="assets/vasota.png" alt="Satara">
+                    <div class="dest-overlay">
+                        <h3>Satara</h3>
+                    </div>
+                </a>
+                <!-- Dest 6 (Nashik) -->
+                <a href="explore.html?city=nashik" class="dest-card">
+                    <img src="assets/harihar_hero.png" alt="Nashik">
+                    <div class="dest-overlay">
+                        <h3>Nashik</h3>
+                    </div>
+                </a>
+                <!-- Dest 7 (Kolhapur) -->
+                <a href="explore.html?city=kolhapur" class="dest-card">
+                    <img src="assets/mahalaxmi_hero.png" alt="Kolhapur">
+                    <div class="dest-overlay">
+                        <h3>Kolhapur</h3>
+                    </div>
+                </a>
+                <!-- Dest 8 (Bhandardara) -->
+                <a href="explore.html?city=bhandardara" class="dest-card">
+                    <img src="assets/kalsubai_hero.png" alt="Bhandardara">
+                    <div class="dest-overlay">
+                        <h3>Bhandardara</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- About Section -->
+    <!-- <section id="about">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info reveal">
+                    <h2>Our <span class="gradient-text">Journey</span></h2>
+                    <p>At Maha Safar, we believe that adventure is more than just a destinationâ€”it's a way of
+                        connecting with nature and ourselves. With over 10 years of experience in the Sahyadri range,
+                        our expert guides ensure your safety while providing an authentic and immersive experience.</p>
+                    <div class="stats-grid">
+                        <div>
+                            <h4>500+</h4>
+                            <p>Treks Completed</p>
+                        </div>
+                        <div>
+                            <h4>10k+</h4>
+                            <p>Happy Travelers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <img src="assets/hero.png" alt="Maha Safar Team" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest trek updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/lib/swiper-bundle.min.js"></script>
+    <script src="assets/data/places.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

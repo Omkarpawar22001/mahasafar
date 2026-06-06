@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vajrai Waterfalls Interactive Guide - Maha Safar</title>
+    <meta name="description"
+        content="Premium interactive guide to Vajrai Waterfalls near Satara. Tallest three-tier waterfall in India, scenic approach, travel options, and map.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/comon.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain-sun"></i>
+                MAHA<span>SAFAR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <div class="color-picker-wrapper">
+                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="color-picker-menu" class="color-picker-menu">
+                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
+                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
+                        <span class="color-dot color-green" data-name="green" title="Green"></span>
+                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
+                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad" id="home" style="background: linear-gradient(rgba(5, 8, 16, 0.65), rgba(5, 8, 16, 0.85)), url('assets/vajrai_hero.png') no-repeat center center/cover !important;">
+        <div class="container">
+            <h1>VAJRAI WATERFALLS</h1>
+            <p>One of the Tallest Three-Tier Waterfalls in India</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Explore</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Vajrai Waterfalls</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Entry Fee</p>
+                <h4>Moderate (Travel/Food)</h4>
+            </div>
+            <div class="stat-item">
+                <p>Best Season</p>
+                <h4>Peak Monsoon</h4>
+            </div>
+            <div class="stat-item">
+                <p>Nearest Location</p>
+                <h4>Satara, Maharashtra</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-waterfall" class="index-link active"><i class="fas fa-circle-info"></i> About Waterfall</a></li>
+                    <li><a href="#exact-location" class="index-link"><i class="fas fa-location-dot"></i> Exact Location</a></li>
+                    <li><a href="#what-to-see" class="index-link"><i class="fas fa-monument"></i> What to See</a></li>
+                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential Info</a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location Map</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Waterfall -->
+            <section id="about-waterfall" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Vajrai Waterfalls</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Vajrai Waterfall is not just a waterfall - it feels like watching raw nature at full power. Known as one of the tallest waterfalls in India, the water drops in three massive tiers from a great height, creating a thunderous sound that you can hear even before you see it. During monsoon, the flow becomes intense and wild, and the mist rising from the valley adds a dramatic, almost cinematic feel to the entire place.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Raw Power</h4>
+                                <p class="about-fort-pill-text">Three Massive Tiers</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Cinematic Mist</h4>
+                                <p class="about-fort-pill-text">Intense Monsoon Flow</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/vajrai_about.png" alt="Vajrai Waterfalls view" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Exact Location -->
+            <section id="exact-location" class="guide-section about-fort-section">
+                <h2>Exact <span class="gradient-text">Location</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-img">
+                        <img src="assets/vajrai_location.png" alt="Bhambavali village road approach" class="about-fort-image">
+                    </div>
+                    <div class="about-fort-text">
+                        <p>The waterfall is located near Bhambavali village, around 25 km from Satara in the Western Ghats. It is surrounded by hills and valleys, making it a scenic and slightly remote destination. Reaching Vajrai feels like a journey into the deeper side of nature. As you leave the main highways and enter village roads, the surroundings become greener and quieter, adding a sense of adventure before you even reach the waterfall.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Bhambavali</h4>
+                                <p class="about-fort-pill-text">Near Satara (~25 km)</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Western Ghats</h4>
+                                <p class="about-fort-pill-text">Scenic & Remote</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: What to See -->
+            <section id="what-to-see" class="guide-section major-attractions-section">
+                <h2>What to <span class="gradient-text">See</span></h2>
+                <p class="section-desc">Discover the unique highlights and landscape features of Vajrai Waterfalls.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/vajrai_about.png" alt="Three-Level Drop">
+                        <div class="major-attractions-overlay">
+                            <h3>Three-Level Drop</h3>
+                            <p>Water falling in three spectacular vertical drops from a massive height.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/vajrai_location.png" alt="Deep Valleys">
+                        <div class="major-attractions-overlay">
+                            <h3>Deep Valleys</h3>
+                            <p>Panoramic views of the rugged gorges and surrounding green hills.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/vajrai_unique.png" alt="Swirling Monsoon Mist">
+                        <div class="major-attractions-overlay">
+                            <h3>Swirling Monsoon Mist</h3>
+                            <p>Thick cloud mist that blankets the valley, creating a dramatic atmosphere.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/vajrai_hero.png" alt="Approach Trail Greens">
+                        <div class="major-attractions-overlay">
+                            <h3>Lush Surroundings</h3>
+                            <p>Gorgeous wild flora blooming in vibrant green tones along the approach trails.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Travel Guide -->
+            <section id="travel-guide" class="guide-section travel-guide-section">
+                <h2>Travel <span class="gradient-text">Guide</span></h2>
+                <p class="section-desc">Comprehensive transport options to reach the Vajrai Waterfalls area.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Option 1: By Car (Best Option)</h3>
+                            <p>Traveling by car is the best way to reach Vajrai. From Mumbai, it takes around 6–7 hours, and from Pune, around 3–4 hours. Roads are good till Satara, and then you drive through smaller village roads to reach the base.</p>
+                            <span class="travel-guide-cost-badge">Direct Road Connection</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 2: By Train</h3>
+                            <p>The nearest railway station is Satara. From there, you need to hire a taxi or local vehicle to reach Bhambavali village and then the waterfall area. This takes about 1–1.5 hours from the station.</p>
+                            <span class="travel-guide-cost-badge">Nearest Station: Satara</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Option 3: By Bus</h3>
+                            <p>You can take a bus to Satara from Mumbai or Pune. From Satara, local buses or taxis are available to reach nearby villages, but hiring a private vehicle is more convenient for reaching the exact location.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Essential Info -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Details regarding physical access, budget, and the main attractions.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-person-walking"></i> Access / Walk</h3>
+                        <p>There is no major trek required. From the parking or village area, it's a short walk to reach viewpoints. However, to explore closer areas, you may need to walk through uneven paths, which adds a bit of adventure.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wallet"></i> Budget & Costs</h3>
+                        <p>The trip is moderate in cost. Travel may cost around ₹800–2000 depending on your mode, and food around ₹300–500. Overall, it's affordable if planned well, especially in a group.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-mountain"></i> What to See</h3>
+                        <p>The highlight is the massive three-level waterfall dropping from a huge height, especially during peak monsoon when it looks extremely powerful.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Near Bhambavali village, Satara, Maharashtra, India</p>
+
+                <div class="glass location-map-box">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=73.8113%2C17.6613%2C73.8313%2C17.6813&amp;layer=mapnik&amp;marker=17.6713%2C73.8213"
+                        class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.openstreetmap.org/?mlat=17.6713&amp;mlon=73.8213#map=16/17.6713/73.8213"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-mountain-sun"></i>
+                        MAHA<span>SAFAR</span>
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure and spiritual destinations in
+                        Maharashtra. We
+                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                                        <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Get the latest travel updates and early bird offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/comon.js"></script>
+</body>
+
+</html>
