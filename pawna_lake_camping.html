@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawna Lake Lakeside Camping Guide - Maha Safar</title>
+    <meta name="description"
+        content="Complete interactive guide to organized lakeside camping at Pawna Lake near Lonavala. Explore packages, prices, activities, accommodation types, and cancellation policies.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/kalsubai2.css">
+    <style>
+        /* Custom Scroll Spy / Floating Drawer style overrides */
+        :root {
+            --progress-ring-size: 56px;
+        }
+
+        /* Floating Action Button */
+        .toc-trigger-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(17, 18, 21, 0.85) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--royal-border-gold) !important;
+            color: var(--royal-gold) !important;
+            display: none; /* Only visible on tablet/mobile */
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            z-index: 99999;
+            padding: 0;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        body.light-mode .toc-trigger-fab {
+            background: rgba(250, 249, 246, 0.9) !important;
+            box-shadow: 0 8px 30px rgba(144, 115, 74, 0.15);
+        }
+
+        .toc-trigger-fab:hover {
+            transform: scale(1.05);
+        }
+
+        .toc-trigger-fab:active {
+            transform: scale(0.95);
+        }
+
+        .progress-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(-90deg);
+            pointer-events: none;
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.1s;
+            transform-origin: 50% 50%;
+        }
+
+        .toc-fab-icon {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        /* TOC Drawer Overlay */
+        .toc-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        .toc-drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .toc-drawer {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 85%;
+            max-width: 320px;
+            height: 100%;
+            background: var(--royal-bg-secondary) !important;
+            border-left: 1px solid var(--royal-border-gold);
+            padding: 30px 24px;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toc-drawer.active {
+            transform: translateX(0);
+        }
+
+        .toc-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--royal-border-gold);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .toc-drawer-header h3 {
+            font-family: 'Outfit', sans-serif !important;
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
+            color: var(--royal-gold) !important;
+            margin: 0 !important;
+            text-transform: uppercase;
+        }
+
+        .toc-close-btn {
+            background: transparent;
+            border: none;
+            color: var(--royal-text-muted);
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .toc-close-btn:hover {
+            color: var(--royal-gold);
+        }
+
+        .toc-drawer-body {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-right: 5px;
+        }
+
+        /* Custom Scrollbar for Drawer Body */
+        .toc-drawer-body::-webkit-scrollbar {
+            width: 4px;
+        }
+        .toc-drawer-body::-webkit-scrollbar-thumb {
+            background: var(--royal-border-gold);
+            border-radius: 4px;
+        }
+
+        .toc-drawer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .drawer-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--royal-text-muted) !important;
+            text-decoration: none;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13.5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .drawer-link i {
+            font-size: 14px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .drawer-link:hover {
+            color: var(--royal-text-main) !important;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        body.light-mode .drawer-link:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .drawer-link.active {
+            color: var(--royal-gold) !important;
+            background: rgba(var(--royal-accent-rgb), 0.08) !important;
+            border-left-color: var(--royal-gold);
+            font-weight: 600;
+        }
+
+        /* DESKTOP HORIZONTAL STICKY SCROLL NAV WITH ARROWS */
+        @media (min-width: 1025px) {
+            .guide-layout {
+                display: block !important;
+                max-width: 1000px !important;
+                margin: 0 auto !important;
+            }
+            .content-area {
+                width: 100% !important;
+            }
+
+            .sidebar-nav {
+                position: sticky !important;
+                top: 92px !important;
+                width: 100% !important;
+                background: var(--royal-bg-primary) !important;
+                border-bottom: 1px solid var(--royal-border-gold) !important;
+                margin-bottom: 40px !important;
+                z-index: 999 !important;
+                display: flex !important;
+                align-items: center !important;
+                padding: 0 !important;
+            }
+
+            .sidebar-inner {
+                position: relative !important;
+                width: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+                background: transparent !important;
+                border: none !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+            }
+
+            .index-title {
+                display: none !important;
+            }
+
+            /* Scroll Container wrapper */
+            .index-list-wrapper {
+                flex-grow: 1 !important;
+                overflow: hidden !important;
+                position: relative !important;
+                display: flex !important;
+                align-items: center !important;
+                padding: 10px 0 !important;
+            }
+
+            .index-list {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 15px !important;
+                list-style: none !important;
+                overflow-x: auto !important;
+                white-space: nowrap !important;
+                scrollbar-width: none !important; /* Firefox */
+                scroll-behavior: smooth !important;
+                width: 100% !important;
+                padding: 0 10px !important;
+                margin: 0 !important;
+            }
+
+            .index-list::-webkit-scrollbar {
+                display: none !important; /* Safari and Chrome */
+            }
+
+            .index-link {
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                font-family: 'Outfit', sans-serif !important;
+                font-size: 11px !important;
+                font-weight: 700 !important;
+                letter-spacing: 1px !important;
+                text-transform: uppercase !important;
+                color: var(--royal-text-muted) !important;
+                padding: 8px 16px !important;
+                border-radius: 20px !important;
+                border: 1px solid transparent !important;
+                transition: all 0.3s ease !important;
+                text-decoration: none !important;
+            }
+
+            .index-link i {
+                font-size: 11px !important;
+                display: inline-block !important;
+            }
+
+            .index-link:hover {
+                color: var(--royal-text-main) !important;
+                background: rgba(255, 255, 255, 0.03) !important;
+            }
+
+            body.light-mode .index-link:hover {
+                background: rgba(0, 0, 0, 0.03) !important;
+            }
+
+            .index-link.active {
+                color: var(--royal-gold) !important;
+                background: rgba(var(--royal-accent-rgb), 0.08) !important;
+                border-color: var(--royal-border-gold) !important;
+                font-weight: 700 !important;
+            }
+
+            /* Scroll Arrow Buttons */
+            .scroll-arrow-btn {
+                background: var(--royal-bg-primary) !important;
+                border: none !important;
+                color: var(--royal-gold) !important;
+                width: 36px !important;
+                height: 36px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                cursor: pointer !important;
+                z-index: 10 !important;
+                transition: all 0.3s ease !important;
+                flex-shrink: 0 !important;
+                opacity: 0.8 !important;
+            }
+
+            .scroll-arrow-btn:hover {
+                opacity: 1 !important;
+                background: rgba(var(--royal-accent-rgb), 0.05) !important;
+                color: var(--royal-text-main) !important;
+            }
+
+            .scroll-arrow-btn.disabled {
+                opacity: 0.25 !important;
+                cursor: not-allowed !important;
+            }
+
+            .left-arrow-btn {
+                border-right: 1px solid var(--royal-border-gold) !important;
+            }
+
+            .right-arrow-btn {
+                border-left: 1px solid var(--royal-border-gold) !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar-nav {
+                display: none !important;
+            }
+
+            .toc-trigger-fab {
+                display: flex !important;
+            }
+        }
+
+        /* Fix gradient-text font size in section headings to match the first word */
+        .guide-layout h2 .gradient-text,
+        .guide-section h2 .gradient-text {
+            font-size: inherit !important;
+        }
+
+        /* Section styles specifically tailored for Pawna Lake Camping guide */
+        .distance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .distance-card {
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--royal-border-gold);
+            background: rgba(var(--royal-accent-rgb), 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .distance-card:hover {
+            border-color: var(--royal-gold);
+            background: rgba(var(--royal-accent-rgb), 0.08);
+            transform: translateY(-2px);
+        }
+
+        .distance-card h4 {
+            font-size: 1.1rem;
+            color: var(--royal-gold);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .distance-card p {
+            font-size: 0.8rem;
+            color: var(--royal-text-muted);
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad" id="home" style="background: linear-gradient(rgba(5, 8, 16, 0.65), rgba(5, 8, 16, 0.85)), url('assets/pawna_lake_camping_hero.png') no-repeat center center/cover !important;">
+        <div class="container">
+            <h1>PAWNA LAKE CAMPING</h1>
+            <p>Lakeside Organised Camping Guide near Lonavala</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html?category=camping">Explore</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Pawna Lake Camping</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Difficulty</p>
+                <h4>Easy (Leisure)</h4>
+            </div>
+            <div class="stat-item">
+                <p>Type</p>
+                <h4>Organised</h4>
+            </div>
+            <div class="stat-item">
+                <p>Location</p>
+                <h4>Near Lonavala</h4>
+            </div>
+            <div class="stat-item">
+                <p>Best Time</p>
+                <h4>Oct - Feb</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index (Horizontal Scroll Bar with Arrows for Desktop) -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <button id="nav-arrow-left" class="scroll-arrow-btn left-arrow-btn" aria-label="Scroll Left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="index-list-wrapper">
+                    <ul class="index-list">
+                        <li><a href="#about-campsite" class="index-link active"><i class="fas fa-circle-info"></i> About Campsite</a></li>
+                        <li><a href="#package-details" class="index-link"><i class="fas fa-cube"></i> Package Details</a></li>
+                        <li><a href="#price-booking" class="index-link"><i class="fas fa-tags"></i> Price & Booking</a></li>
+                        <li><a href="#accommodation-type" class="index-link"><i class="fas fa-campground"></i> Tents & Accommodation</a></li>
+                        <li><a href="#meals-included" class="index-link"><i class="fas fa-utensils"></i> Meals Included</a></li>
+                        <li><a href="#activities-included" class="index-link"><i class="fas fa-circle-play"></i> Activities</a></li>
+                        <li><a href="#facilities-available" class="index-link"><i class="fas fa-server"></i> Facilities</a></li>
+                        <li><a href="#safety-security" class="index-link"><i class="fas fa-shield-halved"></i> Safety & Staff</a></li>
+                        <li><a href="#suitability-vibe" class="index-link"><i class="fas fa-user-group"></i> Group Suitability</a></li>
+                        <li><a href="#how-to-reach" class="index-link"><i class="fas fa-route"></i> How to Reach</a></li>
+                        <li><a href="#things-to-carry" class="index-link"><i class="fas fa-backpack"></i> Things to Carry</a></li>
+                        <li><a href="#best-time" class="index-link"><i class="fas fa-calendar-days"></i> Best Time</a></li>
+                        <li><a href="#weekend-experience" class="index-link"><i class="fas fa-users"></i> Weekend Vibe</a></li>
+                        <li><a href="#nearby-attractions" class="index-link"><i class="fas fa-mountain-sun"></i> Nearby Places</a></li>
+                        <li><a href="#cancellation-policy" class="index-link"><i class="fas fa-ban"></i> Cancellation Policy</a></li>
+                        <li><a href="#location-map" class="index-link"><i class="fas fa-location-dot"></i> Location Map</a></li>
+                    </ul>
+                </div>
+                <button id="nav-arrow-right" class="scroll-arrow-btn right-arrow-btn" aria-label="Scroll Right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Campsite -->
+            <section id="about-campsite" class="guide-section about-fort-section">
+                <h2>About the <span class="gradient-text">Campsite</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Pawna Lake is one of Maharashtra's most popular organized camping destinations. Located near the scenic hill town of Lonavala, the beautiful lakeside setting offers gorgeous sunset views, cool evening breezes, and a peaceful weekend atmosphere.</p>
+                        <p>Most campsites are situated directly beside the reservoir's edge, making it an ideal choice for couples, families, corporate groups, and friend circles. The surrounding landscape features a stunning historic backdrop, framed by the majestic Sahyadri forts of Tikona, Tung, Lohagad, and Visapur, making it a visual treat for nature lovers.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Setting</h4>
+                                <p class="about-fort-pill-text">Direct Lakeside Access</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Surrounding</h4>
+                                <p class="about-fort-pill-text">Tikona, Tung & Lohagad Forts</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/camping.png" alt="Pawna Lakeside Tents" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Package Details -->
+            <section id="package-details" class="guide-section essential-info-section">
+                <h2>Package <span class="gradient-text">Details</span></h2>
+                <p class="section-desc">Organised camps at Pawna Lake offer a hassle-free experience with comprehensive inclusions in a single booking.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-tent"></i> Accommodation</h3>
+                        <p>Tent stay beside the lake, fitted with comfortable foam mats, soft pillows, and warm blankets for a cozy night under the stars.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-bowl-food"></i> Food & Snacks</h3>
+                        <p>Package includes evening high tea, marinated BBQ starters, a buffet dinner, and breakfast the following morning.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-guitar"></i> Entertainment</h3>
+                        <p>Access to lakeside activities, live music night setups, group bonfires, and a variety of indoor/outdoor sports.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Price & Booking Information -->
+            <section id="price-booking" class="guide-section essential-info-section">
+                <h2>Price & <span class="gradient-text">Booking</span></h2>
+                <p class="section-desc">Campsites range from budget setups to premium luxury glamping structures, matching different comfort preferences.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wallet"></i> Budget Camping</h3>
+                        <p><strong>₹800 – ₹1,200</strong> per person. Includes basic dome tents, common washrooms, standard buffet meals, bonfire, and music.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-crown"></i> Premium setups</h3>
+                        <p><strong>₹1,200 – ₹2,500</strong> per person. Includes premium triangle or family tents, better lakeside spots, extra food options, and upgraded amenities.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-gem"></i> Luxury Glamping</h3>
+                        <p><strong>₹2,500+</strong> per person. Includes large Swiss tents or lake-facing wooden cottages with attached private bathrooms, premium dining, and air conditioning.</p>
+                    </div>
+                </div>
+                
+                <div class="glass card-padding-large mt-30" style="border: 1px solid var(--royal-border-gold); background: rgba(var(--royal-accent-rgb), 0.03); border-radius: 12px;">
+                    <p style="margin: 0; font-size: 0.95rem; color: var(--royal-text-main); line-height: 1.6; text-align: center;">
+                        <i class="fas fa-circle-exclamation" style="color: var(--royal-gold); margin-right: 8px;"></i> 
+                        <strong>Booking Tip:</strong> Advance online booking is highly recommended for weekend slots as popular campsites fill up quickly. Group discounts are frequently offered by organizers.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 4: Accommodation Type -->
+            <section id="accommodation-type" class="guide-section essential-info-section">
+                <h2>Accommodation <span class="gradient-text">Types</span></h2>
+                <p class="section-desc">Various tent models are deployed to suit couples, large friend circles, and families.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-campground"></i> Standard Tents</h3>
+                        <p><strong>Dome & Triangle Tents:</strong> Waterproof multi-layer shelters. Perfect for couples and pairs seeking a classic camping style.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-people-roof"></i> Large Groups</h3>
+                        <p><strong>Family Tents:</strong> Spacious cabins designed to accommodate 4 to 6 people comfortably under a single rainfly structure.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-house-chimney"></i> Elevated Comfort</h3>
+                        <p><strong>Swiss & Cottage units:</strong> Glamping setups and wooden cottages featuring comfortable regular beds and attached private toilets.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Meals Included -->
+            <section id="meals-included" class="guide-section essential-info-section">
+                <h2>Meals <span class="gradient-text">Included</span></h2>
+                <p class="section-desc">Packages feature a continuous cycle of fresh meals starting from afternoon check-in to checkout.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-mug-hot"></i> Check-in Snacks</h3>
+                        <p>Welcome tea or coffee served hot alongside local snacks like Pakodas or Misal Pav upon arriving at the campsite.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-fire-burner"></i> Evening BBQ</h3>
+                        <p>Freshly marinated items (paneer, potatoes, veggies, or chicken) roasted on charcoal grills, served warm in limited portions.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cookie-bite"></i> Dinner & Breakfast</h3>
+                        <p>Unlimited buffet dinner featuring local Maharashtrian dishes (Veg/Non-Veg). Jain food choices are available at most major camps upon early request.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Activities Included -->
+            <section id="activities-included" class="guide-section essential-info-section">
+                <h2>Activities <span class="gradient-text">Included</span></h2>
+                <p class="section-desc">Campsites offer a wide array of recreational activities to keep visitors engaged throughout their stay.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-ship"></i> Water Sports</h3>
+                        <p>Kayaking on the lake edges, paddle boating, and calm rowboat rides. Life jackets are mandatory and provided by organizers.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-baseball-bat-ball"></i> Field Games</h3>
+                        <p>Access to sports gear for volleyball, cricket, badminton, football, and archery targets set up in the open fields.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-star-and-crescent"></i> Night Vibe</h3>
+                        <p>Enjoying starry clear skies, stargazing sessions, live guitar performance circles, and a warm central bonfire.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7: Facilities Available -->
+            <section id="facilities-available" class="guide-section essential-info-section">
+                <h2>Facilities <span class="gradient-text">Available</span></h2>
+                <p class="section-desc">Organized campsites are fully fenced and equipped with basic amenities to ensure comfort.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-restroom"></i> Washrooms</h3>
+                        <p>Sanitized toilet blocks (both Western and Indian formats) located closely, separated for gents and ladies.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-plug"></i> Power & Water</h3>
+                        <p>Dedicated charging docks for electronic gear. Clean drinking water filters are installed in the dining pavilion.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-square-parking"></i> Dining & Parking</h3>
+                        <p>Secure parking lots directly at the campground entrance. Covered common dining pavilions are provided for eating meals.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 8: Safety & Security -->
+            <section id="safety-security" class="guide-section essential-info-section">
+                <h2>Safety & <span class="gradient-text">Security</span></h2>
+                <p class="section-desc">Unlike wild self-camping, these sites provide a secure environment suitable for all traveler groups.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-users-gear"></i> Dedicated Staff</h3>
+                        <p>Sites are monitored by onsite security personnel and hosts. Emergency contact coordinates are displayed clearly.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-kit-medical"></i> Medical Support</h3>
+                        <p>Basic first-aid boxes, antiseptic lotions, and bandages are always available with the camp organizer desk.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-lightbulb"></i> Well-Lit Zones</h3>
+                        <p>Fenced premises with floodlighting. Pathway lights ensure travelers can safely navigate the campground during the night.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Suitability & Vibe -->
+            <section id="suitability-vibe" class="guide-section essential-info-section">
+                <h2>Group <span class="gradient-text">Suitability</span></h2>
+                <p class="section-desc">Organized campsites maintain a friendly, inclusive atmosphere tailored to various traveler types.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-heart"></i> Couples & Families</h3>
+                        <p>Dedicated zones to ensure privacy and safety. Safe playing fields for children and comfortable dining spaces for families.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-briefcase"></i> Corporates</h3>
+                        <p>Ideal spaces for team-building events, outdoor workshops, games, and large group dining layouts.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-users-line"></i> Friends & Solo</h3>
+                        <p>Great social environment with campfire music, stargazing circles, and opportunity to mingle with fellow campers.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 10: How to Reach -->
+            <section id="how-to-reach" class="guide-section travel-guide-section">
+                <h2>How to <span class="gradient-text">Reach</span></h2>
+                <p class="section-desc">Details to reach Pawna Lake from major cities in Maharashtra.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>From Pune</h3>
+                            <p>Drive via Kamshet (Old Mumbai-Pune highway) and take the Kamshet-Pawna Lake Road. The route is scenic and takes around 1.5 hours.</p>
+                            <span class="travel-guide-cost-badge">Pune to Pawna: ~55 km</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>From Mumbai</h3>
+                            <p>Drive along the Mumbai-Pune Expressway, exit at Lonavala, and proceed via Dudhiware Khind road or Kamshet route. The drive takes around 2.5 to 3 hours.</p>
+                            <span class="travel-guide-cost-badge">Mumbai to Pawna: ~120 km</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>From Lonavala Station</h3>
+                            <p>If traveling by train, get down at Lonavala station. Local private jeeps and cabs can be hired directly to the Pawna lake camps.</p>
+                            <span class="travel-guide-cost-badge">Lonavala to Pawna: ~25 km</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="primary-heading mt-40">Distance from Major Cities</h3>
+                <div class="distance-grid">
+                    <div class="distance-card">
+                        <h4>~25 km</h4>
+                        <p>Lonavala</p>
+                    </div>
+                    <div class="distance-card">
+                        <h4>~55 km</h4>
+                        <p>Pune</p>
+                    </div>
+                    <div class="distance-card">
+                        <h4>~95 km</h4>
+                        <p>Thane</p>
+                    </div>
+                    <div class="distance-card">
+                        <h4>~120 km</h4>
+                        <p>Mumbai</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 11: Things to Carry -->
+            <section id="things-to-carry" class="guide-section essential-info-section">
+                <h2>Things <span class="gradient-text">to Carry</span></h2>
+                <p class="section-desc">A handy checklist of items to bring for a comfortable lakeside camping overnight stay.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-address-card"></i> ID & Medicine</h3>
+                        <p>Valid government photo identity card (mandatory for camp check-in), personal prescription medications, and mosquito repellent cream.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-socks"></i> Clothing & Gear</h3>
+                        <p>A light jacket or sweater (temperatures drop beside the water at night), extra pair of clothes, sports shoes, and a torch.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-battery-three-quarters"></i> Electronics</h3>
+                        <p>A fully charged power bank (charging slots at camps can be limited), camera gear, and dry bags to keep devices safe near water.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 12: Best Time to Visit -->
+            <section id="best-time" class="guide-section essential-info-section">
+                <h2>Best Time <span class="gradient-text">to Visit</span></h2>
+                <p class="section-desc">Pawna Lake has distinct seasonal vibes, each offering a unique outdoor experience.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wind"></i> Winter (Oct - Feb)</h3>
+                        <p><strong>Peak Season:</strong> Highly recommended. Fantastic weather, cool breezes, and clear night skies ideal for stargazing and campfires.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cloud-showers-water"></i> Monsoon (Jun - Sep)</h3>
+                        <p><strong>Lush Vibe:</strong> The surrounding hills and forts turn lush green. Ideal for travelers who enjoy heavy rains and misty landscapes.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-day"></i> Weekdays</h3>
+                        <p><strong>Quiet Option:</strong> If you prefer peace and solitude over party crowds and loud music, weekday camping is highly recommended.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 13: Weekend Experience -->
+            <section id="weekend-experience" class="guide-section essential-info-section">
+                <h2>Weekend <span class="gradient-text">Vibe</span></h2>
+                <p class="section-desc">Prepare yourself for the different crowd dynamics between weekends and weekdays.</p>
+
+                <div class="essential-info-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-face-smile-beam"></i> Lively Atmosphere</h3>
+                        <p>Saturdays feature high crowd levels, loud music setups, social events, and a festival-like vibe. Excellent for groups looking to party and socialize.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-lock"></i> Advance Bookings</h3>
+                        <p>Due to high popularity, booking campsites weeks in advance is highly recommended for Saturday stays. Unplanned drive-ins may find popular camps fully booked.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 14: Nearby Attractions -->
+            <section id="nearby-attractions" class="guide-section essential-info-section">
+                <h2>Nearby <span class="gradient-text">Attractions</span></h2>
+                <p class="section-desc">Historic forts and caves located within a short driving distance from the lake.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-mountain"></i> Tikona & Tung Forts</h3>
+                        <p>Tikona (Vitandgad) is famous for its triangular shape and stone steps, while Tung Fort stands as a conical peak directly overlooking Pawna reservoir.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-landmark"></i> Lohagad & Visapur</h3>
+                        <p>Lohagad Fort is an easily accessible fortress with ancient gates, connected to the massive plateau ruins of Visapur Fort.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-archway"></i> Bhaja Caves</h3>
+                        <p>Located near Malavli, this site features 22 historic rock-cut Buddhist caves dating back to the 2nd century BC.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 15: Cancellation Policy -->
+            <section id="cancellation-policy" class="guide-section essential-info-section">
+                <h2>Cancellation <span class="gradient-text">& Refund Policy</span></h2>
+                <p class="section-desc">Terms vary between organizers, but standard weekend rules apply across the lake camps.</p>
+
+                <div class="essential-info-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-circle-dollar-to-slot"></i> Payments</h3>
+                        <p>Most camp organizers collect advance booking deposits. Weekend bookings (especially Saturday nights) are usually non-refundable.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-rotate"></i> Date Changes</h3>
+                        <p>Date changes might be accommodated by organizers if informed 3 to 5 days in advance, subject to availability. Always read the organizer policy prior to booking.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 16: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Pawna Lake, near Kamshet / Lonavala, Pune District, Maharashtra, India</p>
+
+                <!-- Route Planner -->
+                <div class="map-route-container">
+                    <div class="map-route-form">
+                        <div class="map-input-group">
+                            <label><i class="fas fa-circle-dot"></i> From</label>
+                            <input type="text" id="route-from" class="map-input" placeholder="Enter starting location..." autocomplete="off">
+                        </div>
+                        <div class="map-input-group">
+                            <label><i class="fas fa-map-pin"></i> To</label>
+                            <input type="text" class="map-input" value="Pawna Lake Camping, Maharashtra" readonly>
+                        </div>
+                        <button id="get-directions-btn" class="map-btn" onclick="openGoogleMapsDirections()">
+                            <i class="fas fa-diamond-turn-right"></i> Directions
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass location-map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.7431526402484!2d73.4716!3d18.7371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ffcaaaaaaaab%3A0x123456789!2sPawna+Lake+Camping!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.google.com/maps/place/Pawna+Lake+Camping/@18.7371,73.4716,15z"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View on Google Maps
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure and spiritual destinations in Maharashtra. We specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Stay Updated</h4>
+                    <p class="mb-15 font-sm footer-newsletter-text">Subscribe to our newsletter for the latest adventure updates and offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Your Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating TOC Action Button -->
+    <button id="toc-trigger" class="toc-trigger-fab" aria-label="Open Guide Directory">
+        <svg class="progress-ring" width="56" height="56">
+            <circle class="progress-ring__circle" stroke="var(--royal-gold)" stroke-width="3" fill="transparent" r="24" cx="28" cy="28"/>
+        </svg>
+        <div class="toc-fab-icon">
+            <i class="fas fa-list-ol"></i>
+        </div>
+    </button>
+
+    <!-- Glassmorphic TOC Drawer Overlay -->
+    <div id="toc-drawer-overlay" class="toc-drawer-overlay">
+        <div class="toc-drawer">
+            <div class="toc-drawer-header">
+                <h3>Guide Chapters</h3>
+                <button id="toc-close-btn" class="toc-close-btn" aria-label="Close Guide Directory">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="toc-drawer-body">
+                <ul class="toc-drawer-list">
+                    <li><a href="#about-campsite" class="drawer-link active"><i class="fas fa-circle-info"></i> About Campsite</a></li>
+                    <li><a href="#package-details" class="drawer-link"><i class="fas fa-cube"></i> Package Details</a></li>
+                    <li><a href="#price-booking" class="drawer-link"><i class="fas fa-tags"></i> Price & Booking</a></li>
+                    <li><a href="#accommodation-type" class="drawer-link"><i class="fas fa-campground"></i> Tents & Accommodation</a></li>
+                    <li><a href="#meals-included" class="drawer-link"><i class="fas fa-utensils"></i> Meals Included</a></li>
+                    <li><a href="#activities-included" class="drawer-link"><i class="fas fa-circle-play"></i> Activities</a></li>
+                    <li><a href="#facilities-available" class="drawer-link"><i class="fas fa-server"></i> Facilities</a></li>
+                    <li><a href="#safety-security" class="drawer-link"><i class="fas fa-shield-halved"></i> Safety & Staff</a></li>
+                    <li><a href="#suitability-vibe" class="drawer-link"><i class="fas fa-user-group"></i> Group Suitability</a></li>
+                    <li><a href="#how-to-reach" class="drawer-link"><i class="fas fa-route"></i> How to Reach</a></li>
+                    <li><a href="#things-to-carry" class="drawer-link"><i class="fas fa-backpack"></i> Things to Carry</a></li>
+                    <li><a href="#best-time" class="drawer-link"><i class="fas fa-calendar-days"></i> Best Time</a></li>
+                    <li><a href="#weekend-experience" class="drawer-link"><i class="fas fa-users"></i> Weekend Vibe</a></li>
+                    <li><a href="#nearby-attractions" class="drawer-link"><i class="fas fa-mountain-sun"></i> Nearby Places</a></li>
+                    <li><a href="#cancellation-policy" class="drawer-link"><i class="fas fa-ban"></i> Cancellation Policy</a></li>
+                    <li><a href="#location-map" class="drawer-link"><i class="fas fa-location-dot"></i> Location Map</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/kalsubai2.js"></script>
+    <script>
+        // Mobile FAB & Desktop Horizontal Arrow Scroll spy navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('toc-trigger');
+            const overlay = document.getElementById('toc-drawer-overlay');
+            const closeBtn = document.getElementById('toc-close-btn');
+            const drawerLinks = document.querySelectorAll('.drawer-link');
+            const drawer = overlay.querySelector('.toc-drawer');
+            
+            // Toggle Drawer
+            const openDrawer = () => {
+                overlay.classList.add('active');
+                drawer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+            
+            const closeDrawer = () => {
+                overlay.classList.remove('active');
+                drawer.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+            
+            trigger.addEventListener('click', openDrawer);
+            closeBtn.addEventListener('click', closeDrawer);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closeDrawer();
+            });
+            
+            // Smooth Scroll for Drawer Links
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        closeDrawer();
+                        const headerOffset = 90;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        history.pushState(null, null, targetId);
+                    }
+                });
+            });
+
+            // Desktop Horizontal Scroll Arrow Button Handlers
+            const leftArrow = document.getElementById('nav-arrow-left');
+            const rightArrow = document.getElementById('nav-arrow-right');
+            const scrollContainer = document.querySelector('.index-list');
+            
+            if (leftArrow && rightArrow && scrollContainer) {
+                const scrollAmount = 200; // Pixels to scroll on click
+                
+                leftArrow.addEventListener('click', () => {
+                    scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+                
+                rightArrow.addEventListener('click', () => {
+                    scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+                
+                // Disable/enable arrows based on scroll position
+                const toggleArrows = () => {
+                    const scrollLeft = scrollContainer.scrollLeft;
+                    const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+                    
+                    if (scrollLeft <= 5) {
+                        leftArrow.classList.add('disabled');
+                    } else {
+                        leftArrow.classList.remove('disabled');
+                    }
+                    
+                    if (scrollLeft >= maxScrollLeft - 5) {
+                        rightArrow.classList.add('disabled');
+                    } else {
+                        rightArrow.classList.remove('disabled');
+                    }
+                };
+                
+                scrollContainer.addEventListener('scroll', toggleArrows);
+                window.addEventListener('resize', toggleArrows);
+                
+                // Initial check
+                setTimeout(toggleArrows, 500);
+            }
+            
+            // Sync Scroll Spy for both Sidebar and Drawer links
+            const sections = document.querySelectorAll('.content-area .guide-section');
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav .index-link');
+            
+            if (sections.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-80px 0px -50% 0px',
+                    threshold: 0
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.getAttribute('id');
+                            
+                            // Highlight sidebar links
+                            sidebarLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+                                    
+                                    // Auto-scroll active link into view inside horizontal bar
+                                    if (scrollContainer && link.parentElement) {
+                                        const containerWidth = scrollContainer.clientWidth;
+                                        const itemLeft = link.parentElement.offsetLeft;
+                                        const itemWidth = link.parentElement.clientWidth;
+                                        const targetScroll = itemLeft - (containerWidth / 2) + (itemWidth / 2);
+                                        
+                                        scrollContainer.scrollTo({
+                                            left: targetScroll,
+                                            behavior: 'smooth'
+                                        });
+                                    }
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+                            
+                            // Highlight drawer links
+                            drawerLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+                
+                sections.forEach(section => observer.observe(section));
+            }
+            
+            // Circular Scroll Progress calculation
+            const circle = document.querySelector('.progress-ring__circle');
+            if (circle) {
+                const radius = circle.r.baseVal.value;
+                const circumference = radius * 2 * Math.PI;
+                
+                circle.style.strokeDasharray = `${circumference} ${circumference}`;
+                circle.style.strokeDashoffset = circumference;
+                
+                const setProgress = (percent) => {
+                    const offset = circumference - (percent / 100) * circumference;
+                    circle.style.strokeDashoffset = offset;
+                };
+                
+                const contentArea = document.querySelector('.content-area');
+                if (contentArea) {
+                    const calcProgress = () => {
+                        const rect = contentArea.getBoundingClientRect();
+                        const contentTop = rect.top + window.scrollY;
+                        const contentHeight = rect.height;
+                        const viewportHeight = window.innerHeight;
+                        const scrollTop = window.scrollY - contentTop;
+                        const scrollHeight = contentHeight - viewportHeight;
+                        
+                        let percent = 0;
+                        if (scrollHeight > 0) {
+                            percent = Math.max(0, Math.min(100, (scrollTop / scrollHeight) * 100));
+                        } else {
+                            percent = window.scrollY >= contentTop ? 100 : 0;
+                        }
+                        
+                        setProgress(percent);
+                    };
+                    
+                    window.addEventListener('scroll', calcProgress);
+                    calcProgress();
+                }
+            }
+        });
+    </script>
+    <script>
+        // Route Planner: Open Google Maps Directions
+        function openGoogleMapsDirections() {
+            const fromInput = document.getElementById('route-from');
+            const origin = fromInput.value.trim();
+            const destination = 'Pawna Lake Camping, Kamshet, Maharashtra';
+
+            if (!origin) {
+                fromInput.focus();
+                fromInput.style.borderColor = '#ef4444';
+                fromInput.setAttribute('placeholder', 'Please enter a starting location...');
+                setTimeout(() => {
+                    fromInput.style.borderColor = '';
+                    fromInput.setAttribute('placeholder', 'Enter starting location...');
+                }, 2500);
+                return;
+            }
+
+            const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
+            window.open(url, '_blank');
+        }
+
+        // Allow Enter key to trigger directions
+        document.getElementById('route-from').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                openGoogleMapsDirections();
+            }
+        });
+    </script>
+</body>
+
+</html>

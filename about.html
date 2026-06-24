@@ -72,7 +72,7 @@
         }
 
         .about-section {
-            padding: 100px 0;
+            padding: 50px 0;
         }
 
         .about-grid {
@@ -172,7 +172,7 @@
 
         /* Team Grid */
         .team-section {
-            padding: 100px 0;
+            padding: 50px 0;
             background: rgba(255, 255, 255, 0.01);
             border-top: 1px solid var(--border-glass);
             border-bottom: 1px solid var(--border-glass);
@@ -191,7 +191,7 @@
         .section-title p {
             color: var(--text-muted);
             font-size: 1.1rem;
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
         }
 
@@ -202,6 +202,13 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
+        }
+
+        .founder-card {
+            grid-column: 1 / -1;
+            justify-self: center;
+            width: 100%;
+            max-width: 340px;
         }
 
         @media (max-width: 992px) {
@@ -223,7 +230,7 @@
             width: 100%;
             height: 100%;
             text-align: center;
-            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
             transform-style: preserve-3d;
         }
 
@@ -232,7 +239,8 @@
             transform: rotateY(180deg);
         }
 
-        .flip-box-front, .flip-box-back {
+        .flip-box-front,
+        .flip-box-back {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -267,7 +275,14 @@
             font-size: 2.2rem;
             color: var(--primary);
             margin-bottom: 24px;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
+            overflow: hidden;
+        }
+
+        .flip-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .flip-box:hover .flip-avatar {
@@ -275,7 +290,8 @@
             box-shadow: 0 0 15px var(--primary-glow);
         }
 
-        .flip-box-front h3, .flip-box-back h3 {
+        .flip-box-front h3,
+        .flip-box-back h3 {
             font-size: 1.4rem;
             margin-bottom: 6px;
         }
@@ -303,7 +319,7 @@
 
         /* CTA Section */
         .cta-section {
-            padding: 100px 0;
+            padding: 50px 0;
             text-align: center;
         }
 
@@ -365,13 +381,13 @@
     <nav id="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <i class="fas fa-mountain-sun"></i>
-                MAHA<span>SAFAR</span>
+                <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html#home">Home</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down"
+                            style="font-size: 0.75rem; margin-left: 5px;"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="explore.html">All Places</a></li>
                         <li><a href="explore.html?category=treks">Treks</a></li>
@@ -413,8 +429,14 @@
             <div class="about-grid">
                 <div class="about-text reveal">
                     <h2>Redefining <span class="gradient-text">Outdoor Exploration</span></h2>
-                    <p>Welcome to Maha Safar — a leading premium outdoor adventure and heritage guide organization in Maharashtra. Founded by a dedicated cohort of mountaineers and local historians, we are committed to changing how explorers experience Maharashtra's raw geography, culture, and ancient history.</p>
-                    <p>We curate premium escapes designed for a wide range of travelers. Whether you want to conquer rugged Sahyadri ridge routes, explore pristine seasonal waterfalls, camp under starry skies, or uncover the history of ancient forts and temples, we ensure your journey is safe, organized, and unforgettable.</p>
+                    <p>Welcome to Maha Safar leading premium outdoor adventure and heritage guide organization in
+                        Maharashtra. Founded by a dedicated cohort of mountaineers and local historians, we are
+                        committed to changing how explorers experience Maharashtra's raw geography, culture, and ancient
+                        history.</p>
+                    <p>We curate premium escapes designed for a wide range of travelers. Whether you want to conquer
+                        rugged Sahyadri ridge routes, explore pristine seasonal waterfalls, camp under starry skies, or
+                        uncover the history of ancient forts and temples, we ensure your journey is safe, organized, and
+                        unforgettable.</p>
                 </div>
                 <div class="about-image-wrapper glass reveal">
                     <img src="assets/trekking.png" alt="Maha Safar Trekker on Mountain Ridge">
@@ -424,17 +446,25 @@
     </section>
 
     <!-- Our Origin Story Section -->
-    <section class="about-section" style="background: rgba(255,255,255,0.01); border-top: 1px solid var(--border-glass);">
+    <section class="about-section"
+        style="background: rgba(255,255,255,0.01); border-top: 1px solid var(--border-glass);">
         <div class="container">
             <div class="about-grid" style="grid-template-columns: 0.8fr 1.2fr;">
                 <div class="about-image-wrapper glass reveal" style="max-height: 450px; overflow: hidden;">
-                    <img src="assets/camping.png" alt="Starry Lakeside Campsite" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="assets/camping.png" alt="Starry Lakeside Campsite"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="about-text reveal" style="padding-left: 20px;">
                     <h2>How We <span class="gradient-text">Began</span></h2>
-                    <p>A decade ago, the true trails of the Sahyadri range were known to only a few. Verified trail data was scarce, local guiding was disorganized, and safety standards were inconsistent. This left many eager outdoor lovers hesitant to explore the wild.</p>
-                    <p>Our journey began in the mountains. Armed with a notebook and a GPS tracker, our founders set out to map and document over 50 offbeat routes, mountain fort corridors, and hidden waterfall tracks. We wanted to make the wilderness simpler, safer, and accessible to anyone seeking adventure.</p>
-                    <p>Today, we strive to build a community where college students on a budget and busy professionals looking to escape city life can step outdoors with confidence. By combining premium wilderness first-aid-certified guides, high-quality gear, and delicious, authentic local meals, we offer budget-friendly travel experiences that prioritize your peace of mind.</p>
+                    <p>Maha Safar was born from a simple thought ? why is it so difficult to find complete and reliable
+                        travel information in one place?</p>
+                    <p>We are passionate travelers who believe that exploring Maharashtra should be easy, safe, and
+                        exciting for everyone. From trekking forts in the Sahyadris to relaxing on Konkan beaches, every
+                        journey has a story ? and we wanted to make those stories accessible to all.</p>
+                    <p>Like many travelers, we faced the same problems ? incomplete information, confusing routes, lack
+                        of clarity about safety, and missing details about what to expect. That?s when we decided to
+                        build something different.</p>
+                    <p>Maha Safar is not just a website, it?s a travel companion.</p>
                 </div>
             </div>
         </div>
@@ -445,7 +475,8 @@
         <div class="container">
             <div class="section-title reveal">
                 <h2>Our Core <span class="gradient-text">Principles</span></h2>
-                <p>We believe that outdoor adventure is a powerful tool to reconnect with nature, learn history, and push personal boundaries. We guide every trip with three core principles:</p>
+                <p>We believe that outdoor adventure is a powerful tool to reconnect with nature, learn history, and
+                    push personal boundaries. We guide every trip with three core principles:</p>
             </div>
             <div class="values-grid">
                 <!-- Value 1 -->
@@ -454,7 +485,8 @@
                         <i class="fas fa-shield-halved"></i>
                     </div>
                     <h3>Safety & Preparation</h3>
-                    <p>We never cut corners. Our guides are trained first-responders, our paths are thoroughly vetted, and we carry proper communication and safety equipment on every single trek.</p>
+                    <p>We never cut corners. Our guides are trained first-responders, our paths are thoroughly vetted,
+                        and we carry proper communication and safety equipment on every single trek.</p>
                 </div>
                 <!-- Value 2 -->
                 <div class="value-card glass reveal">
@@ -462,7 +494,8 @@
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h3>Eco-Tourism & Stewardship</h3>
-                    <p>We are guests in nature. We strictly follow "Leave No Trace" principles, clean up trails as we go, and teach travelers how to respect and preserve biodiversity.</p>
+                    <p>We are guests in nature. We strictly follow "Leave No Trace" principles, clean up trails as we
+                        go, and teach travelers how to respect and preserve biodiversity.</p>
                 </div>
                 <!-- Value 3 -->
                 <div class="value-card glass reveal">
@@ -470,7 +503,8 @@
                         <i class="fas fa-handshake-angle"></i>
                     </div>
                     <h3>Community & Local Support</h3>
-                    <p>We grow together. We partner directly with villagers at our base camps, employing them as local guides and sourcing authentic home-cooked meals to support rural economies.</p>
+                    <p>We grow together. We partner directly with villagers at our base camps, employing them as local
+                        guides and sourcing authentic home-cooked meals to support rural economies.</p>
                 </div>
             </div>
         </div>
@@ -481,22 +515,23 @@
         <div class="container">
             <div class="section-title reveal">
                 <h2>The Explorers Behind <span class="gradient-text">Maha Safar</span></h2>
-                <p>Meet our passionate core team. Click or hover on a card to see their background and skills.</p>
+                <p>Meet our passionate core team. Hover on a card to see their background and skills.</p>
             </div>
             <div class="team-container">
                 <!-- Founder -->
-                <div class="flip-box reveal">
+                <div class="flip-box reveal founder-card">
                     <div class="flip-box-inner">
                         <div class="flip-box-front">
-                            <div class="flip-avatar"><i class="fas fa-mountain"></i></div>
-                            <h3>Ameet Shet</h3>
+                            <div class="flip-avatar"><img src="assets/omkar.jpeg" alt="Omkar Pawar"></div>
+                            <h3>Omkar Pawar</h3>
                             <div class="flip-role">Founder & Chief Explorer</div>
                             <p>Trekker since 2010. Vetted 450+ trails across the Western Ghats.</p>
                         </div>
                         <div class="flip-box-back">
-                            <h3>Ameet Shet</h3>
+                            <h3>Omkar Pawar</h3>
                             <div class="flip-role">Founder & Chief Explorer</div>
-                            <p>A Chartered Accountant by profession, Ameet channels his precision into designing safe, offbeat expeditions. In his free time, he is a cricket fan and loves to cook.</p>
+                            <p>A Chartered Accountant by profession, Ameet channels his precision into designing safe,
+                                offbeat expeditions. In his free time, he is a cricket fan and loves to cook.</p>
                         </div>
                     </div>
                 </div>
@@ -505,32 +540,50 @@
                 <div class="flip-box reveal">
                     <div class="flip-box-inner">
                         <div class="flip-box-front">
-                            <div class="flip-avatar"><i class="fas fa-heart-pulse"></i></div>
-                            <h3>Rajeev Baravdia</h3>
+                            <div class="flip-avatar"><img src="assets/chinmay.jpeg" alt="Chinmay Wavekar"></div>
+                            <h3>Chinmay Wavekar</h3>
                             <div class="flip-role">Safety Director</div>
                             <p>First-responder. Managed 250+ guided climbs and route setup.</p>
                         </div>
                         <div class="flip-box-back">
-                            <h3>Rajeev Baravdia</h3>
+                            <h3>Chinmay Wavekar</h3>
                             <div class="flip-role">Safety Director & Lead Guide</div>
-                            <p>A certified fitness trainer by profession and trekker by passion. He loves recording trail journeys for YouTube and maintaining first-aid preparedness on every climb.</p>
+                            <p>A certified fitness trainer by profession and trekker by passion. He loves recording
+                                trail journeys for YouTube and maintaining first-aid preparedness on every climb.</p>
                         </div>
                     </div>
                 </div>
-
+                <!-- Team 1 -->
+                <div class="flip-box reveal">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                            <div class="flip-avatar"><img src="assets/suraj.jpeg" alt="Suraj More"></div>
+                            <h3>Suraj More</h3>
+                            <div class="flip-role">Safety Director</div>
+                            <p>First-responder. Managed 250+ guided climbs and route setup.</p>
+                        </div>
+                        <div class="flip-box-back">
+                            <h3>Suraj More</h3>
+                            <div class="flip-role">Safety Director & Lead Guide</div>
+                            <p>A certified fitness trainer by profession and trekker by passion. He loves recording
+                                trail journeys for YouTube and maintaining first-aid preparedness on every climb.</p>
+                        </div>
+                    </div>
+                </div>
                 <!-- Team 2 -->
                 <div class="flip-box reveal">
                     <div class="flip-box-inner">
                         <div class="flip-box-front">
-                            <div class="flip-avatar"><i class="fas fa-route"></i></div>
-                            <h3>Bhavin Jain</h3>
+                            <div class="flip-avatar"><img src="assets/jayesh.jpeg" alt="Jayesh Gawade"></div>
+                            <h3>Jayesh Gawade</h3>
                             <div class="flip-role">Logistics & Experience</div>
                             <p>Avid traveler. Coordinated 100+ trek logistics and itineraries.</p>
                         </div>
                         <div class="flip-box-back">
-                            <h3>Bhavin Jain</h3>
+                            <h3>Jayesh Gawade</h3>
                             <div class="flip-role">Logistics Manager</div>
-                            <p>A pharmacist by profession and traveler by passion. Bhavin handles local base camp partnerships, meal sourcing, and seamless transport schedules across Maharashtra.</p>
+                            <p>A pharmacist by profession and traveler by passion. Bhavin handles local base camp
+                                partnerships, meal sourcing, and seamless transport schedules across Maharashtra.</p>
                         </div>
                     </div>
                 </div>
@@ -555,8 +608,7 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="index.html" class="logo footer-logo">
-                        <i class="fas fa-mountain-sun"></i>
-                        MAHA<span>SAFAR</span>
+                        <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
                     </a>
                     <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
                         specialize in safe, curated, and unforgettable experiences.</p>
@@ -570,17 +622,8 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html#home">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="explore.html">All Places</a></li>
-                                <li><a href="explore.html?category=treks">Treks</a></li>
-                                <li><a href="explore.html?category=temples">Temples</a></li>
-                                <li><a href="explore.html?category=camping">Camping</a></li>
-                                <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -593,13 +636,15 @@
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Newsletter</h4>
-                    <p class="footer-newsletter-text">Get the latest trek updates and early bird offers.</p>
+                    <h4>Stay Updated</h4>
+                    <p class="mb-15 font-sm footer-newsletter-text">Subscribe to our newsletter for the latest adventure
+                        updates and offers.</p>
                     <div class="form-group newsletter-form">
-                        <input type="email" placeholder="Email" class="newsletter-input">
-                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                        <input type="email" placeholder="Your Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
+
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>

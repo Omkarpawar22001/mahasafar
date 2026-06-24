@@ -44,9 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const searchInput = document.querySelector('.search-input');
     const districtSelect = document.getElementById('sidebar-district-select');
-    const citySelect = document.getElementById('sidebar-city-select');
     const sortSelect = document.getElementById('sidebar-sort-select');
     const perPageSelect = document.getElementById('sidebar-per-page-select');
+    const difficultySelect = document.getElementById('sidebar-difficulty-select');
+    const citySelect = document.getElementById('sidebar-city-select');
     
     const diffTags = document.querySelectorAll('.diff-tag');
     const resetFiltersBtn = document.querySelector('.clear-filters');
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlCity = urlParams.get('city');
     const urlDistrict = urlParams.get('district');
     const urlCategory = urlParams.get('category');
+    const urlSearch = urlParams.get('search');
 
     if (urlCity) {
         selectedCity = urlCity.toLowerCase();
@@ -79,6 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (urlCategory) {
         selectedCategory = urlCategory.toLowerCase();
+    }
+    if (urlSearch) {
+        searchQuery = urlSearch.toLowerCase().trim();
+        if (searchInput) {
+            searchInput.value = urlSearch;
+        }
     }
 
     // --- Load Data ---
@@ -309,13 +317,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         if (selectedCity !== 'all') {
-            const cityText = citySelect.options[citySelect.selectedIndex].text;
+            const cityText = citySelect ? citySelect.options[citySelect.selectedIndex].text : selectedCity;
             activeChips.push({
                 type: 'city',
-                label: `City: ${cityText}`,
+                label: `City: ${cityText.charAt(0).toUpperCase() + cityText.slice(1)}`,
                 clearFn: () => {
                     selectedCity = 'all';
-                    citySelect.value = 'all';
+                    if (citySelect) {
+                        citySelect.value = 'all';
+                    }
                 }
             });
         }
@@ -545,9 +555,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (citySelect) {
-        citySelect.addEventListener('change', (e) => {
-            selectedCity = e.target.value;
+    if (difficultySelect) {
+        difficultySelect.addEventListener('change', (e) => {
+            selectedDifficulty = e.target.value;
             currentPage = 1;
             applyFiltersAndRender();
         });

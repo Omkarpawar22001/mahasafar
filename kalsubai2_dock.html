@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tulja Bhavani Temple Guide - Collapsible Dock Demo - Maha Safar</title>
+    <meta name="description"
+        content="Complete interactive guide to Tulja Bhavani Temple in Tuljapur. Timings, aarti schedule, history, how to reach, festivals, nearby attractions and more.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/kalsubai2.css">
+    <style>
+        /* Custom Scroll Spy / Floating Drawer style overrides */
+        :root {
+            --progress-ring-size: 56px;
+        }
+
+        /* Floating Action Button (Mobile/Tablet) */
+        .toc-trigger-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(17, 18, 21, 0.85) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--royal-border-gold) !important;
+            color: var(--royal-gold) !important;
+            display: none; /* Only visible on tablet/mobile */
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            z-index: 99999;
+            padding: 0;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        body.light-mode .toc-trigger-fab {
+            background: rgba(250, 249, 246, 0.9) !important;
+            box-shadow: 0 8px 30px rgba(144, 115, 74, 0.15);
+        }
+
+        .toc-trigger-fab:hover {
+            transform: scale(1.05);
+        }
+
+        .toc-trigger-fab:active {
+            transform: scale(0.95);
+        }
+
+        .progress-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(-90deg);
+            pointer-events: none;
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.1s;
+            transform-origin: 50% 50%;
+        }
+
+        .toc-fab-icon {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        /* TOC Drawer Overlay */
+        .toc-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        .toc-drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .toc-drawer {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 85%;
+            max-width: 320px;
+            height: 100%;
+            background: var(--royal-bg-secondary) !important;
+            border-left: 1px solid var(--royal-border-gold);
+            padding: 30px 24px;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toc-drawer.active {
+            transform: translateX(0);
+        }
+
+        .toc-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--royal-border-gold);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .toc-drawer-header h3 {
+            font-family: 'Outfit', sans-serif !important;
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
+            color: var(--royal-gold) !important;
+            margin: 0 !important;
+            text-transform: uppercase;
+        }
+
+        .toc-close-btn {
+            background: transparent;
+            border: none;
+            color: var(--royal-text-muted);
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .toc-close-btn:hover {
+            color: var(--royal-gold);
+        }
+
+        .toc-drawer-body {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-right: 5px;
+        }
+
+        .toc-drawer-body::-webkit-scrollbar {
+            width: 4px;
+        }
+        .toc-drawer-body::-webkit-scrollbar-thumb {
+            background: var(--royal-border-gold);
+            border-radius: 4px;
+        }
+
+        .toc-drawer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .drawer-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--royal-text-muted) !important;
+            text-decoration: none;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13.5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .drawer-link i {
+            font-size: 14px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .drawer-link:hover {
+            color: var(--royal-text-main) !important;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        body.light-mode .drawer-link:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .drawer-link.active {
+            color: var(--royal-gold) !important;
+            background: rgba(var(--royal-accent-rgb), 0.08) !important;
+            border-left-color: var(--royal-gold);
+            font-weight: 600;
+        }
+
+        /* DOCK LAYOUT FOR DESKTOP */
+        @media (min-width: 1025px) {
+            .guide-layout {
+                display: block !important;
+                max-width: 1000px !important;
+                margin: 0 auto !important;
+                position: relative;
+                padding-left: 100px !important;
+            }
+            
+            .content-area {
+                width: 100% !important;
+            }
+
+            .sidebar-nav {
+                position: fixed !important;
+                top: 180px !important;
+                left: 30px !important;
+                width: 64px !important;
+                height: auto !important;
+                max-height: calc(100vh - 240px) !important;
+                background: rgba(17, 18, 21, 0.85) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                border: 1px solid var(--royal-border-gold) !important;
+                border-radius: 32px !important;
+                padding: 15px 0 !important;
+                margin-bottom: 0 !important;
+                overflow: hidden !important;
+                z-index: 9999 !important;
+                transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+            }
+
+            body.light-mode .sidebar-nav {
+                background: rgba(250, 249, 246, 0.9) !important;
+                box-shadow: 0 10px 30px rgba(144, 115, 74, 0.1) !important;
+            }
+
+            .sidebar-nav:hover {
+                width: 270px !important;
+                border-radius: 16px !important;
+                overflow-y: auto !important;
+            }
+
+            .sidebar-nav::-webkit-scrollbar {
+                width: 4px;
+            }
+            .sidebar-nav::-webkit-scrollbar-thumb {
+                background: var(--royal-border-gold);
+                border-radius: 2px;
+            }
+            
+            .sidebar-inner {
+                width: 270px !important;
+                background: transparent !important;
+                border: none !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+            }
+
+            .index-title {
+                display: block !important;
+                font-family: 'Outfit', sans-serif !important;
+                font-size: 11px !important;
+                font-weight: 700 !important;
+                letter-spacing: 2px !important;
+                text-transform: uppercase !important;
+                color: var(--royal-gold) !important;
+                margin: 5px 15px 15px 15px !important;
+                padding-bottom: 10px !important;
+                border-bottom: 1px solid var(--royal-border-gold) !important;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                white-space: nowrap;
+            }
+
+            .sidebar-nav:hover .index-title {
+                opacity: 1;
+            }
+
+            .index-list {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 8px !important;
+                padding: 0 8px !important;
+                list-style: none !important;
+            }
+
+            .index-link {
+                display: flex !important;
+                align-items: center !important;
+                gap: 16px !important;
+                font-family: 'Outfit', sans-serif !important;
+                font-size: 13.5px !important;
+                font-weight: 500 !important;
+                text-transform: capitalize !important;
+                color: var(--royal-text-muted) !important;
+                padding: 10px 14px !important;
+                width: calc(100% - 12px) !important;
+                border-radius: 20px !important;
+                border-left: none !important;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+                white-space: nowrap;
+            }
+
+            .index-link i {
+                display: inline-flex !important;
+                font-size: 13px !important;
+                width: 28px !important;
+                height: 28px !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                flex-shrink: 0 !important;
+                border-radius: 50% !important;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            .index-link span {
+                opacity: 0;
+                transition: opacity 0.2s ease;
+                pointer-events: none;
+            }
+
+            .sidebar-nav:hover .index-link span {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .index-link:hover {
+                color: var(--royal-text-main) !important;
+                background: rgba(255, 255, 255, 0.03) !important;
+            }
+
+            body.light-mode .index-link:hover {
+                background: rgba(0, 0, 0, 0.03) !important;
+            }
+
+            .index-link.active {
+                color: var(--royal-gold) !important;
+                background: rgba(var(--royal-accent-rgb), 0.08) !important;
+                font-weight: 600 !important;
+            }
+
+            .index-link.active i {
+                background-color: var(--royal-gold) !important;
+                color: var(--royal-bg-primary) !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar-nav {
+                display: none !important;
+            }
+            
+            .toc-trigger-fab {
+                display: flex !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad" id="home" style="background: linear-gradient(rgba(5, 8, 16, 0.65), rgba(5, 8, 16, 0.85)), url('assets/tuljabhavani_hero.png') no-repeat center center/cover !important;">
+        <div class="container">
+            <h1>TULJA BHAVANI TEMPLE GUIDE</h1>
+            <p>The Sacred Abode of Strength and Courage in Tuljapur</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html?category=temples">Temples</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Tulja Bhavani Temple</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Timings</p>
+                <h4>5:00 AM – 9:30 PM</h4>
+            </div>
+            <div class="stat-item">
+                <p>Entry Fee</p>
+                <h4>Free (General)</h4>
+            </div>
+            <div class="stat-item">
+                <p>Location</p>
+                <h4>Tuljapur, Dharashiv</h4>
+            </div>
+            <div class="stat-item">
+                <p>Major Festival</p>
+                <h4>Navratri</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <h3 class="index-title">GUIDE INDEX</h3>
+                <ul class="index-list">
+                    <li><a href="#about-temple" class="index-link active"><i class="fas fa-circle-info"></i> <span>About Temple</span></a></li>
+                    <li><a href="#history-significance" class="index-link"><i class="fas fa-history"></i> <span>History & Significance</span></a></li>
+                    <li><a href="#main-deity" class="index-link"><i class="fas fa-om"></i> <span>Main Deity</span></a></li>
+                    <li><a href="#temple-timings" class="index-link"><i class="fas fa-clock"></i> <span>Timings</span></a></li>
+                    <li><a href="#aarti-schedule" class="index-link"><i class="fas fa-fire"></i> <span>Aarti Schedule</span></a></li>
+                    <li><a href="#how-to-reach" class="index-link"><i class="fas fa-route"></i> <span>How to Reach</span></a></li>
+                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> <span>Visitor Info</span></a></li>
+                    <li><a href="#facilities" class="index-link"><i class="fas fa-building"></i> <span>Facilities</span></a></li>
+                    <li><a href="#festivals" class="index-link"><i class="fas fa-calendar-star"></i> <span>Festivals</span></a></li>
+                    <li><a href="#nearby-attractions" class="index-link"><i class="fas fa-map-marked-alt"></i> <span>Nearby Places</span></a></li>
+                    <li><a href="#location-map" class="index-link"><i class="fas fa-location-dot"></i> <span>Location Map</span></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About the Temple -->
+            <section id="about-temple" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Temple</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Tulja Bhavani Temple is one of the most respected and visited temples in Maharashtra, located in the holy town of Tuljapur in Dharashiv district. Dedicated to Goddess Tulja Bhavani, the temple attracts thousands of devotees every day and lakhs during major festivals. For many Maharashtrian families, the Goddess is their Kuldevi, making this temple an important part of their family traditions.</p>
+                        <p>The temple stands on the Balaghat hills and has been a center of faith for centuries. The surrounding streets are lined with shops selling flowers, coconuts, and religious items. The temple's ancient stone architecture adds to its spiritual charm. A visit to Tulja Bhavani Temple offers a beautiful blend of spirituality, culture, and history.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Significance</h4>
+                                <p class="about-fort-pill-text">Kuldevi of Maharashtra</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Location</h4>
+                                <p class="about-fort-pill-text">Balaghat Hills</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/tuljabhavani_about.png" alt="Tulja Bhavani Temple Exterior" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: History & Religious Significance -->
+            <section id="history-significance" class="guide-section about-fort-section">
+                <h2>History & <span class="gradient-text">Significance</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-img">
+                        <img src="assets/tuljabhavani_history.png" alt="Historical representation of Tulja Bhavani" class="about-fort-image">
+                    </div>
+                    <div class="about-fort-text">
+                        <p>Tulja Bhavani Temple has a rich history that dates back several centuries and is deeply rooted in Hindu traditions. According to local legends, Goddess Bhavani appeared to protect her devotee Anubhuti from a powerful demon. After defeating the demon, the Goddess chose Tuljapur as her sacred abode.</p>
+                        <p>The temple gained immense importance during the Maratha period and is closely associated with Chhatrapati Shivaji Maharaj. It is believed that Shivaji Maharaj was a devoted follower of Tulja Bhavani and sought her blessings before important battles. Because of this connection, the temple holds a special place in Maharashtra's history.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Royal Link</h4>
+                                <p class="about-fort-pill-text">Chhatrapati Shivaji Maharaj</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Symbol</h4>
+                                <p class="about-fort-pill-text">Bhavani Sword</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Main Deity -->
+            <section id="main-deity" class="guide-section about-fort-section">
+                <h2>Main <span class="gradient-text">Deity</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>The main deity worshipped here is Goddess Tulja Bhavani, who is considered a powerful form of Adi Shakti. The idol is carved from black stone and is believed to be self-manifested according to local beliefs. The Goddess is depicted with multiple arms holding divine weapons that symbolize her power to destroy evil and protect her devotees.</p>
+                        <p>Her fierce yet compassionate form attracts devotees from different parts of the country. The idol is beautifully decorated with flowers, sarees, ornaments, and traditional jewelry throughout the day. During special occasions, the deity is adorned with unique decorations that draw large crowds. The divine presence inside the sanctum creates a peaceful and spiritual experience for visitors.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Form</h4>
+                                <p class="about-fort-pill-text">Adi Shakti</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Idol</h4>
+                                <p class="about-fort-pill-text">Self-Manifested Black Stone</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/tuljabhavani_unique.png" alt="Tulja Bhavani Deity" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Temple Timings -->
+            <section id="temple-timings" class="guide-section essential-info-section">
+                <h2>Temple <span class="gradient-text">Timings</span></h2>
+                <p class="section-desc">The temple generally opens in the early morning and remains accessible throughout the day for devotees.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-sun"></i> Morning Darshan</h3>
+                        <p><strong>Opening:</strong> Around 5:00 AM</p>
+                        <p><strong>Morning Slot:</strong> 5:00 AM – 12:00 PM</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cloud-sun"></i> Afternoon Darshan</h3>
+                        <p><strong>Afternoon Slot:</strong> 12:30 PM – 6:30 PM</p>
+                        <p>Temple may close briefly for rituals between sessions.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-moon"></i> Evening Darshan</h3>
+                        <p><strong>Evening Slot:</strong> 7:00 PM onwards</p>
+                        <p><strong>Closing:</strong> Around 9:30 PM</p>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-style: italic;">Timings may change during Navratri and special religious occasions. Early morning visits are recommended for a peaceful darshan and shorter waiting times.</p>
+            </section>
+
+            <!-- Section 5: Aarti & Puja Schedule -->
+            <section id="aarti-schedule" class="guide-section essential-info-section">
+                <h2>Aarti & <span class="gradient-text">Puja Schedule</span></h2>
+                <p class="section-desc">The temple follows a daily schedule of rituals and prayers that attract devotees from across the region.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-fire"></i> Morning Rituals</h3>
+                        <p><strong>Kakad Aarti:</strong> Early Morning</p>
+                        <p><strong>Abhishek Puja:</strong> Morning Hours</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-hands-praying"></i> Daytime Rituals</h3>
+                        <p><strong>Alankar Puja:</strong> Before Noon</p>
+                        <p><strong>Mahanaivedya:</strong> Afternoon Offering</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-star"></i> Evening Rituals</h3>
+                        <p><strong>Evening Aarti:</strong> After Sunset</p>
+                        <p><strong>Shej Aarti:</strong> Before Temple Closing</p>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-style: italic;">Many devotees prefer attending the Kakad Aarti, as the early morning atmosphere inside the temple is considered especially sacred and peaceful.</p>
+            </section>
+
+            <!-- Section 6: How to Reach -->
+            <section id="how-to-reach" class="guide-section travel-guide-section">
+                <h2>How to <span class="gradient-text">Reach</span></h2>
+                <p class="section-desc">Tuljapur is well connected by road and can be easily reached from major cities in Maharashtra.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>By Road</h3>
+                            <p>Tuljapur is well connected via national and state highways. Mumbai is approximately 450 km, Pune is approximately 300 km, and Solapur is approximately 45 km away.</p>
+                            <span class="travel-guide-cost-badge">Solapur to Tuljapur: ~45 km</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>By Train</h3>
+                            <p>The nearest major railway station is Solapur, from where taxis and buses are easily available to Tuljapur. Solapur station is well connected to Mumbai, Pune, Hyderabad, and other major cities.</p>
+                            <span class="travel-guide-cost-badge">Nearest Junction: Solapur Station</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>By Bus</h3>
+                            <p>Regular MSRTC buses operate from Mumbai, Pune, Solapur, Latur, Dharashiv, and nearby cities directly to Tuljapur bus stand.</p>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>By Air</h3>
+                            <p>The nearest major airport is Pune Airport, while Solapur Airport is the closest airport to Tuljapur. Taxis are available from both airports.</p>
+                            <span class="travel-guide-cost-badge">Nearest Airport: Solapur / Pune</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7: Essential Visitor Information -->
+            <section id="essential-info" class="guide-section essential-info-section">
+                <h2>Essential <span class="gradient-text">Visitor Info</span></h2>
+                <p class="section-desc">Important details to ensure a smooth and comfortable temple visit.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-shirt"></i> Dress Code</h3>
+                        <p>Visitors should wear decent and comfortable clothing as the temple is an important religious site. Footwear must be removed before entering the temple premises.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-camera-slash"></i> Photography</h3>
+                        <p>Photography is generally not permitted inside the main sanctum area. Keep your phone on silent mode to maintain the peaceful atmosphere.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-user-group"></i> Crowd Tips</h3>
+                        <p>During weekends and festivals, waiting times may be longer. Senior citizens and families with children should plan visits during less crowded hours. Keep personal belongings secure.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 8: Facilities Available -->
+            <section id="facilities" class="guide-section essential-info-section">
+                <h2>Facilities <span class="gradient-text">Available</span></h2>
+                <p class="section-desc">The temple offers several facilities to make the visit comfortable for devotees and tourists.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-square-parking"></i> Parking & Access</h3>
+                        <p>Large parking areas are available for private vehicles and buses. Shoe-keeping facilities are available near the entrance for convenience.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-hotel"></i> Stay & Food</h3>
+                        <p>Several hotels, lodges, and guest houses are located close to the temple. Numerous prasad counters offer traditional offerings and religious items. The local market provides easy access to food and snacks.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-kit-medical"></i> Services</h3>
+                        <p>Clean washrooms, drinking water facilities, and basic hygiene facilities are available. Medical assistance is often available during large gatherings and festivals. Security arrangements are maintained for visitor safety.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Festivals & Special Events -->
+            <section id="festivals" class="guide-section major-attractions-section">
+                <h2>Festivals & <span class="gradient-text">Special Events</span></h2>
+                <p class="section-desc">Major celebrations that transform Tuljapur into a vibrant center of devotion.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/tuljabhavani_hero.png" alt="Navratri at Tulja Bhavani">
+                        <div class="major-attractions-overlay">
+                            <h3>Navratri</h3>
+                            <p>The most important festival, attracting lakhs of devotees. The temple is beautifully decorated with flowers, lights, and traditional decorations.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/tuljabhavani_about.png" alt="Dussehra Celebrations">
+                        <div class="major-attractions-overlay">
+                            <h3>Dussehra</h3>
+                            <p>Another major occasion when large numbers of devotees visit the temple to celebrate the victory of good over evil.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/tuljabhavani_unique.png" alt="Chaitra Navratri">
+                        <div class="major-attractions-overlay">
+                            <h3>Chaitra Navratri</h3>
+                            <p>Holds great significance among worshippers. Special aartis, ceremonies, and cultural programs are organized throughout.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/tuljabhavani_history.png" alt="Daily Rituals">
+                        <div class="major-attractions-overlay">
+                            <h3>Daily Rituals</h3>
+                            <p>Special arrangements are made by authorities to manage the crowd. The spiritual energy creates a unique atmosphere.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 10: Nearby Attractions -->
+            <section id="nearby-attractions" class="guide-section essential-info-section">
+                <h2>Nearby <span class="gradient-text">Attractions</span></h2>
+                <p class="section-desc">Combine your temple visit with these interesting attractions located nearby.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-fort-awesome"></i> Naldurg Fort</h3>
+                        <p>Known for its massive walls and impressive historical architecture, Naldurg Fort is one of the most popular attractions near Tuljapur.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-place-of-worship"></i> Akkalkot Swami Temple</h3>
+                        <p>An important spiritual destination associated with Swami Samarth Maharaj. A must-visit for devotees in the region.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-gopuram"></i> Dharashiv Caves & Siddheshwar</h3>
+                        <p>Explore ancient rock-cut Dharashiv Caves and the scenic Siddheshwar Temple beside a beautiful lake in Solapur.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 11: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Tulja Bhavani Temple, Tuljapur Town, Dharashiv District, Maharashtra 413601</p>
+
+                <!-- Route Planner -->
+                <div class="map-route-container">
+                    <div class="map-route-form">
+                        <div class="map-input-group">
+                            <label><i class="fas fa-circle-dot"></i> From</label>
+                            <input type="text" id="route-from" class="map-input" placeholder="Enter your starting location..." autocomplete="off">
+                        </div>
+                        <div class="map-input-group">
+                            <label><i class="fas fa-map-pin"></i> To</label>
+                            <input type="text" class="map-input" value="Tulja Bhavani Temple, Tuljapur, Maharashtra" readonly>
+                        </div>
+                        <button id="get-directions-btn" class="map-btn" onclick="openGoogleMapsDirections()">
+                            <i class="fas fa-diamond-turn-right"></i> Directions
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass location-map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.0!2d76.0256!3d18.0114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcf90c1b0b0b0b1%3A0xabcdef!2sTulja+Bhavani+Temple!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.google.com/maps/place/Tulja+Bhavani+Temple/@18.0114,76.0256,15z"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View on Google Maps
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure and spiritual destinations in Maharashtra. We specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Stay Updated</h4>
+                    <p class="mb-15 font-sm footer-newsletter-text">Subscribe to our newsletter for the latest adventure updates and offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Your Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating TOC Action Button -->
+    <button id="toc-trigger" class="toc-trigger-fab" aria-label="Open Guide Directory">
+        <svg class="progress-ring" width="56" height="56">
+            <circle class="progress-ring__circle" stroke="var(--royal-gold)" stroke-width="3" fill="transparent" r="24" cx="28" cy="28"/>
+        </svg>
+        <div class="toc-fab-icon">
+            <i class="fas fa-list-ol"></i>
+        </div>
+    </button>
+
+    <!-- Glassmorphic TOC Drawer Overlay -->
+    <div id="toc-drawer-overlay" class="toc-drawer-overlay">
+        <div class="toc-drawer">
+            <div class="toc-drawer-header">
+                <h3>Guide Chapters</h3>
+                <button id="toc-close-btn" class="toc-close-btn" aria-label="Close Guide Directory">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="toc-drawer-body">
+                <ul class="toc-drawer-list">
+                    <li><a href="#about-temple" class="drawer-link active"><i class="fas fa-circle-info"></i> About Temple</a></li>
+                    <li><a href="#history-significance" class="drawer-link"><i class="fas fa-history"></i> History & Significance</a></li>
+                    <li><a href="#main-deity" class="drawer-link"><i class="fas fa-om"></i> Main Deity</a></li>
+                    <li><a href="#temple-timings" class="drawer-link"><i class="fas fa-clock"></i> Timings</a></li>
+                    <li><a href="#aarti-schedule" class="drawer-link"><i class="fas fa-fire"></i> Aarti Schedule</a></li>
+                    <li><a href="#how-to-reach" class="drawer-link"><i class="fas fa-route"></i> How to Reach</a></li>
+                    <li><a href="#essential-info" class="drawer-link"><i class="fas fa-list-check"></i> Visitor Info</a></li>
+                    <li><a href="#facilities" class="drawer-link"><i class="fas fa-building"></i> Facilities</a></li>
+                    <li><a href="#festivals" class="drawer-link"><i class="fas fa-calendar-star"></i> Festivals</a></li>
+                    <li><a href="#nearby-attractions" class="drawer-link"><i class="fas fa-map-marked-alt"></i> Nearby Places</a></li>
+                    <li><a href="#location-map" class="drawer-link"><i class="fas fa-location-dot"></i> Location Map</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/kalsubai2.js"></script>
+    <script>
+        // Custom mobile FAB scroll progress & drawer navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('toc-trigger');
+            const overlay = document.getElementById('toc-drawer-overlay');
+            const closeBtn = document.getElementById('toc-close-btn');
+            const drawerLinks = document.querySelectorAll('.drawer-link');
+            const drawer = overlay.querySelector('.toc-drawer');
+            
+            // Toggle Drawer
+            const openDrawer = () => {
+                overlay.classList.add('active');
+                drawer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+            
+            const closeDrawer = () => {
+                overlay.classList.remove('active');
+                drawer.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+            
+            trigger.addEventListener('click', openDrawer);
+            closeBtn.addEventListener('click', closeDrawer);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closeDrawer();
+            });
+            
+            // Smooth Scroll for Drawer Links
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        closeDrawer();
+                        const headerOffset = 90;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        history.pushState(null, null, targetId);
+                    }
+                });
+            });
+            
+            // Sync Scroll Spy for both Sidebar and Drawer links
+            const sections = document.querySelectorAll('.content-area .guide-section');
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav .index-link');
+            
+            if (sections.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-80px 0px -50% 0px',
+                    threshold: 0
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.getAttribute('id');
+                            
+                            // Highlight sidebar links
+                            sidebarLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+                            
+                            // Highlight drawer links
+                            drawerLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+                
+                sections.forEach(section => observer.observe(section));
+            }
+            
+            // Circular Scroll Progress calculation
+            const circle = document.querySelector('.progress-ring__circle');
+            if (circle) {
+                const radius = circle.r.baseVal.value;
+                const circumference = radius * 2 * Math.PI;
+                
+                circle.style.strokeDasharray = `${circumference} ${circumference}`;
+                circle.style.strokeDashoffset = circumference;
+                
+                const setProgress = (percent) => {
+                    const offset = circumference - (percent / 100) * circumference;
+                    circle.style.strokeDashoffset = offset;
+                };
+                
+                const contentArea = document.querySelector('.content-area');
+                if (contentArea) {
+                    const calcProgress = () => {
+                        const rect = contentArea.getBoundingClientRect();
+                        const contentTop = rect.top + window.scrollY;
+                        const contentHeight = rect.height;
+                        const viewportHeight = window.innerHeight;
+                        const scrollTop = window.scrollY - contentTop;
+                        const scrollHeight = contentHeight - viewportHeight;
+                        
+                        let percent = 0;
+                        if (scrollHeight > 0) {
+                            percent = Math.max(0, Math.min(100, (scrollTop / scrollHeight) * 100));
+                        } else {
+                            percent = window.scrollY >= contentTop ? 100 : 0;
+                        }
+                        
+                        setProgress(percent);
+                    };
+                    
+                    window.addEventListener('scroll', calcProgress);
+                    calcProgress();
+                }
+            }
+        });
+    </script>
+    <script>
+        // Route Planner: Open Google Maps Directions
+        function openGoogleMapsDirections() {
+            const fromInput = document.getElementById('route-from');
+            const origin = fromInput.value.trim();
+            const destination = 'Tulja Bhavani Temple, Tuljapur, Maharashtra';
+
+            if (!origin) {
+                fromInput.focus();
+                fromInput.style.borderColor = '#ef4444';
+                fromInput.setAttribute('placeholder', 'Please enter a starting location...');
+                setTimeout(() => {
+                    fromInput.style.borderColor = '';
+                    fromInput.setAttribute('placeholder', 'Enter your starting location...');
+                }, 2500);
+                return;
+            }
+
+            const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
+            window.open(url, '_blank');
+        }
+
+        // Allow Enter key to trigger directions
+        document.getElementById('route-from').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                openGoogleMapsDirections();
+            }
+        });
+    </script>
+</body>
+
+</html>

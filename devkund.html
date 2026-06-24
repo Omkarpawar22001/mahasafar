@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devkund Waterfall Interactive Guide - Maha Safar</title>
+    <title>Devkund Waterfall - The Hidden Blue Gem of Maharashtra</title>
     <meta name="description"
         content="Premium interactive guide to Devkund Waterfall. Replicated glassmorphic layout, major attractions, essential stay info, and maps.">
     <!-- Google Fonts Integration -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -20,6 +20,871 @@
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/comon.css">
+    <style>
+        /* Bespoke Royal Editorial Publication Design for Devkund Waterfall */
+
+        :root {
+            --royal-bg-primary: #08090a;
+            --royal-bg-secondary: #111215;
+            --royal-gold: #c5a880;
+            --royal-gold-light: #dfcca6;
+            --royal-text-main: #f4f4f4;
+            --royal-text-muted: #a1a1a6;
+            --royal-border-gold: rgba(197, 168, 128, 0.2);
+            --royal-border-glass: rgba(255, 255, 255, 0.07);
+            --royal-accent-rgb: 197, 168, 128;
+        }
+
+        body.light-mode {
+            --royal-bg-primary: #faf9f6;
+            --royal-bg-secondary: #f4f2ea;
+            --royal-gold: #90734a;
+            --royal-gold-light: #ab8e65;
+            --royal-text-main: #18191b;
+            --royal-text-muted: #616267;
+            --royal-border-gold: rgba(144, 115, 74, 0.25);
+            --royal-border-glass: rgba(0, 0, 0, 0.09);
+            --royal-accent-rgb: 144, 115, 74;
+
+            /* Global theme color overrides to preserve site compatibility */
+            --bg-dark: #faf9f6 !important;
+            --bg-card: #f4f2ea !important;
+            --text-main: #18191b !important;
+            --text-muted: #616267 !important;
+            --primary: #90734a !important;
+            --primary-glow: rgba(144, 115, 74, 0.15) !important;
+            --border-glass: rgba(0, 0, 0, 0.09) !important;
+        }
+
+        body {
+            background-color: var(--royal-bg-primary) !important;
+            color: var(--royal-text-main) !important;
+            font-family: 'Inter', sans-serif !important;
+            line-height: 1.75 !important;
+
+            /* Global variables override for components integration */
+            --bg-dark: #08090a !important;
+            --bg-card: #111215 !important;
+            --text-main: #f4f4f4 !important;
+            --text-muted: #a1a1a6 !important;
+            --primary: #c5a880 !important;
+            --primary-glow: rgba(197, 168, 128, 0.15) !important;
+            --border-glass: rgba(255, 255, 255, 0.07) !important;
+        }
+
+        /* Reading progress bar */
+        .reading-progress-bar {
+            background: var(--royal-gold) !important;
+        }
+
+        /* Bespoke minimalist navbar overrides */
+        #navbar {
+            background: rgba(var(--royal-accent-rgb), 0.02) !important;
+            backdrop-filter: blur(15px) !important;
+            -webkit-backdrop-filter: blur(15px) !important;
+            border-bottom: 1px solid var(--royal-border-gold) !important;
+            box-shadow: none !important;
+            padding: 18px 0 !important;
+        }
+
+        #navbar .logo {
+            font-family: 'Outfit', sans-serif !important;
+            font-size: 20px !important;
+            font-weight: 800 !important;
+            letter-spacing: 2px !important;
+            color: var(--royal-text-main) !important;
+        }
+
+        #navbar .logo span {
+            color: var(--royal-gold) !important;
+        }
+
+        #navbar .nav-links a {
+            font-family: 'Outfit', sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            letter-spacing: 1px !important;
+            color: var(--royal-text-muted) !important;
+            text-transform: uppercase !important;
+        }
+
+        #navbar .nav-links a:hover,
+        #navbar .nav-links a.active {
+            color: var(--royal-gold) !important;
+            background: transparent !important;
+        }
+
+        #navbar .theme-toggle {
+            color: var(--royal-text-main) !important;
+            background: transparent !important;
+            border: 1px solid var(--royal-border-gold) !important;
+            border-radius: 0 !important;
+            width: 38px;
+            height: 38px;
+            transition: all 0.3s ease;
+        }
+
+        #navbar .theme-toggle:hover {
+            border-color: var(--royal-gold) !important;
+            color: var(--royal-gold) !important;
+        }
+
+        /* Hero banner */
+        .hero-devkund {
+            height: 70vh !important;
+            min-height: 480px;
+            background: linear-gradient(to bottom, rgba(8, 9, 10, 0.4), var(--royal-bg-primary)),
+                url('assets/devkund_hero.png') center/cover no-repeat !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 0 !important;
+        }
+
+        .hero-devkund h1 {
+            font-family: 'Playfair Display', serif !important;
+            font-size: clamp(38px, 6vw, 72px) !important;
+            font-weight: 800 !important;
+            letter-spacing: -1.5px !important;
+            color: var(--royal-text-main) !important;
+            margin-bottom: 12px !important;
+            text-transform: none !important;
+        }
+
+        .hero-devkund p {
+            font-family: 'Playfair Display', serif !important;
+            font-size: clamp(16px, 2.5vw, 22px) !important;
+            font-style: italic !important;
+            color: var(--royal-gold) !important;
+            font-weight: 400 !important;
+        }
+
+        .breadcrumbs {
+            display: none !important;
+            /* Hide breadcrumbs for clean aesthetic */
+        }
+
+        /* Quick stats row */
+        .stats-container {
+            margin-top: -55px !important;
+            margin-bottom: 70px !important;
+            max-width: 900px !important;
+        }
+
+        .hero-stats {
+            border: none !important;
+            border-top: 1px solid var(--royal-border-gold) !important;
+            border-bottom: 1px solid var(--royal-border-gold) !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            box-shadow: none !important;
+            padding: 25px 0 !important;
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 20px !important;
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 25px !important;
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item p {
+            font-size: 11px !important;
+            color: var(--royal-text-muted) !important;
+            letter-spacing: 1.5px !important;
+            margin-bottom: 5px !important;
+        }
+
+        .stat-item h4 {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            color: var(--royal-gold) !important;
+        }
+
+        /* Layout modifications */
+        .dashboard-layout {
+            display: block !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding: 0 20px !important;
+        }
+
+        /* Sticky top chapter bar instead of vertical left menu */
+        .sidebar-nav {
+            position: sticky !important;
+            top: 92px !important;
+            z-index: 999 !important;
+            background: var(--royal-bg-primary) !important;
+            border-bottom: 1px solid var(--royal-border-gold) !important;
+            padding: 12px 0 !important;
+            margin-bottom: 50px !important;
+            width: 100% !important;
+        }
+
+        .sidebar-dashboard-widget {
+            position: static !important;
+            display: block !important;
+            gap: 0 !important;
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .widget-header,
+        .widget-stat-list {
+            display: none !important;
+            /* Stats relocated to the top bar */
+        }
+
+        .index-list {
+            border-top: none !important;
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            gap: 15px !important;
+            list-style: none !important;
+            overflow-x: auto !important;
+            white-space: nowrap !important;
+            scrollbar-width: none !important;
+        }
+
+        .index-list::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        .index-list li {
+            margin: 0 !important;
+        }
+
+        .index-link {
+            font-family: 'Outfit', sans-serif !important;
+            text-transform: uppercase !important;
+            font-size: 11px !important;
+            letter-spacing: 1.5px !important;
+            font-weight: 600 !important;
+            color: var(--royal-text-muted) !important;
+            padding: 4px 0 !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+            text-decoration: none !important;
+            border: none !important;
+        }
+
+        .index-link::after {
+            display: none !important;
+        }
+
+        .index-link:hover {
+            color: var(--royal-gold) !important;
+            background: transparent !important;
+        }
+
+        .index-link.active {
+            color: var(--royal-gold) !important;
+            font-weight: 700 !important;
+            background: transparent !important;
+        }
+
+        .index-link i {
+            display: none !important;
+            /* Hide icon indicators */
+        }
+
+        /* Content panels */
+        .content-area {
+            width: 100% !important;
+        }
+
+        .glowing-card {
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+        }
+
+        .guide-section {
+            padding: 60px 0 !important;
+            border-bottom: 1px solid var(--royal-border-gold) !important;
+        }
+
+        .guide-section:last-of-type {
+            border-bottom: none !important;
+        }
+
+        /* Chapter Headings */
+        .guide-section h2 {
+            font-family: 'Playfair Display', serif !important;
+            font-size: clamp(28px, 4vw, 40px) !important;
+            font-weight: 700 !important;
+            letter-spacing: -0.5px !important;
+            color: var(--royal-text-main) !important;
+            margin-bottom: 25px !important;
+            text-align: center !important;
+            text-transform: none !important;
+        }
+
+        .guide-section h2 .gradient-text {
+            background: none !important;
+            -webkit-text-fill-color: initial !important;
+            color: var(--royal-gold) !important;
+        }
+
+        .guide-section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: var(--royal-gold);
+            margin: 18px auto 0;
+            opacity: 0.8;
+        }
+
+        .section-desc {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 15px !important;
+            font-style: italic !important;
+            color: var(--royal-text-muted) !important;
+            text-align: center !important;
+            margin-bottom: 45px !important;
+        }
+
+        .guide-section p {
+            font-size: 15px !important;
+            line-height: 1.85 !important;
+            color: var(--royal-text-main) !important;
+            margin-bottom: 20px !important;
+        }
+
+        /* Elegant drop cap on the very first paragraph of content sections */
+        .guide-section .glowing-card>p:first-of-type::first-letter,
+        .about-fort-section .glowing-card>p:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 3.8em !important;
+            float: left !important;
+            line-height: 0.8 !important;
+            margin-right: 10px !important;
+            margin-top: 4px !important;
+            color: var(--royal-gold) !important;
+            font-weight: 700 !important;
+        }
+
+        /* Attractions showcase (Chapter II) */
+        .attractions-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 50px !important;
+            margin-top: 30px !important;
+        }
+
+        .attraction-card {
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 35px !important;
+            align-items: center !important;
+            border: none !important;
+            padding: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .attraction-card:nth-child(even) {
+            flex-direction: row-reverse !important;
+        }
+
+        .attraction-img-wrapper {
+            width: 300px !important;
+            height: 190px !important;
+            border-radius: 0 !important;
+            border: 1px solid var(--royal-border-gold) !important;
+            padding: 5px !important;
+            background: var(--royal-bg-secondary) !important;
+            flex-shrink: 0 !important;
+        }
+
+        .attraction-card img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 0 !important;
+            transition: all 0.5s ease !important;
+        }
+
+        .attraction-card:hover img {
+            transform: scale(1.03) !important;
+            opacity: 0.95;
+        }
+
+        .attraction-overlay {
+            position: static !important;
+            background: transparent !important;
+            padding: 0 !important;
+            display: block !important;
+        }
+
+        .attraction-card h3 {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 20px !important;
+            font-weight: 700 !important;
+            color: var(--royal-text-main) !important;
+            margin-bottom: 10px !important;
+        }
+
+        .attraction-card:hover h3 {
+            color: var(--royal-gold) !important;
+        }
+
+        @media (max-width: 768px) {
+
+            .attraction-card,
+            .attraction-card:nth-child(even) {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 15px !important;
+            }
+
+            .attraction-img-wrapper {
+                width: 100% !important;
+                height: 220px !important;
+            }
+        }
+
+        /* Travel directions & route timelines (Chapter III) */
+        .travel-guide-timeline {
+            border-left: 1px solid var(--royal-border-gold) !important;
+            padding-left: 30px !important;
+        }
+
+        .travel-guide-item {
+            border-bottom: 1px solid var(--royal-border-glass) !important;
+            padding: 0 0 25px 0 !important;
+            margin-bottom: 25px !important;
+        }
+
+        .travel-guide-item:last-child {
+            border-bottom: none !important;
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        .travel-guide-item h3 {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 17px !important;
+            font-weight: 700 !important;
+            color: var(--royal-text-main) !important;
+        }
+
+        .travel-guide-item h3 i {
+            color: var(--royal-gold) !important;
+            margin-right: 8px;
+        }
+
+        .travel-guide-cost-badge {
+            border: 1px dashed var(--royal-gold) !important;
+            color: var(--royal-gold) !important;
+            border-radius: 0 !important;
+            font-family: 'Outfit', sans-serif !important;
+            font-size: 10px !important;
+            padding: 2px 10px !important;
+            margin-top: 8px !important;
+        }
+
+        /* Route tables and comparative cards */
+        .route-comparer-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+            margin-top: 30px !important;
+        }
+
+        .route-card {
+            border: none !important;
+            border-bottom: 1px dashed var(--royal-border-gold) !important;
+            background: transparent !important;
+            border-radius: 0 !important;
+            padding: 0 0 25px 0 !important;
+            margin-bottom: 5px !important;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .route-card {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 15px !important;
+            }
+
+            .route-card-header {
+                width: 100% !important;
+            }
+        }
+
+        .route-card:last-child {
+            border-bottom: none !important;
+        }
+
+        .route-card-header {
+            width: 200px;
+            flex-shrink: 0;
+        }
+
+        .route-card-header h4 {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            color: var(--royal-text-main) !important;
+        }
+
+        .route-badge {
+            font-family: 'Outfit', sans-serif !important;
+            font-size: 9px !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+            padding: 2px 10px !important;
+            border-radius: 0 !important;
+            display: inline-block;
+            margin-top: 6px;
+        }
+
+        /* Guide lists grid details */
+        .info-row-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+            margin-top: 40px !important;
+        }
+
+        .info-row-grid .route-card {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+        }
+
+        .info-row-grid .route-card h4 {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 19px !important;
+            font-weight: 700 !important;
+            color: var(--royal-gold) !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            margin-bottom: 15px !important;
+        }
+
+        .info-row-grid .route-card h4 i {
+            color: var(--royal-gold) !important;
+            font-size: 16px !important;
+        }
+
+        /* Checklists */
+        .checklist-container {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px !important;
+            margin-top: 30px !important;
+        }
+
+        @media (max-width: 600px) {
+            .checklist-container {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .checklist-item {
+            border-bottom: 1px solid var(--royal-border-gold) !important;
+            padding: 12px 0 !important;
+            background: transparent !important;
+            border-radius: 0 !important;
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 15px !important;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            border-color: var(--royal-gold) !important;
+        }
+
+        .checklist-checkbox {
+            border-radius: 50% !important;
+            /* Circle style */
+            border: 1px solid var(--royal-gold) !important;
+            width: 18px !important;
+            height: 18px !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            margin-top: 3px !important;
+        }
+
+        .checklist-item.checked .checklist-checkbox {
+            background: var(--royal-gold) !important;
+            color: var(--royal-bg-primary) !important;
+        }
+
+        .checklist-item.checked .checklist-checkbox i {
+            font-size: 9px !important;
+        }
+
+        .checklist-text {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .checklist-text strong {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 15px !important;
+            color: var(--royal-text-main);
+        }
+
+        .checklist-text span {
+            font-size: 12px !important;
+            color: var(--royal-text-muted);
+        }
+
+        .checklist-item.checked .checklist-text {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+
+        /* Map and Coordinate sections */
+        .location-map-box {
+            border: 1px solid var(--royal-border-gold) !important;
+            border-radius: 0 !important;
+            margin-top: 25px !important;
+            height: 380px !important;
+            box-shadow: none !important;
+            background: transparent !important;
+        }
+
+        .location-map-link-box {
+            margin-top: 15px !important;
+            text-align: left !important;
+        }
+
+        .location-map-link {
+            border: none !important;
+            border-bottom: 1px solid var(--royal-gold) !important;
+            color: var(--royal-text-main) !important;
+            font-family: 'Outfit', sans-serif !important;
+            text-transform: uppercase !important;
+            font-size: 11px !important;
+            letter-spacing: 1px !important;
+            padding: 3px 0 !important;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .location-map-link:hover {
+            color: var(--royal-gold) !important;
+        }
+
+        /* Dynamic Map directions route container overrides */
+        .map-route-container {
+            border: none !important;
+            border-top: 1px solid var(--royal-border-gold) !important;
+            border-bottom: 1px solid var(--royal-border-gold) !important;
+            background: transparent !important;
+            border-radius: 0 !important;
+            padding: 30px 0 !important;
+            margin: 40px 0 20px 0 !important;
+            backdrop-filter: none !important;
+            box-shadow: none !important;
+        }
+
+        .map-route-form {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr auto !important;
+            gap: 20px !important;
+            align-items: flex-end !important;
+        }
+
+        @media (max-width: 768px) {
+            .map-route-form {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+        }
+
+        .map-input-group label {
+            font-family: 'Outfit', sans-serif !important;
+            font-size: 11px !important;
+            letter-spacing: 1px !important;
+            color: var(--royal-gold) !important;
+        }
+
+        .map-input {
+            border-radius: 0 !important;
+            border: 1px solid var(--royal-border-gold) !important;
+            background: transparent !important;
+            color: var(--royal-text-main) !important;
+            font-size: 13.5px !important;
+            padding: 10px 12px !important;
+        }
+
+        .map-input:focus {
+            border-color: var(--royal-gold) !important;
+            background: rgba(var(--royal-accent-rgb), 0.04) !important;
+            box-shadow: none !important;
+        }
+
+        .map-input[readonly] {
+            border-color: var(--royal-border-glass) !important;
+            background: rgba(255, 255, 255, 0.02) !important;
+            color: var(--royal-text-muted) !important;
+        }
+
+        .map-btn {
+            border-radius: 0 !important;
+            background: var(--royal-gold) !important;
+            color: var(--royal-bg-primary) !important;
+            font-family: 'Outfit', sans-serif !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1.5px !important;
+            font-weight: 700 !important;
+            height: 40px !important;
+            padding: 0 25px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .map-btn:hover {
+            background: var(--royal-text-main) !important;
+            color: var(--royal-bg-primary) !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        .map-suggest-dropdown {
+            border-radius: 0 !important;
+            border: 1px solid var(--royal-border-gold) !important;
+            background: var(--royal-bg-secondary) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+            z-index: 2000 !important;
+        }
+
+        .map-suggest-item {
+            color: var(--royal-text-main) !important;
+            border-bottom: 1px solid var(--royal-border-glass) !important;
+        }
+
+        .map-suggest-item:last-child {
+            border-bottom: none !important;
+        }
+
+        .map-suggest-item:hover,
+        .map-suggest-item.highlighted {
+            background: rgba(var(--royal-accent-rgb), 0.1) !important;
+            color: var(--royal-gold) !important;
+        }
+
+        /* Bespoke Footer details */
+        footer {
+            background: var(--royal-bg-secondary) !important;
+            border-top: 1px solid var(--royal-border-gold) !important;
+            padding: 60px 0 30px !important;
+            margin-top: 60px !important;
+        }
+
+        footer h4 {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 16px !important;
+            letter-spacing: 1px !important;
+            color: var(--royal-gold) !important;
+            margin-bottom: 20px !important;
+            text-transform: none !important;
+        }
+
+        footer ul {
+            padding: 0 !important;
+            list-style: none !important;
+        }
+
+        footer ul a {
+            color: var(--royal-text-muted) !important;
+            font-size: 13.5px !important;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+            display: inline-block;
+            padding: 4px 0 !important;
+        }
+
+        footer ul a:hover {
+            color: var(--royal-gold) !important;
+            padding-left: 4px !important;
+            background: transparent !important;
+        }
+
+        .footer-social-icon {
+            border: 1px solid var(--royal-border-gold) !important;
+            color: var(--royal-text-muted) !important;
+            border-radius: 0 !important;
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social-icon:hover {
+            border-color: var(--royal-gold) !important;
+            color: var(--royal-gold) !important;
+            background: transparent !important;
+        }
+
+        .newsletter-input {
+            border-radius: 0 !important;
+            border: 1px solid var(--royal-border-gold) !important;
+            background: transparent !important;
+            color: var(--royal-text-main) !important;
+        }
+
+        .newsletter-btn {
+            border-radius: 0 !important;
+            background: var(--royal-gold) !important;
+            color: var(--royal-bg-primary) !important;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--royal-text-main) !important;
+            color: var(--royal-bg-primary) !important;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--royal-border-glass) !important;
+            margin-top: 40px !important;
+            padding-top: 25px !important;
+            color: var(--royal-text-muted) !important;
+            font-size: 12.5px !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,13 +898,13 @@
     <nav id="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <i class="fas fa-mountain-sun"></i>
-                MAHA<span>SAFAR</span>
+                <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html#home">Home</a></li>
-                                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down"
+                            style="font-size: 0.75rem; margin-left: 5px;"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="explore.html">All Places</a></li>
                         <li><a href="explore.html?category=treks">Treks</a></li>
@@ -52,18 +917,6 @@
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
             <div class="flex-center gap-15">
-                <div class="color-picker-wrapper">
-                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
-                        <i class="fas fa-palette"></i>
-                    </button>
-                    <div id="color-picker-menu" class="color-picker-menu">
-                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
-                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
-                        <span class="color-dot color-green" data-name="green" title="Green"></span>
-                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
-                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
-                    </div>
-                </div>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -77,17 +930,8 @@
     <!-- Hero Section -->
     <section class="hero hero-raigad hero-devkund" id="home">
         <div class="container">
-            <h1>DEVKUND WATERFALL GUIDE</h1>
-            <p>A Hidden Turquoise Plunge Pool deep inside Bhira Forest</p>
-            <div class="breadcrumbs">
-                <ul class="breadcrumb-list">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-separator">/</li>
-                    <li class="breadcrumb-item"><a href="explore.html">Trekking</a></li>
-                    <li class="breadcrumb-separator">/</li>
-                    <li class="breadcrumb-item active">Devkund Waterfall</li>
-                </ul>
-            </div>
+            <h1>DEVKUND WATERFALL</h1>
+            <p>The Hidden Blue Gem of Maharashtra</p>
         </div>
     </section>
 
@@ -96,36 +940,41 @@
         <div class="hero-stats glass">
             <div class="stat-item">
                 <p>Difficulty</p>
-                <h4>Easy - Moderate</h4>
+                <h4>Easy to Moderate</h4>
             </div>
             <div class="stat-item">
                 <p>Duration</p>
-                <h4>2 - 3 Hours One Way</h4>
+                <h4>2 - 3 Hours</h4>
             </div>
             <div class="stat-item">
-                <p>Water Profile</p>
-                <h4>Crystal-Clear Blue</h4>
+                <p>Trail Features</p>
+                <h4
+                    style="font-size: 14px !important; line-height: 1.4; font-family: 'Playfair Display', serif !important; margin-top: 5px;">
+                    Forest trails, rocky sections, stream crossings, valley viewpoints.</h4>
             </div>
             <div class="stat-item">
                 <p>Distance</p>
-                <h4>5 - 6 Kilometers</h4>
+                <h4>5 - 6 km Round Trip</h4>
             </div>
         </div>
     </div>
 
     <!-- Main Guide Layout Container -->
-    <div class="guide-layout container">
+    <div class="dashboard-layout container">
 
-        <!-- Sticky Sidebar Left Index -->
+        <!-- Sticky Top Chapter Navigation Bar -->
         <aside class="sidebar-nav">
-            <div class="sidebar-inner">
-                <h3 class="index-title">GUIDE INDEX</h3>
+            <div class="sidebar-dashboard-widget">
+                <!-- Anchors -->
                 <ul class="index-list">
-                    <li><a href="#about-fort" class="index-link active"><i class="fas fa-history"></i> About Falls</a></li>
-                    <li><a href="#major-attractions" class="index-link"><i class="fas fa-monument"></i> Major Attractions</a></li>
-                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
-                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential Info</a></li>
-                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location Map</a></li>
+                    <li><a href="#about-waterfall" class="index-link active">About</a></li>
+                    <li><a href="#what-you-experience" class="index-link">Experience</a></li>
+                    <li><a href="#travel-guide" class="index-link">Travel Guide</a></li>
+                    <li><a href="#best-time" class="index-link">Best Time</a></li>
+                    <li><a href="#essential-info" class="index-link">Essential Info</a></li>
+                    <li><a href="#nearby-attractions" class="index-link">Nearby Places</a></li>
+                    <li><a href="#location-map" class="index-link">Map</a></li>
+                    <li><a href="#final-thoughts" class="index-link">Thoughts</a></li>
                 </ul>
             </div>
         </aside>
@@ -133,123 +982,398 @@
         <!-- Main Content Area -->
         <main class="content-area">
 
-            <!-- Section 1: About Fort -->
-            <section id="about-fort" class="guide-section about-fort-section">
-                <h2>About <span class="gradient-text">Waterfall</span></h2>
-                <div class="about-fort-grid">
-                    <div class="about-fort-text">
-                        <p>Devkund Waterfall is one of the most beautiful waterfalls in Maharashtra, located near Bhira village in Raigad district. It is famous for its crystal-clear blue water, hidden jungle setting, and scenic trekking route through forests and river crossings.</p>
-                        <p>Devkund is a favorite destination for beginners, nature lovers, and photographers. This magical pool is the confluence of three rivers—Kundalika, Sudhagad, and Devkund—creating a massive, roaring plunge pool inside the rocks.</p>
-                        <div class="about-fort-flex-gap">
-                            <div class="glass about-fort-pill">
-                                <h4 class="about-fort-pill-title">Confluence Of</h4>
-                                <p class="about-fort-pill-text">3 Rivers</p>
+            <!-- Section 1: About Waterfall -->
+            <section id="about-waterfall" class="guide-section about-fort-section">
+                <div class="glowing-card">
+                    <h2>About <span class="gradient-text">Devkund Waterfall</span></h2>
+                    <p>Devkund Waterfall is one of Maharashtra's most beautiful plunge waterfalls, located near Bhira
+                        village in Raigad district. The name Devkund means 'Pond of Gods' and comes from the
+                        crystal-clear turquoise pool formed at the base of the waterfall. Standing approximately 80–100
+                        feet tall, the waterfall is surrounded by dense forests, rocky cliffs, and seasonal streams. It
+                        is fed by the Kundalika River and is among the most popular trekking destinations in
+                        Maharashtra.</p>
+
+                    <h3
+                        style="font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--royal-gold); margin-top: 30px; margin-bottom: 15px; text-align: left;">
+                        History and Significance</h3>
+                    <p>Considered sacred by local villagers, Devkund derives its name from its spiritual and natural
+                        significance. Located in the biodiversity-rich Western Ghats, it is famous for its crystal-clear
+                        blue-green water, scenic jungle trek, and ecological importance.</p>
+                </div>
+            </section>
+
+            <!-- Section 2: What You'll Experience -->
+            <section id="what-you-experience" class="guide-section major-attractions-section">
+                <div class="glowing-card">
+                    <h2>What You'll <span class="gradient-text">Experience</span></h2>
+                    <p class="section-desc">Explore the highlights of the hidden jungle trail and adventure activities
+                        at Devkund.</p>
+
+                    <div class="attractions-grid">
+                        <div class="attraction-card">
+                            <div class="attraction-img-wrapper">
+                                <img src="assets/devkund_pool.png" alt="Devkund Waterfall Pool">
                             </div>
-                            <div class="glass about-fort-pill">
-                                <h4 class="about-fort-pill-title">Rule</h4>
-                                <p class="about-fort-pill-text">Guide Mandatory</p>
+                            <div class="attraction-overlay">
+                                <h3>1. Devkund Waterfall</h3>
+                                <p>Standing approximately 80–100 feet tall, the waterfall plunges down into a
+                                    crystal-clear turquoise blue pool, offering a breathtaking and sacred sight.</p>
+                            </div>
+                        </div>
+                        <div class="attraction-card">
+                            <div class="attraction-img-wrapper">
+                                <img src="assets/devkund_forest.png" alt="Dense Forest Trail">
+                            </div>
+                            <div class="attraction-overlay">
+                                <h3>2. Jungle Trek</h3>
+                                <p>An immersive trek through the dense and biodiversity-rich forests of the Western
+                                    Ghats, crossing seasonal streams and rocky pathways.</p>
+                            </div>
+                        </div>
+                        <div class="attraction-card">
+                            <div class="attraction-img-wrapper">
+                                <img src="assets/devkund_river.png" alt="Kundalika River">
+                            </div>
+                            <div class="attraction-overlay">
+                                <h3>3. Kundalika River</h3>
+                                <p>The beautiful river feeding Devkund Waterfall, offering rich aquatic sights and
+                                    serving as a key river source in Raigad district.</p>
+                            </div>
+                        </div>
+                        <div class="attraction-card">
+                            <div class="attraction-img-wrapper">
+                                <img src="assets/devkund_hills.png" alt="Tamhini Ghat Views">
+                            </div>
+                            <div class="attraction-overlay">
+                                <h3>4. Tamhini Ghat Views</h3>
+                                <p>Breathtaking mountain views of surrounding ridges, deep valleys, and beautiful green
+                                    passes visible along the trek route.</p>
+                            </div>
+                        </div>
+                        <div class="attraction-card">
+                            <div class="attraction-img-wrapper">
+                                <img src="assets/devkund_about.png" alt="Sunrise and Monsoon Landscapes">
+                            </div>
+                            <div class="attraction-overlay">
+                                <h3>5. Sunrise and Monsoon Landscapes</h3>
+                                <p>Beautiful landscapes highlighting mist-filled Sahyadri valleys and fresh greenery
+                                    during the sunrise hours and wet monsoon seasons.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="about-fort-img">
-                        <img src="assets/devkund_about.png" alt="Devkund Waterfall Trail" class="about-fort-image">
+
+                    <h3
+                        style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--royal-gold); margin-top: 50px; margin-bottom: 20px; text-align: center;">
+                        Adventure Activities</h3>
+                    <p
+                        style="text-align: center; max-width: 700px; margin: 0 auto 30px; color: var(--royal-text-muted);">
+                        Devkund is a hub for adventure sports, offering a wide array of activities depending on the
+                        season:</p>
+                    <div class="checklist-container" style="margin-top: 10px;">
+                        <div class="checklist-item checked">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Trekking</strong><span>Forest trail to the waterfall
+                                    base</span></div>
+                        </div>
+                        <div class="checklist-item checked">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>River Crossing</strong><span>Thrilling stream and river
+                                    navigations</span></div>
+                        </div>
+                        <div class="checklist-item checked">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Nature Photography</strong><span>Capturing the turquoise
+                                    pool and lush cliffs</span></div>
+                        </div>
+                        <div class="checklist-item checked">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Camping</strong><span>Lakeside and village campsites
+                                    near Bhira</span></div>
+                        </div>
+                        <div class="checklist-item checked">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>White Water Rafting</strong><span>Rafting on the
+                                    adjacent Kundalika River</span></div>
+                        </div>
+                        <div class="checklist-item checked">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Waterfall Rappelling</strong><span>Thrilling vertical
+                                    descent (season dependent)</span></div>
+                        </div>
+                        <div class="checklist-item checked">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Valley Crossing</strong><span>Suspended aerial crossings
+                                    across steep valleys</span></div>
+                        </div>
+                        <div class="checklist-item checked">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Zipline Activities</strong><span>Flying fox and zip
+                                    lines through forest canopy</span></div>
+                        </div>
+                        <div class="checklist-item checked">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Rock Climbing</strong><span>Scaling rocky cliffs around
+                                    the waterfall trail</span></div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Section 2: Major Attractions -->
-            <section id="major-attractions" class="guide-section major-attractions-section">
-                <h2>Major <span class="gradient-text">Attractions</span></h2>
-                <p class="section-desc">Explore the highlights of the hidden jungle trail to Devkund.</p>
-
-                <div class="major-attractions-showcase">
-                    <div class="major-attractions-box">
-                        <img src="assets/devkund_pool.png" alt="Devkund Waterfall Pool">
-                        <div class="major-attractions-overlay">
-                            <h3>Devkund Pool</h3>
-                            <p>A spectacular turquoise-colored natural plunge pool where the waterfall drops down from a height of 80 feet.</p>
-                        </div>
-                    </div>
-                    <div class="major-attractions-box">
-                        <img src="assets/devkund_forest.png" alt="Dense Forest Trail">
-                        <div class="major-attractions-overlay">
-                            <h3>Dense Forest Trail</h3>
-                            <p>A beautiful walk through the dense wilderness of the Devkund/Bhira forest reserve.</p>
-                        </div>
-                    </div>
-                    <div class="major-attractions-box">
-                        <img src="assets/devkund_river.png" alt="River Crossings">
-                        <div class="major-attractions-overlay">
-                            <h3>River Crossings</h3>
-                            <p>Thrilling stream and river crossings along the route that add to the adventure.</p>
-                        </div>
-                    </div>
-                    <div class="major-attractions-box">
-                        <img src="assets/devkund_hills.png" alt="Surrounding Sahyadri Hills">
-                        <div class="major-attractions-overlay">
-                            <h3>Sahyadri Ridges</h3>
-                            <p>Majestic views of surrounding peaks and the nearby Plus Valley landscape.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section: Travel Guide -->
+            <!-- Section 3: Travel Guide -->
             <section id="travel-guide" class="guide-section travel-guide-section">
-                <h2>Travel <span class="gradient-text">Guide</span></h2>
-                <p class="section-desc">Comprehensive routes to reach Bhira base village from Mumbai.</p>
+                <div class="glowing-card">
+                    <h2>Travel <span class="gradient-text">Guide</span></h2>
+                    <p class="section-desc">Comprehensive routes to reach Bhira base village from Mumbai and Pune.</p>
 
-                <div class="travel-guide-container">
-                    <div class="travel-guide-timeline">
-                        <div class="travel-guide-item">
-                            <h3>Option 1: Rail & Local Transit</h3>
-                            <p>Take a Mumbai local train to Lonavala station. From Lonavala, hire a private cab or board local buses heading to Bhira village. Shared autos are also available on key stops.</p>
-                            <span class="travel-guide-cost-badge">Cost: ₹300 – ₹600 Approx</span>
-                        </div>
-                        <div class="travel-guide-item">
-                            <h3>Option 2: Direct Drive</h3>
-                            <p>A scenic ~170 km drive from Mumbai via the Mumbai-Pune Expressway, exiting at Khopoli towards Pali town, then driving to Bhira village. Parking is available near the base. A local guide is mandatory as per forest regulations.</p>
+                    <div class="travel-guide-container">
+                        <div class="travel-guide-timeline">
+                            <div class="travel-guide-item">
+                                <h3><i class="fas fa-train"></i> By Train</h3>
+                                <p>The nearest transit stations are <strong>Lonavala Railway Station</strong> and
+                                    <strong>Khopoli Railway Station</strong>. From there, you can hire private cabs,
+                                    shared autos, or local buses to reach Bhira village.
+                                </p>
+                            </div>
+                            <div class="travel-guide-item">
+                                <h3><i class="fas fa-bus"></i> By Bus</h3>
+                                <p><strong>From Pune:</strong> Pune &rarr; Paud &rarr; Mulshi &rarr; Tamhini &rarr;
+                                    Bhira</p>
+                                <p><strong>From Mumbai:</strong> Mumbai &rarr; Khopoli &rarr; Pali &rarr; Bhira</p>
+                            </div>
+                            <div class="travel-guide-item">
+                                <h3><i class="fas fa-car"></i> By Car</h3>
+                                <p><strong>From Pune:</strong> Pune &rarr; Chandani Chowk &rarr; Mulshi &rarr; Tamhini
+                                    &rarr; Bhira</p>
+                                <p><strong>From Mumbai:</strong> Mumbai &rarr; Panvel &rarr; Khopoli &rarr; Pali &rarr;
+                                    Bhira</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Section 3: Essential Info -->
+            <!-- Section 4: Best Time to Visit -->
+            <section id="best-time" class="guide-section best-time-section">
+                <div class="glowing-card">
+                    <h2>Best Time to <span class="gradient-text">Visit</span></h2>
+                    <p class="section-desc">Plan your trek according to the seasons to experience Devkund at its best.
+                    </p>
+
+                    <div class="info-row-grid">
+                        <div class="route-card" style="text-align: left;">
+                            <h4><i class="fas fa-cloud-showers-heavy"></i> Monsoon Season (June – September)</h4>
+                            <p>
+                                During the monsoons, the waterfall transforms into a massive, roaring force of nature
+                                surrounded by lush greenery and seasonal streams. Note that trails can be muddy and
+                                slippery, and treks may be closed by authorities during extreme rainfall warnings.
+                            </p>
+                        </div>
+                        <div class="route-card" style="text-align: left;">
+                            <h4><i class="fas fa-snowflake"></i> Post-Monsoon (October – February) — Best Overall</h4>
+                            <p>
+                                The ideal time to visit Devkund. The water flow is gentle and safe, and the plunge pool
+                                turns into a signature crystal-clear turquoise blue. The weather is cool and pleasant
+                                for trekking.
+                            </p>
+                        </div>
+                        <div class="route-card" style="text-align: left;">
+                            <h4><i class="fas fa-sun"></i> Summer Season (March – May)</h4>
+                            <p>
+                                The weather is hot, and water levels recede significantly. Trekking during early morning
+                                hours is recommended to avoid heat.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Essential Information -->
             <section id="essential-info" class="guide-section essential-info-section">
-                <h2>Essential <span class="gradient-text">Information</span></h2>
-                <p class="section-desc">Everything you need to know for a smooth adventure.</p>
+                <div class="glowing-card">
+                    <h2>Essential <span class="gradient-text">Information</span></h2>
+                    <p class="section-desc">Important planning details for base village, food, stay, packing, and
+                        safety.</p>
 
-                <div class="essential-info-grid">
-                    <div class="essential-info-card glass card-padding-large">
-                        <h3 class="primary-heading mb-20"><i class="fas fa-campground"></i> Stay & Food</h3>
-                        <p>No overnight stays are allowed at the waterfall pool. Homestays, camping options, and local village diners are available in Bhira village at the base of the trek.</p>
+                    <div class="info-row-grid" style="margin-top: 10px;">
+                        <div class="route-card" style="text-align: left;">
+                            <h4><i class="fas fa-map-pin"></i> Base Village</h4>
+                            <p><strong>Bhira Village</strong> serves as the base starting point for the Devkund
+                                Waterfall trek.</p>
+                        </div>
+                        <div class="route-card" style="text-align: left;">
+                            <h4><i class="fas fa-utensils"></i> Food & Meals</h4>
+                            <p>Local village stalls and eateries serve simple snacks and meals: <strong>Poha, Misal Pav,
+                                    Vada Pav, Tea, Maggi, and Maharashtrian meals</strong>.</p>
+                        </div>
+                        <div class="route-card" style="text-align: left;">
+                            <h4><i class="fas fa-campground"></i> Stay & Accommodation</h4>
+                            <p>Options include basic <strong>homestays in Bhira, Tamhini, and Mulshi</strong>, or
+                                premium <strong>resorts near Mulshi Lake and Tamhini Ghat</strong>.</p>
+                        </div>
                     </div>
-                    <div class="essential-info-card glass card-padding-large">
-                        <h3 class="primary-heading mb-20"><i class="fas fa-backpack"></i> Essentials</h3>
-                        <p>Carry 3 liters water, trekking shoes (highly important), extra dry clothes, a high-quality raincoat, a waterproof bag for electronic gear, and a first aid kit.</p>
+
+                    <h4
+                        style="margin-top: 40px; border-bottom: 1px solid var(--royal-border-gold); padding-bottom: 8px; font-weight: 700; color: var(--royal-text-main); text-align: left;">
+                        <i class="fas fa-backpack"></i> Interactive Packing Checklist
+                    </h4>
+                    <div class="checklist-container">
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>ID Proof</strong><span>Mandatory for forest check</span>
+                            </div>
+                        </div>
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Trekking Shoes</strong><span>Must have anti-slip strong
+                                    grip</span></div>
+                        </div>
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Quick-Dry Clothes</strong><span>Avoid heavy cotton
+                                    wear</span></div>
+                        </div>
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Rain Jacket/Poncho</strong><span>Essential during
+                                    monsoon</span></div>
+                        </div>
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Water Bottles</strong><span>Carry at least 2
+                                    liters</span></div>
+                        </div>
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Energy Bars</strong><span>Maintain high energy
+                                    levels</span></div>
+                        </div>
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Dry Fruits</strong><span>Quick, nutrient-dense
+                                    snacking</span></div>
+                        </div>
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>First Aid Kit</strong><span>Basic medicines &
+                                    bandages</span></div>
+                        </div>
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Power Bank</strong><span>To keep your phone
+                                    charged</span></div>
+                        </div>
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Torch</strong><span>Essential for early or late
+                                    hours</span></div>
+                        </div>
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Extra Clothes</strong><span>Useful after a dip in the
+                                    pool</span></div>
+                        </div>
+                        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                            <div class="checklist-checkbox"><i class="fas fa-check"></i></div>
+                            <div class="checklist-text"><strong>Waterproof Mobile Pouch</strong><span>Protect
+                                    electronics from wet spray</span></div>
+                        </div>
                     </div>
-                    <div class="essential-info-card glass card-padding-large">
-                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time</h3>
-                        <p>June to September (Monsoon) for heavy waterfalls, and October to February (Winter) for crystal-clear turquoise blue water views. Avoid visiting during heavy rain red alerts.</p>
+
+                    <h4
+                        style="margin-top: 40px; border-bottom: 1px solid var(--royal-border-gold); padding-bottom: 8px; font-weight: 700; color: var(--royal-text-main); text-align: left;">
+                        <i class="fas fa-shield-halved"></i> Safety Guidelines
+                    </h4>
+                    <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+                        <p style="margin: 0; display: flex; gap: 10px; align-items: flex-start;"><i
+                                class="fas fa-circle-exclamation"
+                                style="color: var(--royal-gold); margin-top: 4px;"></i> Avoid visiting during heavy
+                            rainfall alerts or red alerts issued by local authorities.</p>
+                        <p style="margin: 0; display: flex; gap: 10px; align-items: flex-start;"><i
+                                class="fas fa-circle-exclamation"
+                                style="color: var(--royal-gold); margin-top: 4px;"></i> Never stand directly below the
+                            strong waterfall plunge flow due to force and falling debris.</p>
+                        <p style="margin: 0; display: flex; gap: 10px; align-items: flex-start;"><i
+                                class="fas fa-circle-exclamation"
+                                style="color: var(--royal-gold); margin-top: 4px;"></i> Wear anti-slip trekking shoes to
+                            navigate slippery rocks and stream crossings.</p>
+                        <p style="margin: 0; display: flex; gap: 10px; align-items: flex-start;"><i
+                                class="fas fa-circle-exclamation"
+                                style="color: var(--royal-gold); margin-top: 4px;"></i> Stay with your group and do not
+                            wander off into deep sections of the forest reserve.</p>
+                        <p style="margin: 0; display: flex; gap: 10px; align-items: flex-start;"><i
+                                class="fas fa-circle-exclamation"
+                                style="color: var(--royal-gold); margin-top: 4px;"></i> Start early to complete the trek
+                            and return before sunset hours.</p>
+                        <p style="margin: 0; display: flex; gap: 10px; align-items: flex-start;"><i
+                                class="fas fa-circle-exclamation"
+                                style="color: var(--royal-gold); margin-top: 4px;"></i> Do not litter. Keep the forest
+                            ecosystem clean and eco-friendly.</p>
+                        <p style="margin: 0; display: flex; gap: 10px; align-items: flex-start;"><i
+                                class="fas fa-circle-exclamation"
+                                style="color: var(--royal-gold); margin-top: 4px;"></i> Always follow local guide
+                            instructions and stay within permitted safety zones.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Section 4: Location Map -->
-            <section id="location-map" class="guide-section location-map-section">
-                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
-                <p class="section-desc">Devkund Waterfall, Bhira Village, Raigad District, Maharashtra, India</p>
+            <!-- Section 6: Nearby Attractions -->
+            <section id="nearby-attractions" class="guide-section nearby-attractions-section">
+                <div class="glowing-card">
+                    <h2>Nearby <span class="gradient-text">Attractions</span></h2>
+                    <p class="section-desc">Extend your adventure to these scenic spots located around Bhira village.
+                    </p>
 
-                <div class="glass location-map-box">
-                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                        src="https://www.openstreetmap.org/export/embed.html?bbox=73.3690%2C18.3870%2C73.4090%2C18.4270&amp;layer=mapnik&amp;marker=18.4070%2C73.3890"
-                        class="location-map-iframe"></iframe>
+                    <div class="info-row-grid">
+                        <div class="route-card" style="text-align: left;">
+                            <h4><i class="fas fa-mountain"></i> Tamhini Ghat</h4>
+                            <p>A breathtaking mountain passage famous for scenic valleys, massive green landscapes, and
+                                numerous seasonal roadside waterfalls during monsoon months.</p>
+                        </div>
+                        <div class="route-card" style="text-align: left;">
+                            <h4><i class="fas fa-water"></i> Mulshi Lake</h4>
+                            <p>A large, serene reservoir formed by the Mulshi Dam, offering camping, boating, and scenic
+                                resorts on its shores.</p>
+                        </div>
+                        <div class="route-card" style="text-align: left;">
+                            <h4><i class="fas fa-sailboat"></i> Kundalika River & Bhira Dam</h4>
+                            <p>Bhira Dam (the base village site) feeds the Kundalika River, popular across India for
+                                white-water river rafting and camping tours.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="location-map-link-box">
-                    <a href="https://www.openstreetmap.org/?mlat=18.4070&amp;mlon=73.3890#map=16/18.4070/73.3890"
-                        target="_blank" class="location-map-link">
-                        <i class="fas fa-map-location-dot"></i> View Larger Map
-                    </a>
+            </section>
+
+            <!-- Section 7: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <div class="glowing-card">
+                    <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                    <p class="section-desc">Devkund Waterfall, Bhira, Raigad District, Maharashtra (Coordinates: 18.405°
+                        N, 73.381° E)</p>
+
+                    <div class="glass location-map-box">
+                        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0"
+                            marginwidth="0"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=73.3610%2C18.3850%2C73.4010%2C18.4250&amp;layer=mapnik&amp;marker=18.4050%2C73.3810"
+                            class="location-map-iframe"></iframe>
+                    </div>
+                    <div class="location-map-link-box">
+                        <a href="https://www.openstreetmap.org/?mlat=18.4050&amp;mlon=73.3810#map=16/18.4050/73.3810"
+                            target="_blank" class="location-map-link">
+                            <i class="fas fa-map-location-dot"></i> View Larger Map
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 8: Final Thoughts -->
+            <section id="final-thoughts" class="guide-section final-thoughts-section">
+                <div class="glowing-card" style="text-align: center;">
+                    <h2>Final <span class="gradient-text">Thoughts</span></h2>
+                    <p
+                        style="font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: var(--royal-gold); line-height: 1.6; max-width: 700px; margin: 0 auto 20px;">
+                        "Devkund Waterfall is one of Maharashtra's finest nature destinations, offering trekking,
+                        photography, rafting, camping, and a peaceful escape into the Western Ghats."
+                    </p>
                 </div>
             </section>
 
@@ -262,8 +1386,7 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="index.html" class="logo footer-logo">
-                        <i class="fas fa-mountain-sun"></i>
-                        MAHA<span>SAFAR</span>
+                        <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
                     </a>
                     <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
                         specialize in safe, curated, and unforgettable experiences.</p>
@@ -273,21 +1396,12 @@
                         <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-                <div class="footer-links">
+                                <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html#home">Home</a></li>
-                                        <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="explore.html">All Places</a></li>
-                        <li><a href="explore.html?category=treks">Treks</a></li>
-                        <li><a href="explore.html?category=temples">Temples</a></li>
-                        <li><a href="explore.html?category=camping">Camping</a></li>
-                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
-                    </ul>
-                </li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -300,13 +1414,14 @@
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Newsletter</h4>
-                    <p class="footer-newsletter-text">Get the latest trek updates and early bird offers.</p>
+                    <h4>Stay Updated</h4>
+                    <p class="mb-15 font-sm footer-newsletter-text">Subscribe to our newsletter for the latest adventure updates and offers.</p>
                     <div class="form-group newsletter-form">
-                        <input type="email" placeholder="Email" class="newsletter-input">
-                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                        <input type="email" placeholder="Your Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
+                
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
@@ -319,5 +1434,6 @@
 </body>
 
 </html>
+
 
 

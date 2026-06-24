@@ -1,3 +1,22 @@
+// --- Splash Popup ---
+(() => {
+    const splash = document.createElement('div');
+    splash.id = 'splash-popup';
+    splash.innerHTML = '<img src="assets/mahasafar.png" alt="Welcome">';
+    if (document.body) {
+        document.body.insertBefore(splash, document.body.firstChild);
+        document.body.style.overflow = 'hidden';
+    }
+
+    setTimeout(() => {
+        splash.classList.add('fade-out');
+        setTimeout(() => {
+            if (splash.parentNode) splash.parentNode.removeChild(splash);
+            document.body.style.overflow = '';
+        }, 500);
+    }, 3000);
+})();
+
 // --- Preloader Dynamic Injection & Fade Out ---
 (() => {
     const preloader = document.createElement('div');
@@ -17,7 +36,10 @@
         document.body.classList.add('loading-active');
     }
 
+    let isHidden = false;
     const hidePreloader = () => {
+        if (isHidden) return;
+        isHidden = true;
         preloader.classList.add('fade-out');
         if (document.body) {
             document.body.classList.remove('loading-active');
@@ -29,11 +51,18 @@
         }, 600);
     };
 
-    if (document.readyState === 'complete') {
+    // Hide preloader when the DOM is parsed and ready
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
         hidePreloader();
     } else {
-        window.addEventListener('load', hidePreloader);
+        document.addEventListener('DOMContentLoaded', hidePreloader);
     }
+
+    // Safety fallback: hide preloader after 1.5 seconds under all circumstances
+    setTimeout(hidePreloader, 1500);
+
+    // Also hide on window load
+    window.addEventListener('load', hidePreloader);
 })();
 
 // --- Swiper Slider Initializations (Only if Library is Loaded) ---
@@ -120,33 +149,35 @@ if (typeof Swiper !== 'undefined') {
     })();
 
     // 1. Hero Content Slider
-    const heroSwiper = new Swiper('.hero-swiper', {
-        loop: true,
-        speed: 1000,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.hero-swiper .swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.hero-swiper .swiper-button-next',
-            prevEl: '.hero-swiper .swiper-button-prev',
-        },
-        on: {
-            slideChangeTransitionStart: function () {
-                const activeSlide = this.slides[this.activeIndex];
-                const reveals = activeSlide.querySelectorAll('.reveal');
-                reveals.forEach(el => {
-                    el.classList.remove('active');
-                    void el.offsetWidth;
-                    el.classList.add('active');
-                });
+    if (document.querySelector('.hero-swiper')) {
+        const heroSwiper = new Swiper('.hero-swiper', {
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.hero-swiper .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.hero-swiper .swiper-button-next',
+                prevEl: '.hero-swiper .swiper-button-prev',
+            },
+            on: {
+                slideChangeTransitionStart: function () {
+                    const activeSlide = this.slides[this.activeIndex];
+                    const reveals = activeSlide.querySelectorAll('.reveal');
+                    reveals.forEach(el => {
+                        el.classList.remove('active');
+                        void el.offsetWidth;
+                        el.classList.add('active');
+                    });
+                }
             }
-        }
-    });
+        });
+    }
 
     // 2. Upcoming Expeditions Slider (Supports multiple instances)
     const expeditionSwipers = document.querySelectorAll('.expedition-swiper');
@@ -188,24 +219,26 @@ if (typeof Swiper !== 'undefined') {
     });
 
     // 3. Testimonials Slider
-    const testiSwiper = new Swiper('.testimonial-swiper', {
-        slidesPerView: 3, // Show 3 stories by default
-        spaceBetween: 30,
-        loop: true,
-        autoplay: {
-            delay: 4000,
-        },
-        pagination: {
-            el: '.testimonial-swiper .swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            // Ensure mobile/tablet still scale down properly
-            0: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-        }
-    });
+    if (document.querySelector('.testimonial-swiper')) {
+        const testiSwiper = new Swiper('.testimonial-swiper', {
+            slidesPerView: 3, // Show 3 stories by default
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+            },
+            pagination: {
+                el: '.testimonial-swiper .swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                // Ensure mobile/tablet still scale down properly
+                0: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+    }
 }
 
 // --- Legacy Background Slider Fallback (For Trekking/Raigad pages) ---
@@ -284,16 +317,20 @@ window.addEventListener('load', initReveals);
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
         const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+        if (targetId === '#') return;
 
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
+        e.preventDefault();
+        try {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        } catch (err) {
+            console.warn("Invalid smooth scroll target:", targetId);
         }
     });
 });

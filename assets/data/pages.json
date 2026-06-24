@@ -30,7 +30,7 @@
         "category":  "Treks"
     },
     {
-        "name":  "Ashtavinayak Temple Tour",
+        "name":  "Ashtavinayak Temple",
         "link":  "ashtavinayak.html",
         "category":  "Temples"
     },
@@ -45,7 +45,7 @@
         "category":  "Treks"
     },
     {
-        "name":  "Grishneshwar Temple Tour",
+        "name":  "Grishneshwar Temple",
         "link":  "grishneshwar.html",
         "category":  "Temples"
     },
@@ -90,7 +90,7 @@
         "category":  "Treks"
     },
     {
-        "name":  "Mahalaxmi Temple Tour",
+        "name":  "Mahalaxmi Temple ",
         "link":  "mahalaxmi.html",
         "category":  "Temples"
     },
@@ -170,77 +170,77 @@
         "category":  "Treks"
     },
     {
-        "name":  "Aundha Nagnath Temple Tour",
+        "name":  "Aundha Nagnath Temple ",
         "link":  "Anudha_Nagnath_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Trimbakeshwar Temple Tour",
+        "name":  "Trimbakeshwar Temple ",
         "link":  "Tribakeshwar_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Siddhivinayak Temple Tour",
+        "name":  "Siddhivinayak Temple ",
         "link":  "Siddhivinayak_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Saptashrungi Temple Tour",
+        "name":  "Saptashrungi Temple ",
         "link":  "Saptashrungi_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Shani Shingnapur Tour",
+        "name":  "Shani Shingnapur ",
         "link":  "Shani_Shinganapur_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Renuka Devi Temple Tour",
+        "name":  "Renuka Devi Temple ",
         "link":  "Renuka_Devi_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Parli Vaijnath Temple Tour",
+        "name":  "Parli Vaijnath Temple ",
         "link":  "Parli_Vajinath_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Pandharpur Vitthal Tour",
+        "name":  "Pandharpur Vitthal ",
         "link":  "Pandharpur_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Mumba Devi Temple Tour",
+        "name":  "Mumba Devi Temple ",
         "link":  "Mumba_Devi_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Ekvira Devi Temple Tour",
+        "name":  "Ekvira Devi Temple ",
         "link":  "Ekvira_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Dagdusheth Ganpati Tour",
+        "name":  "Dagdusheth Ganpati ",
         "link":  "Dagdu_Shet_Ganpati.html",
         "category":  "Temples"
     },
     {
-        "name":  "Bhimashankar Temple Tour",
+        "name":  "Bhimashankar Temple ",
         "link":  "Bhimashankar_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Jejuri Khandoba Tour",
+        "name":  "Jejuri Khandoba ",
         "link":  "Jejuri_Khandoba.html",
         "category":  "Temples"
     },
     {
-        "name":  "Tulja Bhavani Temple Tour",
+        "name":  "Tulja Bhavani Temple ",
         "link":  "Tulja_Bhavani_Temple.html",
         "category":  "Temples"
     },
     {
-        "name":  "Kalaram Temple Tour",
+        "name":  "Kalaram Temple ",
         "link":  "Kalaram_Temple.html",
         "category":  "Temples"
     },
@@ -258,5 +258,30 @@
         "name":  "Vajrai Waterfalls",
         "link":  "vajrai_waterfalls.html",
         "category":  "Waterfalls"
+    },
+    {
+        "name":  "Adai Waterfall",
+        "link":  "adai.html",
+        "category":  "Waterfalls"
+    },
+    {
+        "name":  "Kalavantin Durg Camping",
+        "link":  "kalavantin_camping.html",
+        "category":  "Camping"
+    },
+    {
+        "name":  "Pawna Lake Camping",
+        "link":  "pawna_lake_camping.html",
+        "category":  "Camping"
+    },
+    {
+        "name":  "Alibaug Beach",
+        "link":  "alibaug_beach.html",
+        "category":  "Treks"
+    },
+    {
+        "name": "Malhargad Fort Trek",
+        "link": "malhargad.html",
+        "category": "Treks"
     }
 ]

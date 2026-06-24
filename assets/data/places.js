@@ -52,8 +52,8 @@ window.placesData = [
     },
     {
         "title":  "Pawna Lakeside Camp",
-        "link":  "#",
-        "image":  "assets/camping.png",
+        "link":  "pawna_lake_camping.html",
+        "image":  "assets/pawna_lake_camping_hero.png",
         "imageAlt":  "Pawna Lakeside Camp",
         "difficulty":  "Easy",
         "difficultyGroup":  "easy",
@@ -65,7 +65,7 @@ window.placesData = [
         "city":  "lonavala",
         "popularity":  98,
         "price":  1100,
-        "tags":  "popular"
+        "tags":  "camping,popular"
     },
     {
         "title":  "Devkund Secret Fall",
@@ -102,7 +102,7 @@ window.placesData = [
         "tags":  "general"
     },
     {
-        "title":  "Ashtavinayak Temple Tour",
+        "title":  "Ashtavinayak Temple ",
         "link":  "ashtavinayak.html",
         "image":  "assets/ashtavinayak_hero.png",
         "imageAlt":  "Ashtavinayak Temple Pilgrimage",
@@ -119,7 +119,7 @@ window.placesData = [
         "tags":  "popular"
     },
     {
-        "title":  "Mahalaxmi Temple Tour",
+        "title":  "Mahalaxmi Temple ",
         "link":  "mahalaxmi.html",
         "image":  "assets/mahalaxmi_hero.png",
         "imageAlt":  "Mahalaxmi Temple Pilgrimage",
@@ -136,7 +136,7 @@ window.placesData = [
         "tags":  "popular"
     },
     {
-        "title":  "Grishneshwar Temple Tour",
+        "title":  "Grishneshwar Temple ",
         "link":  "grishneshwar.html",
         "image":  "assets/grishneshwar_hero.png",
         "imageAlt":  "Grishneshwar Temple Pilgrimage",
@@ -595,7 +595,7 @@ window.placesData = [
         "tags":  "mansoon,popular"
     },
     {
-        "title":  "Aundha Nagnath Temple Tour",
+        "title":  "Aundha Nagnath Temple ",
         "link":  "Anudha_Nagnath_Temple.html",
         "image":  "assets/nagnath_hero.png",
         "imageAlt":  "Aundha Nagnath Temple",
@@ -612,7 +612,7 @@ window.placesData = [
         "tags":  "general"
     },
     {
-        "title":  "Trimbakeshwar Temple Tour",
+        "title":  "Trimbakeshwar Temple ",
         "link":  "Tribakeshwar_Temple.html",
         "image":  "assets/trimbak_hero.png",
         "imageAlt":  "Trimbakeshwar Temple",
@@ -629,7 +629,7 @@ window.placesData = [
         "tags":  "popular"
     },
     {
-        "title":  "Siddhivinayak Temple Tour",
+        "title":  "Siddhivinayak Temple ",
         "link":  "Siddhivinayak_Temple.html",
         "image":  "assets/siddhivinayak_hero.png",
         "imageAlt":  "Siddhivinayak Ganesha Temple",
@@ -646,7 +646,7 @@ window.placesData = [
         "tags":  "popular"
     },
     {
-        "title":  "Saptashrungi Temple Tour",
+        "title":  "Saptashrungi Temple ",
         "link":  "Saptashrungi_Temple.html",
         "image":  "assets/saptashrungi_hero.png",
         "imageAlt":  "Saptashrungi Nivasini Temple",
@@ -663,7 +663,7 @@ window.placesData = [
         "tags":  "general"
     },
     {
-        "title":  "Shani Shingnapur Tour",
+        "title":  "Shani Shingnapur ",
         "link":  "Shani_Shinganapur_Temple.html",
         "image":  "assets/shanishignapur_hero.png",
         "imageAlt":  "Shani Shingnapur Temple",
@@ -680,7 +680,7 @@ window.placesData = [
         "tags":  "general"
     },
     {
-        "title":  "Renuka Devi Temple Tour",
+        "title":  "Renuka Devi Temple ",
         "link":  "Renuka_Devi_Temple.html",
         "image":  "assets/renukadevi_hero.png",
         "imageAlt":  "Renuka Devi Temple Mahur",
@@ -697,7 +697,7 @@ window.placesData = [
         "tags":  "general"
     },
     {
-        "title":  "Parli Vaijnath Temple Tour",
+        "title":  "Parli Vaijnath Temple ",
         "link":  "Parli_Vajinath_Temple.html",
         "image":  "assets/vaijnath_hero.png",
         "imageAlt":  "Parli Vaijnath Temple",
@@ -714,7 +714,7 @@ window.placesData = [
         "tags":  "general"
     },
     {
-        "title":  "Pandharpur Vitthal Tour",
+        "title":  "Pandharpur Vitthal ",
         "link":  "Pandharpur_Temple.html",
         "image":  "assets/pandharpur_hero.png",
         "imageAlt":  "Pandharpur Vitthal Temple",
@@ -731,7 +731,7 @@ window.placesData = [
         "tags":  "popular"
     },
     {
-        "title":  "Mumba Devi Temple Tour",
+        "title":  "Mumba Devi Temple ",
         "link":  "Mumba_Devi_Temple.html",
         "image":  "assets/mumbadevi_hero.png",
         "imageAlt":  "Mumba Devi Temple",
@@ -748,7 +748,7 @@ window.placesData = [
         "tags":  "general"
     },
     {
-        "title":  "Ekvira Devi Temple Tour",
+        "title":  "Ekvira Devi Temple ",
         "link":  "Ekvira_Temple.html",
         "image":  "assets/ekvira_hero.png",
         "imageAlt":  "Ekvira Devi Temple",
@@ -765,7 +765,7 @@ window.placesData = [
         "tags":  "general"
     },
     {
-        "title":  "Dagdusheth Ganpati Tour",
+        "title":  "Dagdusheth Ganpati ",
         "link":  "Dagdu_Shet_Ganpati.html",
         "image":  "assets/dagdusheth_hero.png",
         "imageAlt":  "Dagdusheth Halwai Ganpati",
@@ -782,7 +782,7 @@ window.placesData = [
         "tags":  "popular"
     },
     {
-        "title":  "Bhimashankar Temple Tour",
+        "title":  "Bhimashankar Temple ",
         "link":  "Bhimashankar_Temple.html",
         "image":  "assets/bhimashankar_hero.png",
         "imageAlt":  "Bhimashankar Temple",
@@ -799,7 +799,7 @@ window.placesData = [
         "tags":  "popular"
     },
     {
-        "title":  "Jejuri Khandoba Tour",
+        "title":  "Jejuri Khandoba ",
         "link":  "Jejuri_Khandoba.html",
         "image":  "assets/jejuri_hero.png",
         "imageAlt":  "Jejuri Khandoba Temple",
@@ -816,7 +816,7 @@ window.placesData = [
         "tags":  "general"
     },
     {
-        "title":  "Tulja Bhavani Temple Tour",
+        "title":  "Tulja Bhavani Temple ",
         "link":  "Tulja_Bhavani_Temple.html",
         "image":  "assets/tuljabhavani_hero.png",
         "imageAlt":  "Tulja Bhavani Temple",
@@ -833,7 +833,7 @@ window.placesData = [
         "tags":  "popular"
     },
     {
-        "title":  "Kalaram Temple Tour",
+        "title":  "Kalaram Temple ",
         "link":  "Kalaram_Temple.html",
         "image":  "assets/kalaram_hero.png",
         "imageAlt":  "Kalaram Temple",
@@ -882,5 +882,73 @@ window.placesData = [
         "popularity":  88,
         "price":  1200,
         "tags":  "mansoon,popular"
+    },
+    {
+        "title":  "Adai Waterfall",
+        "link":  "adai.html",
+        "image":  "assets/adai_hero.png",
+        "imageAlt":  "Adai Waterfall",
+        "difficulty":  "Easy",
+        "difficultyGroup":  "easy",
+        "duration":  "2-3 Hours",
+        "rating":  4.7,
+        "reviewsCount":  65,
+        "description":  "A quiet and scenic monsoon escape near Panvel, featuring green hills, seasonal streams, and an easy nature walk.",
+        "district":  "raigad",
+        "city":  "panvel",
+        "popularity":  80,
+        "price":  400,
+        "tags":  "mansoon"
+    },
+    {
+        "title":  "Kalavantin Durg Camping",
+        "link":  "kalavantin_camping.html",
+        "image":  "assets/kalavantin_camping_hero.png",
+        "imageAlt":  "Kalavantin Durg Camping",
+        "difficulty":  "Moderate",
+        "difficultyGroup":  "moderate",
+        "duration":  "Overnight",
+        "rating":  4.8,
+        "reviewsCount":  110,
+        "description":  "Experience raw self-camping at the Prabalmachi plateau, nestled between the famous watchtower fort Kalavantin Durg and Prabalgad Fort.",
+        "district":  "raigad",
+        "city":  "panvel",
+        "popularity":  85,
+        "price":  1000,
+        "tags":  "camping,popular"
+    },
+    {
+        "title":  "Alibaug Beach",
+        "link":  "alibaug_beach.html",
+        "image":  "assets/kandheri_sea.png",
+        "imageAlt":  "Alibaug Beach",
+        "difficulty":  "Easy",
+        "difficultyGroup":  "easy",
+        "duration":  "1 Day",
+        "rating":  4.8,
+        "reviewsCount":  310,
+        "description":  "Explore the Goa of Maharashtra, walk to the historic Kolaba Sea Fort during low tide, and enjoy fresh Konkani seafood.",
+        "district":  "raigad",
+        "city":  "alibaug",
+        "popularity":  95,
+        "price":  500,
+        "tags":  "popular"
+    },
+    {
+        "title": "Malhargad Fort Trek",
+        "link": "malhargad.html",
+        "image": "assets/trekking.png",
+        "imageAlt": "Malhargad Fort Trek",
+        "difficulty": "Easy",
+        "difficultyGroup": "easy",
+        "duration": "1 Day",
+        "rating": 4.6,
+        "reviewsCount": 78,
+        "description": "Scale the last fort built in the Maratha Empire near Pune, featuring historic temples, a beautiful stepwell, and views of Saswad.",
+        "district": "pune",
+        "city": "pune",
+        "popularity": 75,
+        "price": 500,
+        "tags": "popular"
     }
 ];

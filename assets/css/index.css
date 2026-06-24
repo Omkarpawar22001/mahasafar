@@ -1,4 +1,4 @@
-﻿/* Hero Section */
+/* Hero Section */
 .hero {
     position: relative;
     overflow: hidden;
@@ -411,4 +411,149 @@
 
 .testimonials-section {
     background: rgba(255, 255, 255, 0.01);
+}
+
+/* Hero Search Panel */
+.hero-search-container {
+    position: relative;
+    z-index: 100;
+    margin-top: 30px;
+}
+
+.hero-search-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 20px;
+    padding: 24px 32px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.45);
+    /* Ultra dark glass */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    align-items: flex-end;
+}
+
+body.light-mode .hero-search-form {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.search-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.search-input-group label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.search-input-group input,
+.search-input-group select {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    outline: none;
+    transition: var(--transition-smooth);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+body.light-mode .search-input-group input,
+body.light-mode .search-input-group select {
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #0f172a;
+}
+
+.search-input-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2300D2FF' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 12px;
+    padding-right: 40px;
+}
+
+body.light-mode .search-input-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232563EB' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.search-input-group input:focus,
+.search-input-group select:focus {
+    border-color: var(--primary);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 12px var(--primary-glow);
+}
+
+body.light-mode .search-input-group input:focus,
+body.light-mode .search-input-group select:focus {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.search-input-group select option {
+    background: #0f172a;
+    color: #fff;
+}
+
+body.light-mode .search-input-group select option {
+    background: #fff;
+    color: #0f172a;
+}
+
+.hero-search-btn {
+    background: var(--primary);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 48px;
+}
+
+.hero-search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px var(--primary-glow);
+}
+
+@media (max-width: 992px) {
+    .hero-search-form {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .hero-search-btn {
+        grid-column: 1 / -1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-search-form {
+        grid-template-columns: 1fr;
+    }
 }

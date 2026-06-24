@@ -34,8 +34,7 @@
     <nav id="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <i class="fas fa-mountain-sun"></i>
-                MAHA<span>SAFAR</span>
+                <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html#home">Home</a></li>
@@ -108,6 +107,7 @@
                         <div class="filter-card-header">
                             <h2>Filters</h2>
                             <div class="filter-card-header-flex">
+                                <button class="apply-filters-btn" id="applyFiltersBtn"><i class="fas fa-check"></i> Apply</button>
                                 <a href="#" class="clear-filters clear-filters-muted">Reset</a>
                                 <button class="close-sidebar-btn" id="closeSidebarBtn"><i
                                         class="fas fa-times"></i></button>
@@ -141,33 +141,6 @@
                                     <option value="kolhapur">Kolhapur District</option>
                                     <option value="mumbai">Mumbai City District</option>
                                     <option value="aurangabad">Aurangabad District</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Select City Dropdown - ADDED AS REQUESTED -->
-                        <div class="filter-block">
-                            <div class="filter-block-title">
-                                <span>City</span>
-                                <i class="fas fa-city" style="color:var(--primary);"></i>
-                            </div>
-                            <div class="sidebar-select-wrapper">
-                                <select class="sort-select-sidebar" id="sidebar-city-select">
-                                    <option value="all">All Cities</option>
-                                    <option value="mumbai">Mumbai</option>
-                                    <option value="pune">Pune</option>
-                                    <option value="satara">Satara</option>
-                                    <option value="nashik">Nashik</option>
-                                    <option value="kolhapur">Kolhapur</option>
-                                    <option value="panvel">Panvel</option>
-                                    <option value="karjat">Karjat</option>
-                                    <option value="lonavala">Lonavala</option>
-                                    <option value="mahabaleshwar">Mahabaleshwar</option>
-                                    <option value="alibaug">Alibaug</option>
-                                    <option value="bhandardara">Bhandardara</option>
-                                    <option value="malshej">Malshej Ghat</option>
-                                    <option value="ellora">Ellora / Aurangabad</option>
-                                    <option value="shirdi">Shirdi</option>
                                 </select>
                             </div>
                         </div>
@@ -207,24 +180,17 @@
 
                         <!-- Difficulty Level Filters -->
                         <div class="filter-block">
-                            <div class="filter-block-title">Difficulty Levels</div>
-                            <div class="difficulty-tags">
-                                <div class="diff-tag active">
-                                    <span><i class="fas fa-circle"
-                                            style="color:#10b981; font-size:0.45rem; margin-right:6px;"></i> Easy</span>
-                                    <span class="count">12</span>
-                                </div>
-                                <div class="diff-tag">
-                                    <span><i class="fas fa-circle"
-                                            style="color:#fbbf24; font-size:0.45rem; margin-right:6px;"></i>
-                                        Moderate</span>
-                                    <span class="count">8</span>
-                                </div>
-                                <div class="diff-tag">
-                                    <span><i class="fas fa-circle"
-                                            style="color:#ef4444; font-size:0.45rem; margin-right:6px;"></i> Hard</span>
-                                    <span class="count">4</span>
-                                </div>
+                            <div class="filter-block-title">
+                                <span>Difficulty Levels</span>
+                                <i class="fas fa-signal" style="color:var(--primary);"></i>
+                            </div>
+                            <div class="sidebar-select-wrapper">
+                                <select class="sort-select-sidebar" id="sidebar-difficulty-select">
+                                    <option value="all">All Levels</option>
+                                    <option value="easy">Easy</option>
+                                    <option value="moderate">Moderate</option>
+                                    <option value="hard">Hard</option>
+                                </select>
                             </div>
                         </div>
 
@@ -260,57 +226,54 @@
         <span class="mobile-filter-text">Filters</span>
     </button>
 
-    <!-- Standard Portal Premium Footer Integration -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="index.html" class="logo footer-logo">
-                        <i class="fas fa-mountain-sun"></i>
-                        MAHA<span>SAFAR</span>
+                        <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
                     </a>
                     <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
-                        specialize in safe, highly curated, and fully unforgettable travel journeys.</p>
+                        specialize in safe, curated, and unforgettable experiences.</p>
                     <div class="footer-social-links">
                         <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Collections</h4>
+                                <div class="footer-links">
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">Monsoon Peaks</a></li>
-                        <li><a href="#">Overnight Camps</a></li>
-                        <li><a href="#">Heritage Trails</a></li>
-                        <li><a href="#">Stargazing Expeditions</a></li>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Legal & Standards</h4>
+                    <h4>Legal</h4>
                     <ul>
-                        <li><a href="#">Safety Directives</a></li>
-                        <li><a href="#">Terms of Engagement</a></li>
-                        <li><a href="#">Cancellation Policies</a></li>
-                        <li><a href="#">Traveler Protection</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Stay Updated</h4>
-                    <p class="mb-15 font-sm footer-newsletter-text">Receive immediate alerts for new trekking window
-                        unblock announcements.</p>
+                    <p class="mb-15 font-sm footer-newsletter-text">Subscribe to our newsletter for the latest adventure updates and offers.</p>
                     <div class="form-group newsletter-form">
-                        <input type="email" placeholder="Your Address" class="newsletter-input">
+                        <input type="email" placeholder="Your Email" class="newsletter-input">
                         <button class="submit-btn newsletter-btn"><i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
+
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Maha Safar. State of the Art Expeditions. All rights reserved.</p>
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
             </div>
         </div>
     </footer>
-
 
     <!-- Core Main JS Engine Integration -->
     <script src="assets/data/places.js"></script>
@@ -348,9 +311,18 @@
             };
 
             closeSidebarBtn.addEventListener('click', closeAction);
+
+            const applyBtn = document.getElementById('applyFiltersBtn');
+            if (applyBtn) {
+                applyBtn.addEventListener('click', () => {
+                    if (typeof applyFiltersAndRender === 'function') applyFiltersAndRender();
+                    closeAction();
+                });
+            }
         }
     </script>
 </body>
 
 </html>
+
 

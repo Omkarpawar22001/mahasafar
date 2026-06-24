@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raigad Fort Interactive Guide - Maha Safar</title>
     <meta name="description"
-        content="Premium interactive guide to Raigad Fort. Replicated glassmorphic layout, major attractions, essential stay info, and maps.">
+        content="Complete interactive guide to Raigad Fort, the capital of Chhatrapati Shivaji Maharaj's empire. Climb steps or ride the ropeway, check prices, timings, food, safety, and photography spots.">
     <!-- Google Fonts Integration -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,444 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/comon.css">
+    <link rel="stylesheet" href="assets/css/kalsubai2.css">
+    <style>
+        /* Custom Scroll Spy / Floating Drawer style overrides */
+        :root {
+            --progress-ring-size: 56px;
+        }
+
+        /* Floating Action Button */
+        .toc-trigger-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(17, 18, 21, 0.85) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--royal-border-gold) !important;
+            color: var(--royal-gold) !important;
+            display: none;
+            /* Only visible on tablet/mobile */
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            z-index: 99999;
+            padding: 0;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        body.light-mode .toc-trigger-fab {
+            background: rgba(250, 249, 246, 0.9) !important;
+            box-shadow: 0 8px 30px rgba(144, 115, 74, 0.15);
+        }
+
+        .toc-trigger-fab:hover {
+            transform: scale(1.05);
+        }
+
+        .toc-trigger-fab:active {
+            transform: scale(0.95);
+        }
+
+        .progress-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(-90deg);
+            pointer-events: none;
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.1s;
+            transform-origin: 50% 50%;
+        }
+
+        .toc-fab-icon {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        /* TOC Drawer Overlay */
+        .toc-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        .toc-drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .toc-drawer {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 85%;
+            max-width: 320px;
+            height: 100%;
+            background: var(--royal-bg-secondary) !important;
+            border-left: 1px solid var(--royal-border-gold);
+            padding: 30px 24px;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toc-drawer.active {
+            transform: translateX(0);
+        }
+
+        .toc-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--royal-border-gold);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .toc-drawer-header h3 {
+            font-family: 'Outfit', sans-serif !important;
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
+            color: var(--royal-gold) !important;
+            margin: 0 !important;
+            text-transform: uppercase;
+        }
+
+        .toc-close-btn {
+            background: transparent;
+            border: none;
+            color: var(--royal-text-muted);
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .toc-close-btn:hover {
+            color: var(--royal-gold);
+        }
+
+        .toc-drawer-body {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-right: 5px;
+        }
+
+        /* Custom Scrollbar for Drawer Body */
+        .toc-drawer-body::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .toc-drawer-body::-webkit-scrollbar-thumb {
+            background: var(--royal-border-gold);
+            border-radius: 4px;
+        }
+
+        .toc-drawer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .drawer-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--royal-text-muted) !important;
+            text-decoration: none;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13.5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .drawer-link i {
+            font-size: 14px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .drawer-link:hover {
+            color: var(--royal-text-main) !important;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        body.light-mode .drawer-link:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .drawer-link.active {
+            color: var(--royal-gold) !important;
+            background: rgba(var(--royal-accent-rgb), 0.08) !important;
+            border-left-color: var(--royal-gold);
+            font-weight: 600;
+        }
+
+        /* DESKTOP HORIZONTAL STICKY SCROLL NAV WITH ARROWS */
+        @media (min-width: 1025px) {
+            .guide-layout {
+                display: block !important;
+                max-width: 1000px !important;
+                margin: 0 auto !important;
+            }
+
+            .content-area {
+                width: 100% !important;
+            }
+
+            .sidebar-nav {
+                position: sticky !important;
+                top: 92px !important;
+                width: 100% !important;
+                background: var(--royal-bg-primary) !important;
+                border-bottom: 1px solid var(--royal-border-gold) !important;
+                margin-bottom: 40px !important;
+                z-index: 999 !important;
+                display: flex !important;
+                align-items: center !important;
+                padding: 0 !important;
+            }
+
+            .sidebar-inner {
+                position: relative !important;
+                width: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+                background: transparent !important;
+                border: none !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+            }
+
+            .index-title {
+                display: none !important;
+            }
+
+            /* Scroll Container wrapper */
+            .index-list-wrapper {
+                flex-grow: 1 !important;
+                overflow: hidden !important;
+                position: relative !important;
+                display: flex !important;
+                align-items: center !important;
+                padding: 10px 0 !important;
+            }
+
+            .index-list {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 15px !important;
+                list-style: none !important;
+                overflow-x: auto !important;
+                white-space: nowrap !important;
+                scrollbar-width: none !important;
+                /* Firefox */
+                scroll-behavior: smooth !important;
+                width: 100% !important;
+                padding: 0 10px !important;
+                margin: 0 !important;
+            }
+
+            .index-list::-webkit-scrollbar {
+                display: none !important;
+                /* Safari and Chrome */
+            }
+
+            .index-link {
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                font-family: 'Outfit', sans-serif !important;
+                font-size: 11px !important;
+                font-weight: 700 !important;
+                letter-spacing: 1px !important;
+                text-transform: uppercase !important;
+                color: var(--royal-text-muted) !important;
+                padding: 8px 16px !important;
+                border-radius: 20px !important;
+                border: 1px solid transparent !important;
+                transition: all 0.3s ease !important;
+                text-decoration: none !important;
+            }
+
+            .index-link i {
+                font-size: 11px !important;
+                display: inline-block !important;
+            }
+
+            .index-link:hover {
+                color: var(--royal-text-main) !important;
+                background: rgba(255, 255, 255, 0.03) !important;
+            }
+
+            body.light-mode .index-link:hover {
+                background: rgba(0, 0, 0, 0.03) !important;
+            }
+
+            .index-link.active {
+                color: var(--royal-gold) !important;
+                background: rgba(var(--royal-accent-rgb), 0.08) !important;
+                border-color: var(--royal-border-gold) !important;
+                font-weight: 700 !important;
+            }
+
+            /* Scroll Arrow Buttons */
+            .scroll-arrow-btn {
+                background: var(--royal-bg-primary) !important;
+                border: none !important;
+                color: var(--royal-gold) !important;
+                width: 36px !important;
+                height: 36px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                cursor: pointer !important;
+                z-index: 10 !important;
+                transition: all 0.3s ease !important;
+                flex-shrink: 0 !important;
+                opacity: 0.8 !important;
+            }
+
+            .scroll-arrow-btn:hover {
+                opacity: 1 !important;
+                background: rgba(var(--royal-accent-rgb), 0.05) !important;
+                color: var(--royal-text-main) !important;
+            }
+
+            .scroll-arrow-btn.disabled {
+                opacity: 0.25 !important;
+                cursor: not-allowed !important;
+            }
+
+            .left-arrow-btn {
+                border-right: 1px solid var(--royal-border-gold) !important;
+            }
+
+            .right-arrow-btn {
+                border-left: 1px solid var(--royal-border-gold) !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar-nav {
+                display: none !important;
+            }
+
+            .toc-trigger-fab {
+                display: flex !important;
+            }
+        }
+
+        /* Fix gradient-text font size in section headings to match the first word */
+        .guide-layout h2 .gradient-text,
+        .guide-section h2 .gradient-text {
+            font-size: inherit !important;
+        }
+
+        /* Section styles specifically tailored for Raigad Fort guide */
+        .distance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .distance-card {
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--royal-border-gold);
+            background: rgba(var(--royal-accent-rgb), 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .distance-card:hover {
+            border-color: var(--royal-gold);
+            background: rgba(var(--royal-accent-rgb), 0.08);
+            transform: translateY(-2px);
+        }
+
+        .distance-card h4 {
+            font-size: 1.1rem;
+            color: var(--royal-gold);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .distance-card p {
+            font-size: 0.8rem;
+            color: var(--royal-text-muted);
+            margin: 0;
+        }
+
+        .itinerary-timeline {
+            margin-top: 30px;
+            border-left: 2px solid var(--royal-border-gold);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .itinerary-step {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .itinerary-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .itinerary-step::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--royal-gold);
+            box-shadow: 0 0 10px rgba(var(--royal-accent-rgb), 0.4);
+        }
+
+        .itinerary-time {
+            font-weight: 700;
+            color: var(--royal-gold);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .itinerary-desc {
+            font-size: 0.95rem;
+            color: var(--royal-text-main);
+        }
+    </style>
 </head>
 
 <body>
@@ -33,13 +470,13 @@
     <nav id="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <i class="fas fa-mountain-sun"></i>
-                MAHA<span>SAFAR</span>
+                <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html#home">Home</a></li>
-                                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down"
+                            style="font-size: 0.75rem; margin-left: 5px;"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="explore.html">All Places</a></li>
                         <li><a href="explore.html?category=treks">Treks</a></li>
@@ -52,18 +489,6 @@
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
             <div class="flex-center gap-15">
-                <div class="color-picker-wrapper">
-                    <button id="color-picker-toggle" class="theme-toggle" aria-label="Choose Accent Color">
-                        <i class="fas fa-palette"></i>
-                    </button>
-                    <div id="color-picker-menu" class="color-picker-menu">
-                        <span class="color-dot color-cyan" data-name="cyan" title="Cyan"></span>
-                        <span class="color-dot color-purple" data-name="purple" title="Purple"></span>
-                        <span class="color-dot color-green" data-name="green" title="Green"></span>
-                        <span class="color-dot color-orange" data-name="orange" title="Orange"></span>
-                        <span class="color-dot color-pink" data-name="pink" title="Pink"></span>
-                    </div>
-                </div>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -75,15 +500,16 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero hero-raigad" id="home">
+    <section class="hero hero-raigad" id="home"
+        style="background: linear-gradient(rgba(5, 8, 16, 0.65), rgba(5, 8, 16, 0.85)), url('assets/raigad_hero.png') no-repeat center center/cover !important;">
         <div class="container">
-            <h1>RAIGAD FORT GUIDE</h1>
-            <p>Capital of the Maratha Empire</p>
+            <h1>RAIGAD FORT</h1>
+            <p>Capital of Chhatrapati Shivaji Maharaj's Empire</p>
             <div class="breadcrumbs">
                 <ul class="breadcrumb-list">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-separator">/</li>
-                    <li class="breadcrumb-item"><a href="explore.html">Trekking</a></li>
+                    <li class="breadcrumb-item"><a href="explore.html?category=treks">Explore</a></li>
                     <li class="breadcrumb-separator">/</li>
                     <li class="breadcrumb-item active">Raigad Fort</li>
                 </ul>
@@ -99,16 +525,16 @@
                 <h4>Easy - Moderate</h4>
             </div>
             <div class="stat-item">
-                <p>Duration</p>
-                <h4>1.5 - 2 Hours</h4>
+                <p>Steps</p>
+                <h4>~1,700 Steps</h4>
             </div>
             <div class="stat-item">
                 <p>Altitude</p>
-                <h4>820 Meters</h4>
+                <h4>~2,700 Feet</h4>
             </div>
             <div class="stat-item">
-                <p>Steps</p>
-                <h4>~1700 Steps</h4>
+                <p>Best Time</p>
+                <h4>Jul - Feb</h4>
             </div>
         </div>
     </div>
@@ -116,17 +542,46 @@
     <!-- Main Guide Layout Container -->
     <div class="guide-layout container">
 
-        <!-- Sticky Sidebar Left Index -->
+        <!-- Sticky Sidebar Left Index (Horizontal Scroll Bar with Arrows for Desktop) -->
         <aside class="sidebar-nav">
             <div class="sidebar-inner">
-                <h3 class="index-title">GUIDE INDEX</h3>
-                <ul class="index-list">
-                    <li><a href="#about-fort" class="index-link active"><i class="fas fa-history"></i> About Fort</a></li>
-                    <li><a href="#major-attractions" class="index-link"><i class="fas fa-monument"></i> Major Attractions</a></li>
-                    <li><a href="#travel-guide" class="index-link"><i class="fas fa-route"></i> Travel Guide</a></li>
-                    <li><a href="#essential-info" class="index-link"><i class="fas fa-list-check"></i> Essential Info</a></li>
-                    <li><a href="#location-map" class="index-link"><i class="fas fa-map-marked-alt"></i> Location Map</a></li>
-                </ul>
+                <button id="nav-arrow-left" class="scroll-arrow-btn left-arrow-btn" aria-label="Scroll Left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="index-list-wrapper">
+                    <ul class="index-list">
+                        <li><a href="#about-fort" class="index-link active"><i class="fas fa-circle-info"></i> About
+                                Fort</a></li>
+                        <li><a href="#exact-location" class="index-link"><i class="fas fa-map-pin"></i> Location
+                                details</a></li>
+                        <li><a href="#how-to-reach" class="index-link"><i class="fas fa-route"></i> How to Reach</a>
+                        </li>
+                        <li><a href="#why-visit" class="index-link"><i class="fas fa-heart"></i> Why Visit</a></li>
+                        <li><a href="#best-time" class="index-link"><i class="fas fa-calendar-days"></i> Best Time</a>
+                        </li>
+                        <li><a href="#difficulty-suitability" class="index-link"><i class="fas fa-signal"></i>
+                                Difficulty & Suitability</a></li>
+                        <li><a href="#time-required" class="index-link"><i class="fas fa-clock"></i> Time Required</a>
+                        </li>
+                        <li><a href="#trip-cost" class="index-link"><i class="fas fa-wallet"></i> Trip Cost</a></li>
+                        <li><a href="#food-availability" class="index-link"><i class="fas fa-utensils"></i> Food
+                                Stalls</a></li>
+                        <li><a href="#facilities" class="index-link"><i class="fas fa-server"></i> Facilities</a></li>
+                        <li><a href="#safety" class="index-link"><i class="fas fa-shield-halved"></i> Safety
+                                Guidelines</a></li>
+                        <li><a href="#things-to-carry" class="index-link"><i class="fas fa-backpack"></i> Things to
+                                Carry</a></li>
+                        <li><a href="#best-photo-spots" class="index-link"><i class="fas fa-camera"></i> Photo Spots</a>
+                        </li>
+                        <li><a href="#insider-tips" class="index-link"><i class="fas fa-lightbulb"></i> Insider Tips</a>
+                        </li>
+                        <li><a href="#location-map" class="index-link"><i class="fas fa-location-dot"></i> Location
+                                Map</a></li>
+                    </ul>
+                </div>
+                <button id="nav-arrow-right" class="scroll-arrow-btn right-arrow-btn" aria-label="Scroll Right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </aside>
 
@@ -135,135 +590,449 @@
 
             <!-- Section 1: About Fort -->
             <section id="about-fort" class="guide-section about-fort-section">
-                <h2>About <span class="gradient-text">Fort</span></h2>
+                <h2>About <span class="gradient-text">Raigad Fort</span></h2>
                 <div class="about-fort-grid">
                     <div class="about-fort-text">
-                        <p>Raigad Fort is one of the most historically significant forts in Maharashtra and served as
-                            the capital of Chhatrapati Shivaji Maharaj. It is the place where Shivaji Maharaj was
-                            crowned as the king of the Maratha Empire.</p>
-                        <p>Located at an altitude of around 820 meters, the fort offers a mix of history, architecture,
-                            and scenic beauty. Unlike many other forts, Raigad has both trekking and ropeway options,
-                            making it accessible for all kinds of travelers.</p>
+                        <p>Raigad Fort is one of the most important historical forts in Maharashtra and holds a special
+                            place in Maratha history. It served as the capital of Chhatrapati Shivaji Maharaj's empire
+                            and was the site of his coronation in 1674.</p>
+                        <p>Situated at an altitude of around 2,700 feet in the Sahyadri mountain range, the fort offers
+                            breathtaking views of the surrounding valleys and hills. Visitors can explore attractions
+                            such as the Maha Darwaja, Raj Bhavan, Jagdishwar Temple, and Shivaji Maharaj's Samadhi. The
+                            fort can be reached by trekking from Pachad village or by using the ropeway service. During
+                            the monsoon season, the entire region turns lush green, making the experience even more
+                            memorable. Raigad Fort is not just a trekking destination but also a symbol of Maharashtra's
+                            rich history, bravery, and pride.</p>
                         <div class="about-fort-flex-gap">
                             <div class="glass about-fort-pill">
-                                <h4 class="about-fort-pill-title">History</h4>
-                                <p class="about-fort-pill-text">Rich & Royal</p>
+                                <h4 class="about-fort-pill-title">Empire Capital</h4>
+                                <p class="about-fort-pill-text">Maratha Capital Fort</p>
                             </div>
                             <div class="glass about-fort-pill">
-                                <h4 class="about-fort-pill-title">Access</h4>
-                                <p class="about-fort-pill-text">Trek/Ropeway</p>
+                                <h4 class="about-fort-pill-title">Coronation Year</h4>
+                                <p class="about-fort-pill-text">1674 AD</p>
                             </div>
                         </div>
                     </div>
                     <div class="about-fort-img">
-                        <img src="assets/raigad_hero.png" alt="Raigad Fort View" class="about-fort-image">
+                        <img src="assets/raigad_hero.png" alt="Maha Darwaja of Raigad Fort" class="about-fort-image">
                     </div>
                 </div>
             </section>
 
-            <!-- Section 2: Major Attractions -->
-            <section id="major-attractions" class="guide-section major-attractions-section">
-                <h2>Major <span class="gradient-text">Attractions</span></h2>
-                <p class="section-desc">Explore the architectural wonders of the capital.</p>
+            <!-- Section 2: Location Details -->
+            <section id="exact-location" class="guide-section essential-info-section">
+                <h2>Location & <span class="gradient-text">Details</span></h2>
+                <p class="section-desc">Geographical coordinates, base villages, and distance to nearby towns of Raigad
+                    Fort.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-map-marked-alt"></i> Administrative Info</h3>
+                        <p><strong>Base Village:</strong> Pachad Village (3 km from fort base)<br>
+                            <strong>Taluka:</strong> Mahad<br>
+                            <strong>District:</strong> Raigad, Maharashtra<br>
+                            <strong>PIN Code:</strong> 402305
+                        </p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-compass"></i> GPS Coordinates</h3>
+                        <p><strong>Latitude & Longitude:</strong> 18.2346° N, 73.4407° E<br>
+                            <strong>Elevation:</strong> Approx. 2,700 feet (820 meters) above sea level in the Sahyadri
+                            mountains.
+                        </p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-city"></i> Nearby Towns</h3>
+                        <p>Pachad Village – 3 km<br>
+                            Mahad – 25 km<br>
+                            Mangaon – 45 km<br>
+                            Pune – 130 km<br>
+                            Mumbai – 170 km</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: How to Reach -->
+            <section id="how-to-reach" class="guide-section travel-guide-section">
+                <h2>How to <span class="gradient-text">Reach</span></h2>
+                <p class="section-desc">Road routes, nearest train connections, and bus pathways to reach the base
+                    village Pachad.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>By Car / Road Trip</h3>
+                            <p><strong>From Mumbai (170 km | 4.5 to 5.5 hours):</strong> Drive via Panvel -> Pen ->
+                                Nagothane -> Kolad -> Mangaon -> Mahad -> Pachad Village. Follow NH-66 till Mahad and
+                                then take the road towards Pachad.<br>
+                                <strong>From Pune (130 km | 3.5 to 4.5 hours):</strong> Drive via Bhor -> Varandha Ghat
+                                -> Mahad -> Pachad Village. This route offers stunning views of the Sahyadri mountains.
+                            </p>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>By Train</h3>
+                            <p><strong>Nearest Station:</strong> Mangaon Railway Station (28 km) or Veer Railway Station
+                                (13 km from the ropeway base station). Board Konkan Railway trains from CSMT, Dadar,
+                                Thane, or Panvel to Mangaon, then hire local jeeps or buses to Pachad.</p>
+                            <span class="travel-guide-cost-badge">Mangaon Station: ~28 km</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>By Bus</h3>
+                            <p>MSRTC state transport buses regularly run from Mumbai, Panvel, Pune, and Mahad directly
+                                to Raigad Fort. Local shared jeeps and connecting buses from Mahad Bus Stand run
+                                frequently to Pachad Village.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass card-padding-large mt-30"
+                    style="border: 1px solid var(--royal-border-gold); background: rgba(var(--royal-accent-rgb), 0.03); border-radius: 12px;">
+                    <p
+                        style="margin: 0; font-size: 0.95rem; color: var(--royal-text-main); line-height: 1.6; text-align: center;">
+                        <i class="fas fa-stairs" style="color: var(--royal-gold); margin-right: 8px;"></i>
+                        <strong>Ascent Choice:</strong> Once you reach Pachad, you can either climb approximately 1,700
+                        steps to the fort top (about 1.5 - 2 hours) or take the Raigad Ropeway to reach the summit in
+                        only 4 minutes.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 4: Why Visit Raigad Fort -->
+            <section id="why-visit" class="guide-section about-fort-section">
+                <h2>Why Visit <span class="gradient-text">Raigad Fort?</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Raigad Fort is a place where history feels alive. As soon as you enter through the massive
+                            Maha Darwaja, you can imagine the days when Chhatrapati Shivaji Maharaj ruled from here. The
+                            fort was once the capital of the Maratha Empire and every corner has a story to tell.</p>
+                        <p>What makes Raigad truly special is the combination of history, nature, and adventure. The
+                            fort stands high in the Sahyadri mountains, offering stunning views of deep valleys, green
+                            hills, and clouds floating below during the monsoon season. Walking through the ruins of the
+                            royal palace, visiting Shivaji Maharaj's Samadhi, and standing at the famous Takmak Tok
+                            viewpoint is an unforgettable experience. It connects you deeply to Maharashtra's rich
+                            heritage.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Main Viewpoint</h4>
+                                <p class="about-fort-pill-text">Takmak Tok Cliff</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Experience</h4>
+                                <p class="about-fort-pill-text">History & Mountain views</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/takmak_tok.png" alt="Takmak Tok Viewpoint Cliff" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Best Time to Visit -->
+            <section id="best-time" class="guide-section essential-info-section">
+                <h2>Best Time <span class="gradient-text">to Visit</span></h2>
+                <p class="section-desc">Raigad Fort changes its colors with every season. Plan based on your preferred
+                    atmosphere.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cloud-showers-heavy"></i> Monsoon (Jun - Sep)
+                        </h3>
+                        <p>Best for nature lovers. The fort is covered in green grass, clouds float through the valleys,
+                            and waterfalls pop up on the trails. Steps can become slippery, so wear shoes with good
+                            grip.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-snowflake"></i> Winter (Oct - Feb)</h3>
+                        <p>Best overall season. Cool, pleasant weather makes walking around the massive fort layout
+                            comfortable. Clear skies offer excellent visibility of the surrounding peaks.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-sun"></i> Summer (Mar - May)</h3>
+                        <p>Least recommended. Temperatures are high with hot winds and minimal shade. If visiting during
+                            summer, start early in the morning and carry ample water.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Difficulty & Visitor Suitability -->
+            <section id="difficulty-suitability" class="guide-section essential-info-section">
+                <h2>Difficulty & <span class="gradient-text">Suitability</span></h2>
+                <p class="section-desc">Who can visit? Raigad is highly accessible to all age groups due to the ropeway
+                    facility.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-signal"></i> Easy - Moderate</h3>
+                        <p>The climb contains ~1,700 well-constructed stone steps. It is physically tiring but requires
+                            no special trekking gear or technical skills.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cable-car"></i> Ropeway Option</h3>
+                        <p>Non-trekkers, families with children, and senior citizens can use the ropeway to reach the
+                            top within 4 minutes, avoiding the steps completely.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-users-line"></i> Visitor Type</h3>
+                        <p>Highly recommended for families, history buffs, student groups, and photographers. Not
+                            recommended for visitors with severe knee pain if walking.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7: Time Required -->
+            <section id="time-required" class="guide-section travel-guide-section">
+                <h2>Time <span class="gradient-text">Required</span></h2>
+                <p class="section-desc">Plan your day to explore all landmarks without rushing.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Minimum Time Required</h3>
+                            <p><strong>3 to 4 Hours:</strong> Possible if using the ropeway to reach the top. Covers the
+                                main ruins, Shivaji Maharaj's Samadhi, and central viewpoints.</p>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Ideal Time Required</h3>
+                            <p><strong>5 to 7 Hours:</strong> Highly recommended. Allows you to walk through the palace
+                                corridors, visit Takmak Tok, eat a traditional Maharashtrian lunch, and explore the
+                                fortification perimeter walls.</p>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Maha Safar Suggested Itinerary</h3>
+                            <p><strong>08:00 AM:</strong> Reach Pachad base village<br>
+                                <strong>08:30 AM:</strong> Start climb or board ropeway<br>
+                                <strong>10:00 AM:</strong> Explore Maha Darwaja, Raj Bhavan ruins, and statue<br>
+                                <strong>01:00 PM:</strong> Traditional lunch break<br>
+                                <strong>02:00 PM:</strong> Visit Samadhi, Jagdishwar Temple, and Takmak Tok<br>
+                                <strong>04:00 PM:</strong> Begin return descent or ropeway boarding
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 8: Trip Cost -->
+            <section id="trip-cost" class="guide-section essential-info-section">
+                <h2>Total <span class="gradient-text">Trip Cost</span></h2>
+                <p class="section-desc">Raigad Fort is an extremely budget-friendly destination for weekend trips.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-money-bill-wave"></i> Basic Fees</h3>
+                        <p><strong>Entry Fee:</strong> ₹25 – ₹50 per adult | ₹10 – ₹20 per child.<br>
+                            <strong>Vehicle Parking:</strong> Bike: ₹20-50 | Car: ₹50-100 | Bus: ₹100-300.
+                        </p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-ticket"></i> Ropeway Charges</h3>
+                        <p><strong>Ropeway (Round Trip):</strong> Approx. ₹300 – ₹400 per person.<br>
+                            <strong>Local Guide:</strong> ₹300 – ₹1,000 depending on group size and duration.
+                        </p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calculator"></i> Budget Estimates</h3>
+                        <p><strong>Budget Traveller (Steps):</strong> ₹500 – ₹1,200 total per person.<br>
+                            <strong>Comfort Traveller (Ropeway):</strong> ₹1,000 – ₹2,000 total per person.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Food Availability -->
+            <section id="food-availability" class="guide-section essential-info-section">
+                <h2>Food <span class="gradient-text">Availability</span></h2>
+                <p class="section-desc">Authentic local Maharashtrian dishes are available near the base and on top of
+                    the fort.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-shop"></i> Eating Spots</h3>
+                        <p>Local eateries, tea stalls, and small restaurants are available at Pachad base village, near
+                            the ropeway base station, and scattered on the fort top.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-pepper-hot"></i> Local Specialties</h3>
+                        <p>Do not miss traditional dishes like <strong>Zunka Bhakri</strong>, <strong>Pithla
+                                Bhakri</strong>, hot <strong>Kanda Bhaji</strong>, Misal Pav, and fresh buttermilk
+                            (Taak).</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-glass-water"></i> Water Supply</h3>
+                        <p>Filtered drinking water is available at Pachad and the ropeway station, but carrying 1–2
+                            liters of personal bottled water is highly advised while exploring.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 10: Facilities Available -->
+            <section id="facilities" class="guide-section essential-info-section">
+                <h2>Facilities <span class="gradient-text">Available</span></h2>
+                <p class="section-desc">Raigad Fort provides standard basic tourist services near the base village and
+                    ropeway entry.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-restroom"></i> Washrooms & Parking</h3>
+                        <p>Public washroom blocks are available at Pachad Village, the ropeway base, and on the fort.
+                            Ample parking space is provided for cars, bikes, and tourist buses.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cash-register"></i> ATMs & Cash</h3>
+                        <p>There are no ATMs on the fort top. Carry sufficient cash for parking, tickets, and food as
+                            local vendors rarely accept digital payments. Nearest ATMs are in Mahad or Mangaon.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wifi"></i> Connectivity & Help</h3>
+                        <p>Jio, Airtel, and Vi networks work on most parts of the fort. Basic medical aid is available
+                            near the ropeway; major hospitals are located in Mahad (25 km).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 11: Safety Guidelines -->
+            <section id="safety" class="guide-section essential-info-section">
+                <h2>Safety <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Key precautions to ensure visitor safety near cliff edges and on wet steps.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-triangle-exclamation"></i> Danger Zones</h3>
+                        <p>Exercise high caution at <b>Takmak Tok</b> cliff. Stay strictly behind safety barriers. Wet
+                            stone steps become slippery during monsoons, and thick fog can reduce visibility.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-ban"></i> Prohibited Activities</h3>
+                        <p>Do not stand near cliff edges for selfies. Alcohol consumption is strictly banned. Do not
+                            feed local monkeys or wander off into isolated parts after dark.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-kit-medical"></i> Rainy Season Tips</h3>
+                        <p>Wear good grip trekking shoes. Carry a raincoat instead of an umbrella as high winds are
+                            common on the plateau. Pack electronics in waterproof pouches.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 12: Things to Carry -->
+            <section id="things-to-carry" class="guide-section essential-info-section">
+                <h2>Things <span class="gradient-text">to Carry</span></h2>
+                <p class="section-desc">Ensure you bring the right items for a comfortable day on the mountain fort.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-box-tissue"></i> Must-Carry Basics</h3>
+                        <p>At least 1.5 - 2 liters of drinking water, comfortable sports/trekking shoes, small backpack,
+                            personal medicines, valid ID proof, and plenty of cash.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-shirt"></i> Clothes & Protection</h3>
+                        <p>Comfortable clothing, light jacket for winter nights, cap/hat for summer, and rain gear
+                            (raincoat/poncho) during the monsoon season.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cookie"></i> Snacks & Power</h3>
+                        <p>Energy bars, dry fruits, glucose powder (ORS), camera gear, and a high-capacity power bank as
+                            mobile charging points are unavailable on the fort.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 13: Best Photo Spots -->
+            <section id="best-photo-spots" class="guide-section major-attractions-section">
+                <h2>Best <span class="gradient-text">Photo Spots</span></h2>
+                <p class="section-desc">Postcard locations to capture the grandeur and history of Raigad Fort.</p>
 
                 <div class="major-attractions-showcase">
                     <div class="major-attractions-box">
-                        <img src="assets/raj_bhavan.png" alt="Raj Bhavan">
+                        <img src="assets/raigad_hero.png" alt="Maha Darwaja">
                         <div class="major-attractions-overlay">
-                            <h3>Raj Bhavan</h3>
-                            <p>The majestic ruins of the King's Palace, where historical decisions were made.</p>
+                            <h3>Maha Darwaja</h3>
+                            <p>The monumental main gateway reflecting Maratha architectural strength.</p>
                         </div>
                     </div>
                     <div class="major-attractions-box">
-                        <img src="assets/hero.png" alt="Shivaji Samadhi">
+                        <img src="assets/raj_bhavan.png" alt="Raj Bhavan ruins">
                         <div class="major-attractions-overlay">
-                            <h3>Shivaji Samadhi</h3>
-                            <p>The final resting place of Chhatrapati Shivaji Maharaj, a place of immense respect.</p>
+                            <h3>Raj Bhavan Ruins</h3>
+                            <p>Historic corridors and columns providing a grand backdrop.</p>
                         </div>
                     </div>
                     <div class="major-attractions-box">
-                        <img src="assets/takmak_tok.png" alt="Takmak Tok">
+                        <img src="assets/takmak_tok.png" alt="Takmak Tok cliff view">
                         <div class="major-attractions-overlay">
                             <h3>Takmak Tok</h3>
-                            <p>A thrilling cliff viewpoint offering panoramic views of the Sahyadri range.</p>
+                            <p>Dramatic cliff drop shots overlooking deep Sahyadri valleys.</p>
                         </div>
                     </div>
                     <div class="major-attractions-box">
                         <img src="assets/jagdishwar.png" alt="Jagdishwar Temple">
                         <div class="major-attractions-overlay">
                             <h3>Jagdishwar Temple</h3>
-                            <p>A beautiful temple dedicated to Lord Shiva, reflecting ancient Maratha art.</p>
+                            <p>Exquisite stone architecture reflecting ancient heritage beauty.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Section: Travel Guide -->
-            <section id="travel-guide" class="guide-section travel-guide-section">
-                <h2>Travel <span class="gradient-text">Guide</span></h2>
-                <p class="section-desc">Comprehensive routes to reach the fort from Mumbai.</p>
-
-                <div class="travel-guide-container">
-                    <div class="travel-guide-timeline">
-                        <div class="travel-guide-item">
-                            <h3>Option 1: The Rail Route</h3>
-                            <p>Take a train from Mumbai (CSMT/Dadar) to Mangaon (~3 hrs). From Mangaon, shared jeeps or
-                                autos are easily available to Pachad village (~45 min).</p>
-                            <span class="travel-guide-cost-badge">Cost: ₹250 – ₹700 Approx</span>
-                        </div>
-                        <div class="travel-guide-item">
-                            <h3>Option 2: The Bus Route</h3>
-                            <p>Take a ST or Private Bus from Mumbai to Mahad (5–6 hrs). From Mahad, local jeeps connect
-                                directly to the Pachad base village.</p>
-                            <span class="travel-guide-cost-badge">Cost: ₹500 – ₹1000 Approx</span>
-                        </div>
-                        <div class="travel-guide-item">
-                            <h3>Option 3: Direct Drive</h3>
-                            <p>A scenic 170 km drive (4–5 hrs) via the Mumbai–Goa highway. Ample parking is available
-                                near the Pachad base village.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 3: Essential Info -->
-            <section id="essential-info" class="guide-section essential-info-section">
-                <h2>Essential <span class="gradient-text">Information</span></h2>
-                <p class="section-desc">Everything you need to know for a smooth adventure.</p>
+            <!-- Section 14: Insider Tips -->
+            <section id="insider-tips" class="guide-section essential-info-section">
+                <h2>Insider <span class="gradient-text">Tips & Tricks</span></h2>
+                <p class="section-desc">Practical suggestions from Maha Safar to enhance your visit.</p>
 
                 <div class="essential-info-grid">
                     <div class="essential-info-card glass card-padding-large">
-                        <h3 class="primary-heading mb-20"><i class="fas fa-campground"></i> Stay & Food</h3>
-                        <p>Hotels and homestays are available at Pachad and Mahad. Basic food is available at both top
-                            and base. MTDC resort is available for a comfortable stay.</p>
+                        <h3 class="primary-heading mb-20"><i class="fas fa-users-slash"></i> Avoid Crowds</h3>
+                        <p>Reach Pachad base village before 8:00 AM. Start your climb early or take the first few
+                            ropeway rides to avoid the high midday heat and weekend crowds.</p>
                     </div>
                     <div class="essential-info-card glass card-padding-large">
-                        <h3 class="primary-heading mb-20"><i class="fas fa-backpack"></i> Essentials</h3>
-                        <p>Carry 2–3L water, trekking shoes, cap, and sunscreen. During monsoon, a raincoat is
-                            mandatory. Carry a power bank.</p>
+                        <h3 class="primary-heading mb-20"><i class="fas fa-eye-slash"></i> Hidden Corners</h3>
+                        <p>Explore the eastern walls for sunrise views and the quieter ruins near the Raj Bhavan
+                            boundaries which most standard tourist groups bypass.</p>
                     </div>
                     <div class="essential-info-card glass card-padding-large">
-                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-alt"></i> Best Time</h3>
-                        <p>October to February is ideal. Monsoon (June-Sept) for lush greenery. Avoid summer afternoons.
-                        </p>
+                        <h3 class="primary-heading mb-20"><i class="fas fa-circle-user"></i> Guide Services</h3>
+                        <p>Hiring a local guide (₹300 - ₹800) is highly recommended. Their explanations of historical
+                            events like Shivaji Maharaj's coronation make the ruins come alive.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Section 4: Location Map -->
+            <!-- Section 15: Location Map -->
             <section id="location-map" class="guide-section location-map-section">
                 <h2>Location & <span class="gradient-text">Coordinates</span></h2>
-                <p class="section-desc">Pachad, Raigad, Maharashtra</p>
+                <p class="section-desc">Pachad Village, Mahad, Raigad District, Maharashtra, India</p>
+
+                <!-- Route Planner -->
+                <div class="map-route-container">
+                    <div class="map-route-form">
+                        <div class="map-input-group">
+                            <label><i class="fas fa-circle-dot"></i> From</label>
+                            <input type="text" id="route-from" class="map-input"
+                                placeholder="Enter starting location..." autocomplete="off">
+                        </div>
+                        <div class="map-input-group">
+                            <label><i class="fas fa-map-pin"></i> To</label>
+                            <input type="text" class="map-input" value="Raigad Fort, Maharashtra" readonly>
+                        </div>
+                        <button id="get-directions-btn" class="map-btn" onclick="openGoogleMapsDirections()">
+                            <i class="fas fa-diamond-turn-right"></i> Directions
+                        </button>
+                    </div>
+                </div>
 
                 <div class="glass location-map-box">
-                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                        src="https://www.openstreetmap.org/export/embed.html?bbox=73.4357%2C18.2255%2C73.4552%2C18.2435&amp;layer=mapnik&amp;marker=18.2346%2C73.4440"
-                        class="location-map-iframe"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3778.6853298652484!2d73.4407!3d18.2346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7fcaaaaaaaab%3A0x123456789!2sRaigad+Fort!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="location-map-iframe"></iframe>
                 </div>
                 <div class="location-map-link-box">
-                    <a href="https://www.openstreetmap.org/?mlat=18.2346&amp;mlon=73.4440#map=16/18.2346/73.4440"
-                        target="_blank" class="location-map-link">
-                        <i class="fas fa-map-location-dot"></i> View Larger Map
+                    <a href="https://www.google.com/maps/place/Raigad+Fort/@18.2346,73.4407,15z" target="_blank"
+                        class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View on Google Maps
                     </a>
                 </div>
             </section>
@@ -277,11 +1046,10 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="index.html" class="logo footer-logo">
-                        <i class="fas fa-mountain-sun"></i>
-                        MAHA<span>SAFAR</span>
+                        <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
                     </a>
-                    <p>Your premium gateway to the most breathtaking adventure destinations in Maharashtra. We
-                        specialize in safe, curated, and unforgettable experiences.</p>
+                    <p>Your premium gateway to the most breathtaking adventure and spiritual destinations in
+                        Maharashtra. We specialize in safe, curated, and unforgettable experiences.</p>
                     <div class="footer-social-links">
                         <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
@@ -292,17 +1060,8 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html#home">Home</a></li>
-                                        <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="explore.html">All Places</a></li>
-                        <li><a href="explore.html?category=treks">Treks</a></li>
-                        <li><a href="explore.html?category=temples">Temples</a></li>
-                        <li><a href="explore.html?category=camping">Camping</a></li>
-                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
-                    </ul>
-                </li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -315,11 +1074,12 @@
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Newsletter</h4>
-                    <p class="footer-newsletter-text">Get the latest trek updates and early bird offers.</p>
+                    <h4>Stay Updated</h4>
+                    <p class="mb-15 font-sm footer-newsletter-text">Subscribe to our newsletter for the latest adventure
+                        updates and offers.</p>
                     <div class="form-group newsletter-form">
-                        <input type="email" placeholder="Email" class="newsletter-input">
-                        <button class="submit-btn newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                        <input type="email" placeholder="Your Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -329,9 +1089,272 @@
         </div>
     </footer>
 
+    <!-- Floating TOC Action Button -->
+    <button id="toc-trigger" class="toc-trigger-fab" aria-label="Open Guide Directory">
+        <svg class="progress-ring" width="56" height="56">
+            <circle class="progress-ring__circle" stroke="var(--royal-gold)" stroke-width="3" fill="transparent" r="24"
+                cx="28" cy="28" />
+        </svg>
+        <div class="toc-fab-icon">
+            <i class="fas fa-list-ol"></i>
+        </div>
+    </button>
+
+    <!-- Glassmorphic TOC Drawer Overlay -->
+    <div id="toc-drawer-overlay" class="toc-drawer-overlay">
+        <div class="toc-drawer">
+            <div class="toc-drawer-header">
+                <h3>Guide Chapters</h3>
+                <button id="toc-close-btn" class="toc-close-btn" aria-label="Close Guide Directory">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="toc-drawer-body">
+                <ul class="toc-drawer-list">
+                    <li><a href="#about-fort" class="drawer-link active"><i class="fas fa-circle-info"></i> About
+                            Fort</a></li>
+                    <li><a href="#exact-location" class="drawer-link"><i class="fas fa-map-pin"></i> Location
+                            details</a></li>
+                    <li><a href="#how-to-reach" class="drawer-link"><i class="fas fa-route"></i> How to Reach</a></li>
+                    <li><a href="#why-visit" class="drawer-link"><i class="fas fa-heart"></i> Why Visit</a></li>
+                    <li><a href="#best-time" class="drawer-link"><i class="fas fa-calendar-days"></i> Best Time</a></li>
+                    <li><a href="#difficulty-suitability" class="drawer-link"><i class="fas fa-signal"></i> Difficulty &
+                            Suitability</a></li>
+                    <li><a href="#time-required" class="drawer-link"><i class="fas fa-clock"></i> Time Required</a></li>
+                    <li><a href="#trip-cost" class="drawer-link"><i class="fas fa-wallet"></i> Trip Cost</a></li>
+                    <li><a href="#food-availability" class="drawer-link"><i class="fas fa-utensils"></i> Food Stalls</a>
+                    </li>
+                    <li><a href="#facilities" class="drawer-link"><i class="fas fa-server"></i> Facilities</a></li>
+                    <li><a href="#safety" class="drawer-link"><i class="fas fa-shield-halved"></i> Safety Guidelines</a>
+                    </li>
+                    <li><a href="#things-to-carry" class="drawer-link"><i class="fas fa-backpack"></i> Things to
+                            Carry</a></li>
+                    <li><a href="#best-photo-spots" class="drawer-link"><i class="fas fa-camera"></i> Photo Spots</a>
+                    </li>
+                    <li><a href="#insider-tips" class="drawer-link"><i class="fas fa-lightbulb"></i> Insider Tips</a>
+                    </li>
+                    <li><a href="#location-map" class="drawer-link"><i class="fas fa-location-dot"></i> Location Map</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="assets/js/comon.js"></script>
+    <script src="assets/js/kalsubai2.js"></script>
+    <script>
+        // Mobile FAB & Desktop Horizontal Arrow Scroll spy navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('toc-trigger');
+            const overlay = document.getElementById('toc-drawer-overlay');
+            const closeBtn = document.getElementById('toc-close-btn');
+            const drawerLinks = document.querySelectorAll('.drawer-link');
+            const drawer = overlay.querySelector('.toc-drawer');
+
+            // Toggle Drawer
+            const openDrawer = () => {
+                overlay.classList.add('active');
+                drawer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeDrawer = () => {
+                overlay.classList.remove('active');
+                drawer.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            trigger.addEventListener('click', openDrawer);
+            closeBtn.addEventListener('click', closeDrawer);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closeDrawer();
+            });
+
+            // Smooth Scroll for Drawer Links
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        closeDrawer();
+                        const headerOffset = 90;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Desktop Horizontal Scroll Arrow Button Handlers
+            const leftArrow = document.getElementById('nav-arrow-left');
+            const rightArrow = document.getElementById('nav-arrow-right');
+            const scrollContainer = document.querySelector('.index-list');
+
+            if (leftArrow && rightArrow && scrollContainer) {
+                const scrollAmount = 200; // Pixels to scroll on click
+
+                leftArrow.addEventListener('click', () => {
+                    scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+
+                rightArrow.addEventListener('click', () => {
+                    scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+
+                // Disable/enable arrows based on scroll position
+                const toggleArrows = () => {
+                    const scrollLeft = scrollContainer.scrollLeft;
+                    const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+                    if (scrollLeft <= 5) {
+                        leftArrow.classList.add('disabled');
+                    } else {
+                        leftArrow.classList.remove('disabled');
+                    }
+
+                    if (scrollLeft >= maxScrollLeft - 5) {
+                        rightArrow.classList.add('disabled');
+                    } else {
+                        rightArrow.classList.remove('disabled');
+                    }
+                };
+
+                scrollContainer.addEventListener('scroll', toggleArrows);
+                window.addEventListener('resize', toggleArrows);
+
+                // Initial check
+                setTimeout(toggleArrows, 500);
+            }
+
+            // Sync Scroll Spy for both Sidebar and Drawer links
+            const sections = document.querySelectorAll('.content-area .guide-section');
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav .index-link');
+
+            if (sections.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-80px 0px -50% 0px',
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.getAttribute('id');
+
+                            // Highlight sidebar links
+                            sidebarLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+
+                                    // Auto-scroll active link into view inside horizontal bar
+                                    if (scrollContainer && link.parentElement) {
+                                        const containerWidth = scrollContainer.clientWidth;
+                                        const itemLeft = link.parentElement.offsetLeft;
+                                        const itemWidth = link.parentElement.clientWidth;
+                                        const targetScroll = itemLeft - (containerWidth / 2) + (itemWidth / 2);
+
+                                        scrollContainer.scrollTo({
+                                            left: targetScroll,
+                                            behavior: 'smooth'
+                                        });
+                                    }
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+
+                            // Highlight drawer links
+                            drawerLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(section => observer.observe(section));
+            }
+
+            // Circular Scroll Progress calculation
+            const circle = document.querySelector('.progress-ring__circle');
+            if (circle) {
+                const radius = circle.r.baseVal.value;
+                const circumference = radius * 2 * Math.PI;
+
+                circle.style.strokeDasharray = `${circumference} ${circumference}`;
+                circle.style.strokeDashoffset = circumference;
+
+                const setProgress = (percent) => {
+                    const offset = circumference - (percent / 100) * circumference;
+                    circle.style.strokeDashoffset = offset;
+                };
+
+                const contentArea = document.querySelector('.content-area');
+                if (contentArea) {
+                    const calcProgress = () => {
+                        const rect = contentArea.getBoundingClientRect();
+                        const contentTop = rect.top + window.scrollY;
+                        const contentHeight = rect.height;
+                        const viewportHeight = window.innerHeight;
+                        const scrollTop = window.scrollY - contentTop;
+                        const scrollHeight = contentHeight - viewportHeight;
+
+                        let percent = 0;
+                        if (scrollHeight > 0) {
+                            percent = Math.max(0, Math.min(100, (scrollTop / scrollHeight) * 100));
+                        } else {
+                            percent = window.scrollY >= contentTop ? 100 : 0;
+                        }
+
+                        setProgress(percent);
+                    };
+
+                    window.addEventListener('scroll', calcProgress);
+                    calcProgress();
+                }
+            }
+        });
+    </script>
+    <script>
+        // Route Planner: Open Google Maps Directions
+        function openGoogleMapsDirections() {
+            const fromInput = document.getElementById('route-from');
+            const origin = fromInput.value.trim();
+            const destination = 'Raigad Fort, Maharashtra';
+
+            if (!origin) {
+                fromInput.focus();
+                fromInput.style.borderColor = '#ef4444';
+                fromInput.setAttribute('placeholder', 'Please enter a starting location...');
+                setTimeout(() => {
+                    fromInput.style.borderColor = '';
+                    fromInput.setAttribute('placeholder', 'Enter starting location...');
+                }, 2500);
+                return;
+            }
+
+            const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
+            window.open(url, '_blank');
+        }
+
+        // Allow Enter key to trigger directions
+        document.getElementById('route-from').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                openGoogleMapsDirections();
+            }
+        });
+    </script>
 </body>
 
 </html>
-

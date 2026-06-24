@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alibaug Beach Complete Visitor Guide - Maha Safar</title>
+    <meta name="description"
+        content="Complete interactive guide to Alibaug Beach. Learn about water sports, swimming safety, how to reach, local cuisine, photography viewpoints, and one-day itinerary.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/kalsubai2.css">
+    <style>
+        /* Custom Scroll Spy / Floating Drawer style overrides */
+        :root {
+            --progress-ring-size: 56px;
+        }
+
+        /* Floating Action Button */
+        .toc-trigger-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(17, 18, 21, 0.85) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--royal-border-gold) !important;
+            color: var(--royal-gold) !important;
+            display: none; /* Only visible on tablet/mobile */
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            z-index: 99999;
+            padding: 0;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        body.light-mode .toc-trigger-fab {
+            background: rgba(250, 249, 246, 0.9) !important;
+            box-shadow: 0 8px 30px rgba(144, 115, 74, 0.15);
+        }
+
+        .toc-trigger-fab:hover {
+            transform: scale(1.05);
+        }
+
+        .toc-trigger-fab:active {
+            transform: scale(0.95);
+        }
+
+        .progress-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(-90deg);
+            pointer-events: none;
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.1s;
+            transform-origin: 50% 50%;
+        }
+
+        .toc-fab-icon {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        /* TOC Drawer Overlay */
+        .toc-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        .toc-drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .toc-drawer {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 85%;
+            max-width: 320px;
+            height: 100%;
+            background: var(--royal-bg-secondary) !important;
+            border-left: 1px solid var(--royal-border-gold);
+            padding: 30px 24px;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toc-drawer.active {
+            transform: translateX(0);
+        }
+
+        .toc-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--royal-border-gold);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .toc-drawer-header h3 {
+            font-family: 'Outfit', sans-serif !important;
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
+            color: var(--royal-gold) !important;
+            margin: 0 !important;
+            text-transform: uppercase;
+        }
+
+        .toc-close-btn {
+            background: transparent;
+            border: none;
+            color: var(--royal-text-muted);
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .toc-close-btn:hover {
+            color: var(--royal-gold);
+        }
+
+        .toc-drawer-body {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-right: 5px;
+        }
+
+        /* Custom Scrollbar for Drawer Body */
+        .toc-drawer-body::-webkit-scrollbar {
+            width: 4px;
+        }
+        .toc-drawer-body::-webkit-scrollbar-thumb {
+            background: var(--royal-border-gold);
+            border-radius: 4px;
+        }
+
+        .toc-drawer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .drawer-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--royal-text-muted) !important;
+            text-decoration: none;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13.5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .drawer-link i {
+            font-size: 14px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .drawer-link:hover {
+            color: var(--royal-text-main) !important;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        body.light-mode .drawer-link:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .drawer-link.active {
+            color: var(--royal-gold) !important;
+            background: rgba(var(--royal-accent-rgb), 0.08) !important;
+            border-left-color: var(--royal-gold);
+            font-weight: 600;
+        }
+
+        /* DESKTOP HORIZONTAL STICKY SCROLL NAV WITH ARROWS */
+        @media (min-width: 1025px) {
+            .guide-layout {
+                display: block !important;
+                max-width: 1000px !important;
+                margin: 0 auto !important;
+            }
+            .content-area {
+                width: 100% !important;
+            }
+
+            .sidebar-nav {
+                position: sticky !important;
+                top: 92px !important;
+                width: 100% !important;
+                background: var(--royal-bg-primary) !important;
+                border-bottom: 1px solid var(--royal-border-gold) !important;
+                margin-bottom: 40px !important;
+                z-index: 999 !important;
+                display: flex !important;
+                align-items: center !important;
+                padding: 0 !important;
+            }
+
+            .sidebar-inner {
+                position: relative !important;
+                width: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+                background: transparent !important;
+                border: none !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+            }
+
+            .index-title {
+                display: none !important;
+            }
+
+            /* Scroll Container wrapper */
+            .index-list-wrapper {
+                flex-grow: 1 !important;
+                overflow: hidden !important;
+                position: relative !important;
+                display: flex !important;
+                align-items: center !important;
+                padding: 10px 0 !important;
+            }
+
+            .index-list {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 15px !important;
+                list-style: none !important;
+                overflow-x: auto !important;
+                white-space: nowrap !important;
+                scrollbar-width: none !important; /* Firefox */
+                scroll-behavior: smooth !important;
+                width: 100% !important;
+                padding: 0 10px !important;
+                margin: 0 !important;
+            }
+
+            .index-list::-webkit-scrollbar {
+                display: none !important; /* Safari and Chrome */
+            }
+
+            .index-link {
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                font-family: 'Outfit', sans-serif !important;
+                font-size: 11px !important;
+                font-weight: 700 !important;
+                letter-spacing: 1px !important;
+                text-transform: uppercase !important;
+                color: var(--royal-text-muted) !important;
+                padding: 8px 16px !important;
+                border-radius: 20px !important;
+                border: 1px solid transparent !important;
+                transition: all 0.3s ease !important;
+                text-decoration: none !important;
+            }
+
+            .index-link i {
+                font-size: 11px !important;
+                display: inline-block !important;
+            }
+
+            .index-link:hover {
+                color: var(--royal-text-main) !important;
+                background: rgba(255, 255, 255, 0.03) !important;
+            }
+
+            body.light-mode .index-link:hover {
+                background: rgba(0, 0, 0, 0.03) !important;
+            }
+
+            .index-link.active {
+                color: var(--royal-gold) !important;
+                background: rgba(var(--royal-accent-rgb), 0.08) !important;
+                border-color: var(--royal-border-gold) !important;
+                font-weight: 700 !important;
+            }
+
+            /* Scroll Arrow Buttons */
+            .scroll-arrow-btn {
+                background: var(--royal-bg-primary) !important;
+                border: none !important;
+                color: var(--royal-gold) !important;
+                width: 36px !important;
+                height: 36px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                cursor: pointer !important;
+                z-index: 10 !important;
+                transition: all 0.3s ease !important;
+                flex-shrink: 0 !important;
+                opacity: 0.8 !important;
+            }
+
+            .scroll-arrow-btn:hover {
+                opacity: 1 !important;
+                background: rgba(var(--royal-accent-rgb), 0.05) !important;
+                color: var(--royal-text-main) !important;
+            }
+
+            .scroll-arrow-btn.disabled {
+                opacity: 0.25 !important;
+                cursor: not-allowed !important;
+            }
+
+            .left-arrow-btn {
+                border-right: 1px solid var(--royal-border-gold) !important;
+            }
+
+            .right-arrow-btn {
+                border-left: 1px solid var(--royal-border-gold) !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar-nav {
+                display: none !important;
+            }
+
+            .toc-trigger-fab {
+                display: flex !important;
+            }
+        }
+
+        /* Fix gradient-text font size in section headings to match the first word */
+        .guide-layout h2 .gradient-text,
+        .guide-section h2 .gradient-text {
+            font-size: inherit !important;
+        }
+
+        /* Section styles specifically tailored for Alibaug Beach guide */
+        .distance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .distance-card {
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--royal-border-gold);
+            background: rgba(var(--royal-accent-rgb), 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .distance-card:hover {
+            border-color: var(--royal-gold);
+            background: rgba(var(--royal-accent-rgb), 0.08);
+            transform: translateY(-2px);
+        }
+
+        .distance-card h4 {
+            font-size: 1.1rem;
+            color: var(--royal-gold);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .distance-card p {
+            font-size: 0.8rem;
+            color: var(--royal-text-muted);
+            margin: 0;
+        }
+
+        .itinerary-timeline {
+            margin-top: 30px;
+            border-left: 2px solid var(--royal-border-gold);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .itinerary-step {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .itinerary-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .itinerary-step::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--royal-gold);
+            box-shadow: 0 0 10px rgba(var(--royal-accent-rgb), 0.4);
+        }
+
+        .itinerary-time {
+            font-weight: 700;
+            color: var(--royal-gold);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .itinerary-desc {
+            font-size: 0.95rem;
+            color: var(--royal-text-main);
+        }
+
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .sport-card {
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--royal-border-gold);
+            background: rgba(var(--royal-accent-rgb), 0.01);
+            transition: all 0.3s ease;
+        }
+
+        .sport-card:hover {
+            border-color: var(--royal-gold);
+            background: rgba(var(--royal-accent-rgb), 0.05);
+            transform: translateY(-2px);
+        }
+
+        .sport-card h3 {
+            font-size: 1.1rem;
+            color: var(--royal-gold);
+            margin-bottom: 8px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sport-card p {
+            font-size: 0.85rem;
+            color: var(--royal-text-muted);
+            margin: 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad" id="home" style="background: linear-gradient(rgba(5, 8, 16, 0.65), rgba(5, 8, 16, 0.85)), url('assets/kandheri_sea.png') no-repeat center center/cover !important;">
+        <div class="container">
+            <h1>ALIBAUG BEACH</h1>
+            <p>Coastal Gateway and Historic Kolaba Fort Views</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html">Explore</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Alibaug Beach</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Difficulty</p>
+                <h4>Easy Walk</h4>
+            </div>
+            <div class="stat-item">
+                <p>Type</p>
+                <h4>Coastal Beach</h4>
+            </div>
+            <div class="stat-item">
+                <p>Key Feature</p>
+                <h4>Kolaba Sea Fort</h4>
+            </div>
+            <div class="stat-item">
+                <p>Best Time</p>
+                <h4>Oct - Mar</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index (Horizontal Scroll Bar with Arrows for Desktop) -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <button id="nav-arrow-left" class="scroll-arrow-btn left-arrow-btn" aria-label="Scroll Left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="index-list-wrapper">
+                    <ul class="index-list">
+                        <li><a href="#about-beach" class="index-link active"><i class="fas fa-circle-info"></i> About Alibaug</a></li>
+                        <li><a href="#best-time" class="index-link"><i class="fas fa-calendar-check"></i> Best Time</a></li>
+                        <li><a href="#how-to-reach" class="index-link"><i class="fas fa-route"></i> How to Reach</a></li>
+                        <li><a href="#beach-experience" class="index-link"><i class="fas fa-umbrella-beach"></i> Beach Experience</a></li>
+                        <li><a href="#swimming-safety" class="index-link"><i class="fas fa-life-ring"></i> Water Safety</a></li>
+                        <li><a href="#water-sports" class="index-link"><i class="fas fa-person-water-riot"></i> Sports & Activities</a></li>
+                        <li><a href="#facilities" class="index-link"><i class="fas fa-shop"></i> Facilities Available</a></li>
+                        <li><a href="#food-specialties" class="index-link"><i class="fas fa-plate-wheat"></i> Local Cuisine</a></li>
+                        <li><a href="#photography" class="index-link"><i class="fas fa-camera"></i> Photography Points</a></li>
+                        <li><a href="#things-to-carry" class="index-link"><i class="fas fa-backpack"></i> Things to Carry</a></li>
+                        <li><a href="#travel-tips" class="index-link"><i class="fas fa-circle-exclamation"></i> Travel Tips</a></li>
+                        <li><a href="#trip-itinerary" class="index-link"><i class="fas fa-clock"></i> One-Day Itinerary</a></li>
+                        <li><a href="#crowd-level" class="index-link"><i class="fas fa-users"></i> Crowd Level</a></li>
+                        <li><a href="#location-map" class="index-link"><i class="fas fa-location-dot"></i> Location Map</a></li>
+                    </ul>
+                </div>
+                <button id="nav-arrow-right" class="scroll-arrow-btn right-arrow-btn" aria-label="Scroll Right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Alibaug Beach -->
+            <section id="about-beach" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Alibaug Beach</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Alibaug Beach is one of the most popular coastal destinations in Maharashtra and is often called the "Goa of Maharashtra" because of its beautiful coastline and easy accessibility from Mumbai. Located in the heart of Alibaug town, this beach attracts families, couples, groups of friends, and weekend travelers throughout the year.</p>
+                        <p>What makes Alibaug Beach unique is the stunning view of the historic Kolaba Fort, which can be reached on foot during low tide. The beach offers a perfect combination of sea views, local Konkani culture, and relaxing vibes. Unlike remote beaches, it has plenty of nearby town facilities, making it suitable for visitors of all ages.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Nickname</h4>
+                                <p class="about-fort-pill-text">Goa of Maharashtra</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Unique Landmark</h4>
+                                <p class="about-fort-pill-text">Kolaba Sea Fort View</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/padmadurg_island.png" alt="Kolaba Fort View from Alibaug Beach" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Best Time to Visit -->
+            <section id="best-time" class="guide-section essential-info-section">
+                <h2>Best Time <span class="gradient-text">to Visit</span></h2>
+                <p class="section-desc">Plan your visit during winter for pleasant beach walks, water sports, and sunset viewings.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-snowflake"></i> Winter Peak</h3>
+                        <p><strong>October to March:</strong> Best weather conditions. November through February offers cool, pleasant days and clear sunset views suitable for beach activities.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cloud-showers-water"></i> Monsoons</h3>
+                        <p><strong>June to September:</strong> Heavy rainfall covers the region in greenery. The sea becomes rough, and water sports or fort walks are suspended.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-sun"></i> Summer Season</h3>
+                        <p><strong>March to May:</strong> Hot and humid. Early morning and golden hour evenings are the only comfortable times to walk along the coast.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: How to Reach -->
+            <section id="how-to-reach" class="guide-section travel-guide-section">
+                <h2>How to <span class="gradient-text">Reach</span></h2>
+                <p class="section-desc">Alibaug Beach is highly accessible by road, rail, and ferry from Mumbai and Pune.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>By Ferry (Scenic Route)</h3>
+                            <p>Regular ferry services run between Gateway of India (Mumbai) and Mandwa Jetty. Speedboats and Ro-Ro car ferries are also available. From Mandwa, connecting buses and auto-rickshaws take you directly to Alibaug town.</p>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>By Road</h3>
+                            <p>Drive via Old Mumbai-Pune Highway / Expressway and Old Goa highway. Alibaug is well connected and offers scenic views along the highway.</p>
+                            <span class="travel-guide-cost-badge">Mumbai: ~95 km | Pune: ~145 km</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>By Train & Bus</h3>
+                            <p>Pen Railway Station (~30 km) and Panvel Station (~80 km) are the closest rail links. Frequent MSRTC State Transport buses run from Mumbai, Thane, Navi Mumbai, and Pune depots.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="primary-heading mt-40">Distance from Major Hubs</h3>
+                <div class="distance-grid">
+                    <div class="distance-card">
+                        <h4>~30 km</h4>
+                        <p>Pen Railway Station</p>
+                    </div>
+                    <div class="distance-card">
+                        <h4>~80 km</h4>
+                        <p>Panvel Station</p>
+                    </div>
+                    <div class="distance-card">
+                        <h4>~95 km</h4>
+                        <p>Mumbai City</p>
+                    </div>
+                    <div class="distance-card">
+                        <h4>~145 km</h4>
+                        <p>Pune City</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Beach Experience -->
+            <section id="beach-experience" class="guide-section about-fort-section">
+                <h2>Beach <span class="gradient-text">Experience</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-img">
+                        <img src="assets/kandheri_sea.png" alt="Arabian Sea shoreline" class="about-fort-image">
+                    </div>
+                    <div class="about-fort-text">
+                        <p>Alibaug Beach features a unique look, characterized by wide open views of the Arabian Sea and blackish sand mixed with soft coastal soil. During low tide, the sea recedes significantly, leaving a vast flat beach area where visitors can walk all the way to Kolaba Fort.</p>
+                        <p>The gentle sea breeze and the sound of crashing waves make it a highly pleasant place to unwind. In the evening, the shoreline comes alive with food vendors, families walking along the sand, and photographers capturing the sunset framing distant fishing boats and the island fort.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Sand Type</h4>
+                                <p class="about-fort-pill-text">Black sand & coastal soil</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Vibe</h4>
+                                <p class="about-fort-pill-text">Active evening shorelife</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Swimming & Water Safety -->
+            <section id="swimming-safety" class="guide-section essential-info-section">
+                <h2>Swimming & <span class="gradient-text">Water Safety</span></h2>
+                <p class="section-desc">Ensure a safe visit by adhering to these standard safety rules for swimming in coastal waters.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-circle-exclamation"></i> Tide Warnings</h3>
+                        <p>Only enter shallow areas during low tide and calm weather. Completely avoid entering the sea during high tide or heavy monsoon currents. Do not swim after sunset.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-children"></i> Supervision</h3>
+                        <p>Keep children under strict adult supervision at all times. Do not wander into deep water zones as lifeguards may not be available on all stretches.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-ship"></i> Local Guidance</h3>
+                        <p>Always check local weather updates and follow safety instructions issued by authorities or local fishermen before going near the shoreline.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Water Sports & Activities -->
+            <section id="water-sports" class="guide-section essential-info-section">
+                <h2>Sports & <span class="gradient-text">Activities</span></h2>
+                <p class="section-desc">While Alibaug Beach is famous for horse rides and fort walks, exciting water sports are available at nearby beaches like Nagaon and Mandwa.</p>
+
+                <div class="sports-grid">
+                    <div class="sport-card">
+                        <h3><i class="fas fa-person-snowboarding"></i> Jet Ski Ride</h3>
+                        <p>High-speed water rides across the waves. Suitable for beginners with a guide. Duration: 2-5 minutes.</p>
+                    </div>
+                    <div class="sport-card">
+                        <h3><i class="fas fa-wind"></i> Parasailing</h3>
+                        <p>Soar high above the sea level while towed by a speedboat, offering beautiful bird's-eye views of the coastline.</p>
+                    </div>
+                    <div class="sport-card">
+                        <h3><i class="fas fa-life-ring"></i> Banana & Bumper</h3>
+                        <p>Group inflatable boat rides pulled at high speed behind speedboats. An absolute favorite for youth circles.</p>
+                    </div>
+                    <div class="sport-card">
+                        <h3><i class="fas fa-truck-monster"></i> Beach ATV Rides</h3>
+                        <p>Ride off-road quad bikes along designated sandy paths. Great for kids and adventure enthusiasts.</p>
+                    </div>
+                    <div class="sport-card">
+                        <h3><i class="fas fa-horse"></i> Horse & Carriage</h3>
+                        <p>Classic horse rides and carriage rides available directly on Alibaug beach during sunset hours.</p>
+                    </div>
+                    <div class="sport-card">
+                        <h3><i class="fas fa-fort-awesome"></i> Kolaba Fort Walk</h3>
+                        <p>A unique walk across the sea bed to the historic fort during low tide hours. Check tide schedules beforehand.</p>
+                    </div>
+                </div>
+                
+                <div class="glass card-padding-large mt-30" style="border: 1px solid var(--royal-border-gold); background: rgba(var(--royal-accent-rgb), 0.03); border-radius: 12px;">
+                    <p style="margin: 0; font-size: 0.95rem; color: var(--royal-text-main); line-height: 1.6; text-align: center;">
+                        <i class="fas fa-circle-exclamation" style="color: var(--royal-gold); margin-right: 8px;"></i> 
+                        <strong>Note:</strong> Water sports operate from October to May and are completely suspended during monsoons. Ensure you use authorized vendors and wear life jackets.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 7: Facilities Available -->
+            <section id="facilities" class="guide-section essential-info-section">
+                <h2>Facilities <span class="gradient-text">Available</span></h2>
+                <p class="section-desc">Located right near the central town, the beach area is highly convenient for tourists.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-square-parking"></i> Access & Parking</h3>
+                        <p>Spacious vehicle parking zones located close to the beach entrance. Taxis and auto-rickshaws are easily available.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-restroom"></i> Amenities</h3>
+                        <p>Public washroom blocks, drinking water points, medical stores, and major bank ATM facilities situated within walking distance.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-hotel"></i> Stay & Network</h3>
+                        <p>Excellent mobile network coverage. Plenty of hotels, resorts, and homestays are located immediately nearby.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 8: Food & Local Specialties -->
+            <section id="food-specialties" class="guide-section essential-info-section">
+                <h2>Food & <span class="gradient-text">Local Specialties</span></h2>
+                <p class="section-desc">Alibaug is famous for its delicious coastal cuisine and Konkani seafood specialties.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-shrimp"></i> Seafood Lovers</h3>
+                        <p>Try the famous Alibaug fish thalis featuring fresh Surmai (Kingfish), Pomfret, Prawns, and Crab masala prepared in local coconut-spiced gravy.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-carrot"></i> Vegetarian Options</h3>
+                        <p>Enjoy standard Maharashtrian dishes such as spicy Misal Pav, Vada Pav, Poha, or complete vegetarian thalis in the nearby restaurants.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-ice-cream"></i> Evening Snacks</h3>
+                        <p>Beachside stalls set up in the evening selling roasted corn-on-the-cob (bhutta), ice creams, local snacks, and coconut water.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Photography & Viewpoints -->
+            <section id="photography" class="guide-section essential-info-section">
+                <h2>Photography <span class="gradient-text">& Viewpoints</span></h2>
+                <p class="section-desc">Alibaug Beach offers spectacular scenic viewpoints, especially during the golden hour sunset.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-camera"></i> Sunset Frames</h3>
+                        <p>Highly popular sunset photography location. The sun sinking behind the silhouette of Kolaba Fort creates stunning postcard shots.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-images"></i> Tide Reflections</h3>
+                        <p>Low tide leaves wet sand surfaces that act as massive natural mirrors, reflecting the sunset sky and walking figures beautifully.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-anchor"></i> Fishing Boats</h3>
+                        <p>Dozens of colorful local fishing boats anchored near the shore provide an authentic coastal aesthetic for landscape shots.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 10: Things to Carry -->
+            <section id="things-to-carry" class="guide-section essential-info-section">
+                <h2>Things <span class="gradient-text">to Carry</span></h2>
+                <p class="section-desc">A basic checklist to ensure a comfortable day under the coastal sun.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-sun"></i> Sun Protection</h3>
+                        <p>Sunglasses, wide-brimmed hat or cap, and high-SPF sunscreen lotion are highly recommended to prevent sunburn.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-socks"></i> Footwear & Clothes</h3>
+                        <p>Comfortable beach sandals, extra sets of dry clothing, beach towels, and personal first-aid or medicines.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-battery-full"></i> Accessories</h3>
+                        <p>Drinking water bottle, a fully charged power bank, and waterproof bags to protect cameras and mobile phones from saltwater.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 11: Travel Tips & Beach Etiquette -->
+            <section id="travel-tips" class="guide-section essential-info-section">
+                <h2>Travel Tips <span class="gradient-text">& Etiquette</span></h2>
+                <p class="section-desc">Help maintain the beauty of the coast and ensure a respectful visit.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-trash-can"></i> Waste Control</h3>
+                        <p>Avoid plastic usage. Do not litter on the sand; carry your trash back to bins to keep the shoreline clean.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-users"></i> Respect Locals</h3>
+                        <p>Respect local culture, privacy, and community rules. Support local stalls and eco-friendly business operators.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cloud-sun"></i> Weather Prep</h3>
+                        <p>Keep yourself hydrated in hot afternoons. Avoid visiting the beach during extreme weather forecasts or high wind warning periods.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 12: One-Day Trip Itinerary -->
+            <section id="trip-itinerary" class="guide-section travel-guide-section">
+                <h2>One-Day <span class="gradient-text">Itinerary</span></h2>
+                <p class="section-desc">A perfect plan to maximize your day trip to Alibaug from Mumbai or Pune.</p>
+
+                <div class="itinerary-timeline">
+                    <div class="itinerary-step">
+                        <div class="itinerary-time">07:00 AM</div>
+                        <div class="itinerary-desc">Start journey from Mumbai or Pune (Ferry from Gateway or drive by road).</div>
+                    </div>
+                    <div class="itinerary-step">
+                        <div class="itinerary-time">10:00 AM</div>
+                        <div class="itinerary-desc">Arrive at Alibaug Beach, enjoy a morning beach walk and coastal photography.</div>
+                    </div>
+                    <div class="itinerary-step">
+                        <div class="itinerary-time">12:00 PM</div>
+                        <div class="itinerary-desc">Walk across the receded seabed to explore the historic Kolaba Sea Fort (during low tide).</div>
+                    </div>
+                    <div class="itinerary-step">
+                        <div class="itinerary-time">02:00 PM</div>
+                        <div class="itinerary-desc">Enjoy a delicious lunch featuring Konkani seafood thalis or local Maharashtrian vegetarian meals.</div>
+                    </div>
+                    <div class="itinerary-step">
+                        <div class="itinerary-time">04:00 PM</div>
+                        <div class="itinerary-desc">Explore the local Alibaug town markets for home-made spices, coconut products, and snacks.</div>
+                    </div>
+                    <div class="itinerary-step">
+                        <div class="itinerary-time">05:30 PM</div>
+                        <div class="itinerary-desc">Watch the spectacular golden hour sunset at the beach with local evening snacks.</div>
+                    </div>
+                    <div class="itinerary-step">
+                        <div class="itinerary-time">07:00 PM</div>
+                        <div class="itinerary-desc">Board the ferry back or begin your drive back home.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 13: Crowd Level -->
+            <section id="crowd-level" class="guide-section essential-info-section">
+                <h2>Crowd <span class="gradient-text">Dynamics</span></h2>
+                <p class="section-desc">Compare crowd levels to match your ideal style of travel.</p>
+
+                <div class="essential-info-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-day"></i> Weekdays</h3>
+                        <p>Moderate, relaxed crowd levels. The beach is peaceful, parking is easy to secure, and conditions are perfect for quiet photography and couple walks.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calendar-days"></i> Weekends</h3>
+                        <p>Heavy tourist footfall from Mumbai and Pune. The atmosphere is highly active and lively. Traffic near the beach increases and parking may take time.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 14: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Alibaug Beach, Alibaug Town, Raigad District, Konkan Region, Maharashtra, India</p>
+
+                <!-- Route Planner -->
+                <div class="map-route-container">
+                    <div class="map-route-form">
+                        <div class="map-input-group">
+                            <label><i class="fas fa-circle-dot"></i> From</label>
+                            <input type="text" id="route-from" class="map-input" placeholder="Enter starting location..." autocomplete="off">
+                        </div>
+                        <div class="map-input-group">
+                            <label><i class="fas fa-map-pin"></i> To</label>
+                            <input type="text" class="map-input" value="Alibaug Beach, Alibaug, Maharashtra" readonly>
+                        </div>
+                        <button id="get-directions-btn" class="map-btn" onclick="openGoogleMapsDirections()">
+                            <i class="fas fa-diamond-turn-right"></i> Directions
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass location-map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3775.2934275037145!2d72.8700!3d18.6590!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be87fcaaaaaaaab%3A0xabcdef123!2sAlibaug+Beach!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.google.com/maps/place/Alibaug+Beach/@18.6590,72.8720,15z"
+                        target="_blank" class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View on Google Maps
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure and spiritual destinations in Maharashtra. We specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Stay Updated</h4>
+                    <p class="mb-15 font-sm footer-newsletter-text">Subscribe to our newsletter for the latest adventure updates and offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Your Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating TOC Action Button -->
+    <button id="toc-trigger" class="toc-trigger-fab" aria-label="Open Guide Directory">
+        <svg class="progress-ring" width="56" height="56">
+            <circle class="progress-ring__circle" stroke="var(--royal-gold)" stroke-width="3" fill="transparent" r="24" cx="28" cy="28"/>
+        </svg>
+        <div class="toc-fab-icon">
+            <i class="fas fa-list-ol"></i>
+        </div>
+    </button>
+
+    <!-- Glassmorphic TOC Drawer Overlay -->
+    <div id="toc-drawer-overlay" class="toc-drawer-overlay">
+        <div class="toc-drawer">
+            <div class="toc-drawer-header">
+                <h3>Guide Chapters</h3>
+                <button id="toc-close-btn" class="toc-close-btn" aria-label="Close Guide Directory">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="toc-drawer-body">
+                <ul class="toc-drawer-list">
+                    <li><a href="#about-beach" class="drawer-link active"><i class="fas fa-circle-info"></i> About Alibaug</a></li>
+                    <li><a href="#best-time" class="drawer-link"><i class="fas fa-calendar-check"></i> Best Time</a></li>
+                    <li><a href="#how-to-reach" class="drawer-link"><i class="fas fa-route"></i> How to Reach</a></li>
+                    <li><a href="#beach-experience" class="drawer-link"><i class="fas fa-umbrella-beach"></i> Beach Experience</a></li>
+                    <li><a href="#swimming-safety" class="drawer-link"><i class="fas fa-life-ring"></i> Water Safety</a></li>
+                    <li><a href="#water-sports" class="drawer-link"><i class="fas fa-person-water-riot"></i> Sports & Activities</a></li>
+                    <li><a href="#facilities" class="drawer-link"><i class="fas fa-shop"></i> Facilities Available</a></li>
+                    <li><a href="#food-specialties" class="drawer-link"><i class="fas fa-plate-wheat"></i> Local Cuisine</a></li>
+                    <li><a href="#photography" class="drawer-link"><i class="fas fa-camera"></i> Photography Points</a></li>
+                    <li><a href="#things-to-carry" class="drawer-link"><i class="fas fa-backpack"></i> Things to Carry</a></li>
+                    <li><a href="#travel-tips" class="drawer-link"><i class="fas fa-circle-exclamation"></i> Travel Tips</a></li>
+                    <li><a href="#trip-itinerary" class="drawer-link"><i class="fas fa-clock"></i> One-Day Itinerary</a></li>
+                    <li><a href="#crowd-level" class="drawer-link"><i class="fas fa-users"></i> Crowd Level</a></li>
+                    <li><a href="#location-map" class="drawer-link"><i class="fas fa-location-dot"></i> Location Map</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/kalsubai2.js"></script>
+    <script>
+        // Mobile FAB & Desktop Horizontal Arrow Scroll spy navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('toc-trigger');
+            const overlay = document.getElementById('toc-drawer-overlay');
+            const closeBtn = document.getElementById('toc-close-btn');
+            const drawerLinks = document.querySelectorAll('.drawer-link');
+            const drawer = overlay.querySelector('.toc-drawer');
+            
+            // Toggle Drawer
+            const openDrawer = () => {
+                overlay.classList.add('active');
+                drawer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+            
+            const closeDrawer = () => {
+                overlay.classList.remove('active');
+                drawer.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+            
+            trigger.addEventListener('click', openDrawer);
+            closeBtn.addEventListener('click', closeDrawer);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closeDrawer();
+            });
+            
+            // Smooth Scroll for Drawer Links
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        closeDrawer();
+                        const headerOffset = 90;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        history.pushState(null, null, targetId);
+                    }
+                });
+            });
+
+            // Desktop Horizontal Scroll Arrow Button Handlers
+            const leftArrow = document.getElementById('nav-arrow-left');
+            const rightArrow = document.getElementById('nav-arrow-right');
+            const scrollContainer = document.querySelector('.index-list');
+            
+            if (leftArrow && rightArrow && scrollContainer) {
+                const scrollAmount = 200; // Pixels to scroll on click
+                
+                leftArrow.addEventListener('click', () => {
+                    scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+                
+                rightArrow.addEventListener('click', () => {
+                    scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+                
+                // Disable/enable arrows based on scroll position
+                const toggleArrows = () => {
+                    const scrollLeft = scrollContainer.scrollLeft;
+                    const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+                    
+                    if (scrollLeft <= 5) {
+                        leftArrow.classList.add('disabled');
+                    } else {
+                        leftArrow.classList.remove('disabled');
+                    }
+                    
+                    if (scrollLeft >= maxScrollLeft - 5) {
+                        rightArrow.classList.add('disabled');
+                    } else {
+                        rightArrow.classList.remove('disabled');
+                    }
+                };
+                
+                scrollContainer.addEventListener('scroll', toggleArrows);
+                window.addEventListener('resize', toggleArrows);
+                
+                // Initial check
+                setTimeout(toggleArrows, 500);
+            }
+            
+            // Sync Scroll Spy for both Sidebar and Drawer links
+            const sections = document.querySelectorAll('.content-area .guide-section');
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav .index-link');
+            
+            if (sections.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-80px 0px -50% 0px',
+                    threshold: 0
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.getAttribute('id');
+                            
+                            // Highlight sidebar links
+                            sidebarLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+                                    
+                                    // Auto-scroll active link into view inside horizontal bar
+                                    if (scrollContainer && link.parentElement) {
+                                        const containerWidth = scrollContainer.clientWidth;
+                                        const itemLeft = link.parentElement.offsetLeft;
+                                        const itemWidth = link.parentElement.clientWidth;
+                                        const targetScroll = itemLeft - (containerWidth / 2) + (itemWidth / 2);
+                                        
+                                        scrollContainer.scrollTo({
+                                            left: targetScroll,
+                                            behavior: 'smooth'
+                                        });
+                                    }
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+                            
+                            // Highlight drawer links
+                            drawerLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+                
+                sections.forEach(section => observer.observe(section));
+            }
+            
+            // Circular Scroll Progress calculation
+            const circle = document.querySelector('.progress-ring__circle');
+            if (circle) {
+                const radius = circle.r.baseVal.value;
+                const circumference = radius * 2 * Math.PI;
+                
+                circle.style.strokeDasharray = `${circumference} ${circumference}`;
+                circle.style.strokeDashoffset = circumference;
+                
+                const setProgress = (percent) => {
+                    const offset = circumference - (percent / 100) * circumference;
+                    circle.style.strokeDashoffset = offset;
+                };
+                
+                const contentArea = document.querySelector('.content-area');
+                if (contentArea) {
+                    const calcProgress = () => {
+                        const rect = contentArea.getBoundingClientRect();
+                        const contentTop = rect.top + window.scrollY;
+                        const contentHeight = rect.height;
+                        const viewportHeight = window.innerHeight;
+                        const scrollTop = window.scrollY - contentTop;
+                        const scrollHeight = contentHeight - viewportHeight;
+                        
+                        let percent = 0;
+                        if (scrollHeight > 0) {
+                            percent = Math.max(0, Math.min(100, (scrollTop / scrollHeight) * 100));
+                        } else {
+                            percent = window.scrollY >= contentTop ? 100 : 0;
+                        }
+                        
+                        setProgress(percent);
+                    };
+                    
+                    window.addEventListener('scroll', calcProgress);
+                    calcProgress();
+                }
+            }
+        });
+    </script>
+    <script>
+        // Route Planner: Open Google Maps Directions
+        function openGoogleMapsDirections() {
+            const fromInput = document.getElementById('route-from');
+            const origin = fromInput.value.trim();
+            const destination = 'Alibaug Beach, Alibaug, Maharashtra';
+
+            if (!origin) {
+                fromInput.focus();
+                fromInput.style.borderColor = '#ef4444';
+                fromInput.setAttribute('placeholder', 'Please enter a starting location...');
+                setTimeout(() => {
+                    fromInput.style.borderColor = '';
+                    fromInput.setAttribute('placeholder', 'Enter starting location...');
+                }, 2500);
+                return;
+            }
+
+            const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
+            window.open(url, '_blank');
+        }
+
+        // Allow Enter key to trigger directions
+        document.getElementById('route-from').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                openGoogleMapsDirections();
+            }
+        });
+    </script>
+</body>
+
+</html>

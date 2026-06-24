@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malhargad Fort Interactive Guide - Maha Safar</title>
+    <meta name="description"
+        content="Complete interactive guide to Malhargad Fort (Sonori Fort), the last fort built by the Maratha Empire near Pune. Check difficulty, route map, history, and photo spots.">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Global Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/kalsubai2.css">
+    <style>
+        /* Custom Scroll Spy / Floating Drawer style overrides */
+        :root {
+            --progress-ring-size: 56px;
+        }
+
+        /* Floating Action Button */
+        .toc-trigger-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(17, 18, 21, 0.85) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--royal-border-gold) !important;
+            color: var(--royal-gold) !important;
+            display: none;
+            /* Only visible on tablet/mobile */
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            z-index: 99999;
+            padding: 0;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        body.light-mode .toc-trigger-fab {
+            background: rgba(250, 249, 246, 0.9) !important;
+            box-shadow: 0 8px 30px rgba(144, 115, 74, 0.15);
+        }
+
+        .toc-trigger-fab:hover {
+            transform: scale(1.05);
+        }
+
+        .toc-trigger-fab:active {
+            transform: scale(0.95);
+        }
+
+        .progress-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(-90deg);
+            pointer-events: none;
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.1s;
+            transform-origin: 50% 50%;
+        }
+
+        .toc-fab-icon {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        /* TOC Drawer Overlay */
+        .toc-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        .toc-drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .toc-drawer {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 85%;
+            max-width: 320px;
+            height: 100%;
+            background: var(--royal-bg-secondary) !important;
+            border-left: 1px solid var(--royal-border-gold);
+            padding: 30px 24px;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toc-drawer.active {
+            transform: translateX(0);
+        }
+
+        .toc-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--royal-border-gold);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .toc-drawer-header h3 {
+            font-family: 'Outfit', sans-serif !important;
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
+            color: var(--royal-gold) !important;
+            margin: 0 !important;
+            text-transform: uppercase;
+        }
+
+        .toc-close-btn {
+            background: transparent;
+            border: none;
+            color: var(--royal-text-muted);
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .toc-close-btn:hover {
+            color: var(--royal-gold);
+        }
+
+        .toc-drawer-body {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-right: 5px;
+        }
+
+        /* Custom Scrollbar for Drawer Body */
+        .toc-drawer-body::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .toc-drawer-body::-webkit-scrollbar-thumb {
+            background: var(--royal-border-gold);
+            border-radius: 4px;
+        }
+
+        .toc-drawer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .drawer-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--royal-text-muted) !important;
+            text-decoration: none;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13.5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .drawer-link i {
+            font-size: 14px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .drawer-link:hover {
+            color: var(--royal-text-main) !important;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        body.light-mode .drawer-link:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .drawer-link.active {
+            color: var(--royal-gold) !important;
+            background: rgba(var(--royal-accent-rgb), 0.08) !important;
+            border-left-color: var(--royal-gold);
+            font-weight: 600;
+        }
+
+        /* DESKTOP HORIZONTAL STICKY SCROLL NAV WITH ARROWS */
+        @media (min-width: 1025px) {
+            .guide-layout {
+                display: block !important;
+                max-width: 1000px !important;
+                margin: 0 auto !important;
+            }
+
+            .content-area {
+                width: 100% !important;
+            }
+
+            .sidebar-nav {
+                position: sticky !important;
+                top: 92px !important;
+                width: 100% !important;
+                background: var(--royal-bg-primary) !important;
+                border-bottom: 1px solid var(--royal-border-gold) !important;
+                margin-bottom: 40px !important;
+                z-index: 999 !important;
+                display: flex !important;
+                align-items: center !important;
+                padding: 0 !important;
+            }
+
+            .sidebar-inner {
+                position: relative !important;
+                width: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+                background: transparent !important;
+                border: none !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+            }
+
+            .index-title {
+                display: none !important;
+            }
+
+            /* Scroll Container wrapper */
+            .index-list-wrapper {
+                flex-grow: 1 !important;
+                overflow: hidden !important;
+                position: relative !important;
+                display: flex !important;
+                align-items: center !important;
+                padding: 10px 0 !important;
+            }
+
+            .index-list {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 15px !important;
+                list-style: none !important;
+                overflow-x: auto !important;
+                white-space: nowrap !important;
+                scrollbar-width: none !important;
+                /* Firefox */
+                scroll-behavior: smooth !important;
+                width: 100% !important;
+                padding: 0 10px !important;
+                margin: 0 !important;
+            }
+
+            .index-list::-webkit-scrollbar {
+                display: none !important;
+                /* Safari and Chrome */
+            }
+
+            .index-link {
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                font-family: 'Outfit', sans-serif !important;
+                font-size: 11px !important;
+                font-weight: 700 !important;
+                letter-spacing: 1px !important;
+                text-transform: uppercase !important;
+                color: var(--royal-text-muted) !important;
+                padding: 8px 16px !important;
+                border-radius: 20px !important;
+                border: 1px solid transparent !important;
+                transition: all 0.3s ease !important;
+                text-decoration: none !important;
+            }
+
+            .index-link i {
+                font-size: 11px !important;
+                display: inline-block !important;
+            }
+
+            .index-link:hover {
+                color: var(--royal-text-main) !important;
+                background: rgba(255, 255, 255, 0.03) !important;
+            }
+
+            body.light-mode .index-link:hover {
+                background: rgba(0, 0, 0, 0.03) !important;
+            }
+
+            .index-link.active {
+                color: var(--royal-gold) !important;
+                background: rgba(var(--royal-accent-rgb), 0.08) !important;
+                border-color: var(--royal-border-gold) !important;
+                font-weight: 700 !important;
+            }
+
+            /* Scroll Arrow Buttons */
+            .scroll-arrow-btn {
+                background: var(--royal-bg-primary) !important;
+                border: none !important;
+                color: var(--royal-gold) !important;
+                width: 36px !important;
+                height: 36px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                cursor: pointer !important;
+                z-index: 10 !important;
+                transition: all 0.3s ease !important;
+                flex-shrink: 0 !important;
+                opacity: 0.8 !important;
+            }
+
+            .scroll-arrow-btn:hover {
+                opacity: 1 !important;
+                background: rgba(var(--royal-accent-rgb), 0.05) !important;
+                color: var(--royal-text-main) !important;
+            }
+
+            .scroll-arrow-btn.disabled {
+                opacity: 0.25 !important;
+                cursor: not-allowed !important;
+            }
+
+            .left-arrow-btn {
+                border-right: 1px solid var(--royal-border-gold) !important;
+            }
+
+            .right-arrow-btn {
+                border-left: 1px solid var(--royal-border-gold) !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar-nav {
+                display: none !important;
+            }
+
+            .toc-trigger-fab {
+                display: flex !important;
+            }
+        }
+
+        /* Fix gradient-text font size in section headings to match the first word */
+        .guide-layout h2 .gradient-text,
+        .guide-section h2 .gradient-text {
+            font-size: inherit !important;
+        }
+
+        /* Section styles specifically tailored for Malhargad Fort guide */
+        .distance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .distance-card {
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--royal-border-gold);
+            background: rgba(var(--royal-accent-rgb), 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .distance-card:hover {
+            border-color: var(--royal-gold);
+            background: rgba(var(--royal-accent-rgb), 0.08);
+            transform: translateY(-2px);
+        }
+
+        .distance-card h4 {
+            font-size: 1.1rem;
+            color: var(--royal-gold);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .distance-card p {
+            font-size: 0.8rem;
+            color: var(--royal-text-muted);
+            margin: 0;
+        }
+
+        .itinerary-timeline {
+            margin-top: 30px;
+            border-left: 2px solid var(--royal-border-gold);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .itinerary-step {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .itinerary-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .itinerary-step::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--royal-gold);
+            box-shadow: 0 0 10px rgba(var(--royal-accent-rgb), 0.4);
+        }
+
+        .itinerary-time {
+            font-weight: 700;
+            color: var(--royal-gold);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .itinerary-desc {
+            font-size: 0.95rem;
+            color: var(--royal-text-main);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-container" class="reading-progress-container">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore <i class="fas fa-chevron-down"
+                            style="font-size: 0.75rem; margin-left: 5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="explore.html">All Places</a></li>
+                        <li><a href="explore.html?category=treks">Treks</a></li>
+                        <li><a href="explore.html?category=temples">Temples</a></li>
+                        <li><a href="explore.html?category=camping">Camping</a></li>
+                        <li><a href="explore.html?category=waterfalls">Waterfalls</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="flex-center gap-15">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-raigad" id="home"
+        style="background: linear-gradient(rgba(5, 8, 16, 0.65), rgba(5, 8, 16, 0.85)), url('assets/trekking.png') no-repeat center center/cover !important;">
+        <div class="container">
+            <h1>MALHARGAD FORT</h1>
+            <p>The Last Fort of the Maratha Empire</p>
+            <div class="breadcrumbs">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item"><a href="explore.html?category=treks">Explore</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active">Malhargad Fort</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <div class="container stats-container">
+        <div class="hero-stats glass">
+            <div class="stat-item">
+                <p>Difficulty</p>
+                <h4>Easy</h4>
+            </div>
+            <div class="stat-item">
+                <p>Steps</p>
+                <h4>~200 Steps</h4>
+            </div>
+            <div class="stat-item">
+                <p>Altitude</p>
+                <h4>~3,120 Feet</h4>
+            </div>
+            <div class="stat-item">
+                <p>Best Time</p>
+                <h4>Jul - Feb</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Guide Layout Container -->
+    <div class="guide-layout container">
+
+        <!-- Sticky Sidebar Left Index (Horizontal Scroll Bar with Arrows for Desktop) -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-inner">
+                <button id="nav-arrow-left" class="scroll-arrow-btn left-arrow-btn" aria-label="Scroll Left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="index-list-wrapper">
+                    <ul class="index-list">
+                        <li><a href="#about-fort" class="index-link active"><i class="fas fa-circle-info"></i> About
+                                Fort</a></li>
+                        <li><a href="#exact-location" class="index-link"><i class="fas fa-map-pin"></i> Location
+                                details</a></li>
+                        <li><a href="#how-to-reach" class="index-link"><i class="fas fa-route"></i> How to Reach</a>
+                        </li>
+                        <li><a href="#why-visit" class="index-link"><i class="fas fa-heart"></i> Why Visit</a></li>
+                        <li><a href="#best-time" class="index-link"><i class="fas fa-calendar-days"></i> Best Time</a>
+                        </li>
+                        <li><a href="#difficulty-suitability" class="index-link"><i class="fas fa-signal"></i>
+                                Difficulty & Suitability</a></li>
+                        <li><a href="#time-required" class="index-link"><i class="fas fa-clock"></i> Time Required</a>
+                        </li>
+                        <li><a href="#trip-cost" class="index-link"><i class="fas fa-wallet"></i> Trip Cost</a></li>
+                        <li><a href="#food-availability" class="index-link"><i class="fas fa-utensils"></i> Food
+                                Stalls</a></li>
+                        <li><a href="#facilities" class="index-link"><i class="fas fa-server"></i> Facilities</a></li>
+                        <li><a href="#safety" class="index-link"><i class="fas fa-shield-halved"></i> Safety
+                                Guidelines</a></li>
+                        <li><a href="#things-to-carry" class="index-link"><i class="fas fa-backpack"></i> Things to
+                                Carry</a></li>
+                        <li><a href="#best-photo-spots" class="index-link"><i class="fas fa-camera"></i> Photo Spots</a>
+                        </li>
+                        <li><a href="#insider-tips" class="index-link"><i class="fas fa-lightbulb"></i> Insider Tips</a>
+                        </li>
+                        <li><a href="#location-map" class="index-link"><i class="fas fa-location-dot"></i> Location
+                                Map</a></li>
+                    </ul>
+                </div>
+                <button id="nav-arrow-right" class="scroll-arrow-btn right-arrow-btn" aria-label="Scroll Right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: About Fort -->
+            <section id="about-fort" class="guide-section about-fort-section">
+                <h2>About <span class="gradient-text">Malhargad Fort</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Malhargad Fort, also known as Sonori Fort, is a historic hill fort situated near the village of Sonori, about 30 km from Pune. It holds a distinct place in history as the very last fort constructed by the Maratha Empire. Built between 1757 and 1760 AD, it was designed by Sardar Krishnaji Madhavrao Panse, who was the chief of the Peshwa's artillery (Tofkhana).</p>
+                        <p>The fort is named after Lord Malhari (Khandoba), the patron deity of many Maharashtrian families. It was strategically constructed to keep a close watch on the Dive Ghat pass and the route between Pune and Saswad. Although small in size, the fort features solid double-walled ramparts, ancient temples, and beautiful stepwells that make it a favorite for weekend trekkers. Exploring the ruins of the grand Panse Wada in the base village of Sonori provides a rare, close-up look at 18th-century Maratha residential architecture.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Last Built Fort</h4>
+                                <p class="about-fort-pill-text">Peshwa Era (1757-1760)</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Builder</h4>
+                                <p class="about-fort-pill-text">Sardar Krishnaji Panse</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/trekking.png" alt="Double-walled Ramparts of Malhargad Fort" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Location Details -->
+            <section id="exact-location" class="guide-section essential-info-section">
+                <h2>Location & <span class="gradient-text">Details</span></h2>
+                <p class="section-desc">Geographical coordinates, base villages, and distance to nearby towns of Malhargad Fort.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-map-marked-alt"></i> Administrative Info</h3>
+                        <p><strong>Base Village:</strong> Sonori Village (at the base of the trail)<br>
+                            <strong>Taluka:</strong> Purandar / Saswad<br>
+                            <strong>District:</strong> Pune, Maharashtra<br>
+                            <strong>PIN Code:</strong> 412301
+                        </p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-compass"></i> GPS Coordinates</h3>
+                        <p><strong>Latitude & Longitude:</strong> 18.4116° N, 74.0538° E<br>
+                            <strong>Elevation:</strong> Approx. 3,120 feet (950 meters) above sea level in the Sahyadri mountain spur.
+                        </p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-city"></i> Nearby Towns</h3>
+                        <p>Sonori Village – 0.5 km<br>
+                            Saswad – 15 km<br>
+                            Hadapsar (Pune) – 22 km<br>
+                            Pune City – 30 km<br>
+                            Mumbai – 175 km</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: How to Reach -->
+            <section id="how-to-reach" class="guide-section travel-guide-section">
+                <h2>How to <span class="gradient-text">Reach</span></h2>
+                <p class="section-desc">Road routes, nearest train connections, and bus pathways to reach the base village Sonori.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>By Car / Road Trip</h3>
+                            <p><strong>From Pune (30 km | 1 to 1.5 hours):</strong> Drive via Hadapsar -> Fursungi -> Dive Ghat. Immediately after descending Dive Ghat, take the left turn towards Sonori Village. The road is well-tarred and easily accessible for cars and bikes.<br>
+                                <strong>From Mumbai (175 km | 4 to 4.5 hours):</strong> Drive via Mumbai-Pune Expressway -> Pune Bypass (Katraj) -> Hadapsar -> Dive Ghat -> Sonori Village.
+                            </p>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>By Train</h3>
+                            <p><strong>Nearest Station:</strong> Pune Junction Railway Station (32 km). Board local connecting trains or cabs from Pune Station to Hadapsar or Saswad Road, then hire local auto-rickshaws or state transport buses to Sonori village.</p>
+                            <span class="travel-guide-cost-badge">Pune Station: ~32 km</span>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>By Bus</h3>
+                            <p>MSRTC state transport buses run regularly from Swargate and Hadapsar Bus Stand in Pune to Saswad. From Saswad Bus Stand, you can hire local shared auto-rickshaws or connecting local transport buses to reach Sonori Village.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass card-padding-large mt-30"
+                    style="border: 1px solid var(--royal-border-gold); background: rgba(var(--royal-accent-rgb), 0.03); border-radius: 12px;">
+                    <p
+                        style="margin: 0; font-size: 0.95rem; color: var(--royal-text-main); line-height: 1.6; text-align: center;">
+                        <i class="fas fa-stairs" style="color: var(--royal-gold); margin-right: 8px;"></i>
+                        <strong>Ascent Choice:</strong> Once you reach Sonori village, you can start the trek directly. The trail is a gentle incline over rocky terrain. It takes about 30 to 45 minutes of easy climbing to reach the main fort entrance (Mahadarwaja).
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 4: Why Visit Malhargad Fort -->
+            <section id="why-visit" class="guide-section about-fort-section">
+                <h2>Why Visit <span class="gradient-text">Malhargad Fort?</span></h2>
+                <div class="about-fort-grid">
+                    <div class="about-fort-text">
+                        <p>Malhargad Fort is a perfect blend of historic intrigue and natural beauty, making it one of the most rewarding short treks near Pune. As the final fort of the Marathas, it represents a unique era of Peshwa architecture, complete with defensive walls and fortified bastions that remain remarkably intact.</p>
+                        <p>The trek itself is short and highly refreshing, especially during the monsoon when the surrounding valleys turn vibrant green. At the summit, you are greeted by twin temples, a beautifully carved pushkarini (stepwell), and a commanding 360-degree view of Saswad, Jejuri, and the Purandar Fort complex. Additionally, exploring the ruins of the grand Panse Wada in the base village of Sonori provides a rare, close-up look at 18th-century Maratha residential architecture.</p>
+                        <div class="about-fort-flex-gap">
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Key Viewpoint</h4>
+                                <p class="about-fort-pill-text">Balekilla & Bastions</p>
+                            </div>
+                            <div class="glass about-fort-pill">
+                                <h4 class="about-fort-pill-title">Experience</h4>
+                                <p class="about-fort-pill-text">History & Stepwells</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-fort-img">
+                        <img src="assets/trekking.png" alt="Balekilla and Bastions of Malhargad Fort" class="about-fort-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Best Time to Visit -->
+            <section id="best-time" class="guide-section essential-info-section">
+                <h2>Best Time <span class="gradient-text">to Visit</span></h2>
+                <p class="section-desc">Malhargad Fort changes its colors with every season. Plan based on your preferred atmosphere.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cloud-showers-heavy"></i> Monsoon (Jun - Sep)
+                        </h3>
+                        <p>Highly recommended. The hill is covered in lush green carpets, and cool breezes flow across the plateau. The approach roads to Sonori can get muddy, but the trek trail is scenic and pleasant.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-snowflake"></i> Winter (Oct - Feb)</h3>
+                        <p>Excellent for family outings. The climate is cool and comfortable, making it perfect for exploring the ruins and enjoying a picnic on the fort top under clear blue skies.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-sun"></i> Summer (Mar - May)</h3>
+                        <p>Hot and dry. The afternoon sun can be harsh with no shade on the plateau. If visiting in summer, start early (around 6:00 AM) and carry plenty of hydrating drinks.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Difficulty & Visitor Suitability -->
+            <section id="difficulty-suitability" class="guide-section essential-info-section">
+                <h2>Difficulty & <span class="gradient-text">Suitability</span></h2>
+                <p class="section-desc">Who can visit? Malhargad is highly accessible to all age groups due to the easy trail.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-signal"></i> Easy / Beginner Friendly</h3>
+                        <p>The trek has a gentle slope with a mix of mud trails and stone steps. It requires very basic physical fitness, making it one of the easiest fort treks in Pune district.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-child"></i> Family & Kids Friendly</h3>
+                        <p>Since the ascent takes only 30-40 minutes, it is highly suitable for kids, elderly visitors who can walk short distances, and beginners looking to start trekking.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-users-line"></i> Visitor Type</h3>
+                        <p>Perfect for weekend picknickers, history enthusiasts, family groups, and amateur photographers. It is a peaceful getaway free from heavy tourist crowds.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7: Time Required -->
+            <section id="time-required" class="guide-section travel-guide-section">
+                <h2>Time <span class="gradient-text">Required</span></h2>
+                <p class="section-desc">Plan your day to explore all landmarks without rushing.</p>
+
+                <div class="travel-guide-container">
+                    <div class="travel-guide-timeline">
+                        <div class="travel-guide-item">
+                            <h3>Minimum Time Required</h3>
+                            <p><strong>1.5 to 2 Hours:</strong> Enough to complete the trek from the base village to the top, explore the main temples, stepwell, and return.</p>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Ideal Time Required</h3>
+                            <p><strong>3 to 4 Hours:</strong> Highly recommended. This allows you to leisurely walk along the entire double-walled fortification, photograph the scenic views of Saswad valley, visit Panse Wada in Sonori village, and enjoy a packed snack at the top.</p>
+                        </div>
+                        <div class="travel-guide-item">
+                            <h3>Maha Safar Suggested Itinerary</h3>
+                            <p><strong>07:00 AM:</strong> Start from Pune city<br>
+                                <strong>08:30 AM:</strong> Reach Sonori base village and park vehicle. Visit Panse Wada ruins<br>
+                                <strong>09:15 AM:</strong> Start the easy climb to Malhargad<br>
+                                <strong>10:00 AM:</strong> Reach the fort top; explore Lord Khandoba & Lord Shiva temples, and the pushkarini stepwell<br>
+                                <strong>11:30 AM:</strong> Walk along the bastions for panoramic photos<br>
+                                <strong>12:30 PM:</strong> Descend to base village and head back or stop for lunch in Saswad
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 8: Trip Cost -->
+            <section id="trip-cost" class="guide-section essential-info-section">
+                <h2>Total <span class="gradient-text">Trip Cost</span></h2>
+                <p class="section-desc">Malhargad Fort is an extremely budget-friendly destination for weekend trips.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-money-bill-wave"></i> Basic Fees</h3>
+                        <p><strong>Entry Fee:</strong> Absolutely Free. There is no official ticketing system to enter the fort.<br>
+                            <strong>Vehicle Parking:</strong> Nominal charge of ₹20 for two-wheelers and ₹50 for cars collected by local villagers at the base parking.
+                        </p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-ticket"></i> Guide & Transport</h3>
+                        <p><strong>Local Guide:</strong> Usually not required as the trail is well-defined, but local village kids can show you around the fort and Panse Wada for ₹200 - ₹300.<br>
+                            <strong>Public Transport:</strong> Around ₹100 per person using local state buses and shared autos from Pune/Saswad.
+                        </p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-calculator"></i> Budget Estimates</h3>
+                        <p><strong>Self-Drive / Trekker:</strong> ₹200 – ₹500 per person (covering fuel and snacks).<br>
+                            <strong>Family Outing:</strong> ₹800 – ₹1,500 total (including a meal at Saswad/Hadapsar).
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Food Availability -->
+            <section id="food-availability" class="guide-section essential-info-section">
+                <h2>Food <span class="gradient-text">Availability</span></h2>
+                <p class="section-desc">Carry your own refreshments as food options on the fort are non-existent.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-shop"></i> Eating Spots</h3>
+                        <p>There are no food stalls, tea shops, or water vendors on the fort top. In Sonori base village, you can find a couple of small shops selling packaged water and biscuits.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-pepper-hot"></i> Local Specialties</h3>
+                        <p>For proper meals, head to nearby Dive Ghat highway dhabas or Saswad town, which is famous for traditional Maharashtrian dishes like <strong>Misal Pav</strong>, <strong>Bhakri-Pithla</strong>, and local sweets.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-glass-water"></i> Water Supply</h3>
+                        <p>There is no potable drinking water source on the fort. Carrying at least 2 liters of water per person from Pune or Saswad is absolutely mandatory.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 10: Facilities Available -->
+            <section id="facilities" class="guide-section essential-info-section">
+                <h2>Facilities <span class="gradient-text">Available</span></h2>
+                <p class="section-desc">Malhargad Fort provides minimal tourist services due to its quiet and heritage nature.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-restroom"></i> Washrooms & Parking</h3>
+                        <p>There are no public toilets on the fort top or at the immediate base trail. Basic parking is available in Sonori village. It is best to use restrooms at highway pumps or restaurants on the Saswad road.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cash-register"></i> ATMs & Cash</h3>
+                        <p>No ATMs are available in Sonori village. Carry sufficient cash for parking and local needs. The nearest ATMs are located in Hadapsar or Saswad.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-wifi"></i> Connectivity & Help</h3>
+                        <p>Good mobile network coverage (Jio, Airtel) is available throughout the trek and on the fort. For medical emergencies, Saswad (15 km) has primary health centers.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 11: Safety Guidelines -->
+            <section id="safety" class="guide-section essential-info-section">
+                <h2>Safety <span class="gradient-text">Information</span></h2>
+                <p class="section-desc">Key precautions to ensure visitor safety near walls and water bodies.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-triangle-exclamation"></i> Danger Zones</h3>
+                        <p>The stone walls of the inner fort (Balekilla) are steep. Avoid climbing unsafe, crumbling structures. The stepwell (pushkarini) is deep and has slippery steps; avoid stepping into the water.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-ban"></i> Prohibited Activities</h3>
+                        <p>Littering is strictly prohibited; carry all plastic waste back with you. Avoid drinking alcohol or smoking on the sacred fort grounds. Do not stray off the trail into thorny bushes.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-kit-medical"></i> Rainy Season Tips</h3>
+                        <p>The soil trail can become highly slippery and muddy during monsoons. Wear shoes with deep grooves/grip. Carry a windcheater or raincoat as the wind gets strong on the open plateau.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 12: Things to Carry -->
+            <section id="things-to-carry" class="guide-section essential-info-section">
+                <h2>Things <span class="gradient-text">to Carry</span></h2>
+                <p class="section-desc">Ensure you bring the right items for a comfortable day on the mountain fort.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-box-tissue"></i> Must-Carry Basics</h3>
+                        <p>At least 2 liters of drinking water, good grip trekking/running shoes, energy snacks (dates, energy bars), glucose powder (Glucon-D), and some cash.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-shirt"></i> Clothes & Protection</h3>
+                        <p>Cap, sunglasses, sunscreen (especially for summer/winter day treks), and rain jacket or windcheater (for monsoon treks).</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-cookie"></i> Snacks & Power</h3>
+                        <p>Energy bars, dry fruits, glucose powder (ORS), camera gear, and a high-capacity power bank as mobile charging points are unavailable on the fort.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 13: Best Photo Spots -->
+            <section id="best-photo-spots" class="guide-section major-attractions-section">
+                <h2>Best <span class="gradient-text">Photo Spots</span></h2>
+                <p class="section-desc">Postcard locations to capture the grandeur and history of Malhargad Fort.</p>
+
+                <div class="major-attractions-showcase">
+                    <div class="major-attractions-box">
+                        <img src="assets/trekking.png" alt="Balekilla Entrance">
+                        <div class="major-attractions-overlay">
+                            <h3>Balekilla Entrance</h3>
+                            <p>The main arched stone gateway of the inner fort provides a perfect historical frame.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/trekking.png" alt="Khandoba Temple">
+                        <div class="major-attractions-overlay">
+                            <h3>Khandoba Temple</h3>
+                            <p>The twin stone temples situated side-by-side with the Sahyadri mountains in the background.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/trekking.png" alt="Pushkarini Stepwell">
+                        <div class="major-attractions-overlay">
+                            <h3>Pushkarini Stepwell</h3>
+                            <p>The beautifully carved, square stone stepwell that reflects the sky in its water.</p>
+                        </div>
+                    </div>
+                    <div class="major-attractions-box">
+                        <img src="assets/trekking.png" alt="Panse Wada (Sonori)">
+                        <div class="major-attractions-overlay">
+                            <h3>Panse Wada (Sonori)</h3>
+                            <p>The grand Peshwa-era mansion ruins at the base village with fortified towers.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 14: Insider Tips -->
+            <section id="insider-tips" class="guide-section essential-info-section">
+                <h2>Insider <span class="gradient-text">Tips & Tricks</span></h2>
+                <p class="section-desc">Practical suggestions from Maha Safar to enhance your visit.</p>
+
+                <div class="essential-info-grid">
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-users-slash"></i> Explore Sonori Wada</h3>
+                        <p>Don't just climb the fort. Spend 20 minutes exploring the Panse Wada in Sonori village at the base. It is a stunning historical structure with beautiful stone arches.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-eye-slash"></i> Sunrise / Early Morning</h3>
+                        <p>The fort is famous for its gorgeous sunrise views. Start early from Pune around 5:30 AM to catch the morning mist rising over Dive Ghat.</p>
+                    </div>
+                    <div class="essential-info-card glass card-padding-large">
+                        <h3 class="primary-heading mb-20"><i class="fas fa-circle-user"></i> Combine with Jejuri</h3>
+                        <p>Since Jejuri temple town is only about 30 km from Saswad, you can easily combine your Malhargad trek with a visit to the famous Khandoba Temple of Jejuri.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 15: Location Map -->
+            <section id="location-map" class="guide-section location-map-section">
+                <h2>Location & <span class="gradient-text">Coordinates</span></h2>
+                <p class="section-desc">Sonori Village, Saswad-Purandar, Pune District, Maharashtra, India</p>
+
+                <!-- Route Planner -->
+                <div class="map-route-container">
+                    <div class="map-route-form">
+                        <div class="map-input-group">
+                            <label><i class="fas fa-circle-dot"></i> From</label>
+                            <input type="text" id="route-from" class="map-input"
+                                placeholder="Enter starting location..." autocomplete="off">
+                        </div>
+                        <div class="map-input-group">
+                            <label><i class="fas fa-map-pin"></i> To</label>
+                            <input type="text" class="map-input" value="Malhargad Fort, Maharashtra" readonly>
+                        </div>
+                        <button id="get-directions-btn" class="map-btn" onclick="openGoogleMapsDirections()">
+                            <i class="fas fa-diamond-turn-right"></i> Directions
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass location-map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3785.1118182283995!2d74.0538!3d18.4116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eec000000001%3A0x7d6f51f4967df66c!2sMalhargad+Fort!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="location-map-iframe"></iframe>
+                </div>
+                <div class="location-map-link-box">
+                    <a href="https://www.google.com/maps/place/Malhargad+Fort/@18.4116,74.0538,15z" target="_blank"
+                        class="location-map-link">
+                        <i class="fas fa-map-location-dot"></i> View on Google Maps
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="assets/mahasafar.png" alt="Maha Safar" class="logo-img">
+                    </a>
+                    <p>Your premium gateway to the most breathtaking adventure and spiritual destinations in
+                        Maharashtra. We specialize in safe, curated, and unforgettable experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Stay Updated</h4>
+                    <p class="mb-15 font-sm footer-newsletter-text">Subscribe to our newsletter for the latest adventure
+                        updates and offers.</p>
+                    <div class="form-group newsletter-form">
+                        <input type="email" placeholder="Your Email" class="newsletter-input">
+                        <button class="submit-btn newsletter-btn"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maha Safar. All rights reserved. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating TOC Action Button -->
+    <button id="toc-trigger" class="toc-trigger-fab" aria-label="Open Guide Directory">
+        <svg class="progress-ring" width="56" height="56">
+            <circle class="progress-ring__circle" stroke="var(--royal-gold)" stroke-width="3" fill="transparent" r="24"
+                cx="28" cy="28" />
+        </svg>
+        <div class="toc-fab-icon">
+            <i class="fas fa-list-ol"></i>
+        </div>
+    </button>
+
+    <!-- Glassmorphic TOC Drawer Overlay -->
+    <div id="toc-drawer-overlay" class="toc-drawer-overlay">
+        <div class="toc-drawer">
+            <div class="toc-drawer-header">
+                <h3>Guide Chapters</h3>
+                <button id="toc-close-btn" class="toc-close-btn" aria-label="Close Guide Directory">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="toc-drawer-body">
+                <ul class="toc-drawer-list">
+                    <li><a href="#about-fort" class="drawer-link active"><i class="fas fa-circle-info"></i> About
+                            Fort</a></li>
+                    <li><a href="#exact-location" class="drawer-link"><i class="fas fa-map-pin"></i> Location
+                            details</a></li>
+                    <li><a href="#how-to-reach" class="drawer-link"><i class="fas fa-route"></i> How to Reach</a></li>
+                    <li><a href="#why-visit" class="drawer-link"><i class="fas fa-heart"></i> Why Visit</a></li>
+                    <li><a href="#best-time" class="drawer-link"><i class="fas fa-calendar-days"></i> Best Time</a></li>
+                    <li><a href="#difficulty-suitability" class="drawer-link"><i class="fas fa-signal"></i> Difficulty &
+                            Suitability</a></li>
+                    <li><a href="#time-required" class="drawer-link"><i class="fas fa-clock"></i> Time Required</a></li>
+                    <li><a href="#trip-cost" class="drawer-link"><i class="fas fa-wallet"></i> Trip Cost</a></li>
+                    <li><a href="#food-availability" class="drawer-link"><i class="fas fa-utensils"></i> Food Stalls</a>
+                    </li>
+                    <li><a href="#facilities" class="drawer-link"><i class="fas fa-server"></i> Facilities</a></li>
+                    <li><a href="#safety" class="drawer-link"><i class="fas fa-shield-halved"></i> Safety Guidelines</a>
+                    </li>
+                    <li><a href="#things-to-carry" class="drawer-link"><i class="fas fa-backpack"></i> Things to
+                            Carry</a></li>
+                    <li><a href="#best-photo-spots" class="drawer-link"><i class="fas fa-camera"></i> Photo Spots</a>
+                    </li>
+                    <li><a href="#insider-tips" class="drawer-link"><i class="fas fa-lightbulb"></i> Insider Tips</a>
+                    </li>
+                    <li><a href="#location-map" class="drawer-link"><i class="fas fa-location-dot"></i> Location Map</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/kalsubai2.js"></script>
+    <script>
+        // Mobile FAB & Desktop Horizontal Arrow Scroll spy navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('toc-trigger');
+            const overlay = document.getElementById('toc-drawer-overlay');
+            const closeBtn = document.getElementById('toc-close-btn');
+            const drawerLinks = document.querySelectorAll('.drawer-link');
+            const drawer = overlay.querySelector('.toc-drawer');
+
+            // Toggle Drawer
+            const openDrawer = () => {
+                overlay.classList.add('active');
+                drawer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeDrawer = () => {
+                overlay.classList.remove('active');
+                drawer.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            trigger.addEventListener('click', openDrawer);
+            closeBtn.addEventListener('click', closeDrawer);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closeDrawer();
+            });
+
+            // Smooth Scroll for Drawer Links
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        closeDrawer();
+                        const headerOffset = 90;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Desktop Horizontal Scroll Arrow Button Handlers
+            const leftArrow = document.getElementById('nav-arrow-left');
+            const rightArrow = document.getElementById('nav-arrow-right');
+            const scrollContainer = document.querySelector('.index-list');
+
+            if (leftArrow && rightArrow && scrollContainer) {
+                const scrollAmount = 200; // Pixels to scroll on click
+
+                leftArrow.addEventListener('click', () => {
+                    scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+
+                rightArrow.addEventListener('click', () => {
+                    scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+
+                // Disable/enable arrows based on scroll position
+                const toggleArrows = () => {
+                    const scrollLeft = scrollContainer.scrollLeft;
+                    const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+                    if (scrollLeft <= 5) {
+                        leftArrow.classList.add('disabled');
+                    } else {
+                        leftArrow.classList.remove('disabled');
+                    }
+
+                    if (scrollLeft >= maxScrollLeft - 5) {
+                        rightArrow.classList.add('disabled');
+                    } else {
+                        rightArrow.classList.remove('disabled');
+                    }
+                };
+
+                scrollContainer.addEventListener('scroll', toggleArrows);
+                window.addEventListener('resize', toggleArrows);
+
+                // Initial check
+                setTimeout(toggleArrows, 500);
+            }
+
+            // Sync Scroll Spy for both Sidebar and Drawer links
+            const sections = document.querySelectorAll('.content-area .guide-section');
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav .index-link');
+
+            if (sections.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-80px 0px -50% 0px',
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.getAttribute('id');
+
+                            // Highlight sidebar links
+                            sidebarLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+
+                                    // Auto-scroll active link into view inside horizontal bar
+                                    if (scrollContainer && link.parentElement) {
+                                        const containerWidth = scrollContainer.clientWidth;
+                                        const itemLeft = link.parentElement.offsetLeft;
+                                        const itemWidth = link.parentElement.clientWidth;
+                                        const targetScroll = itemLeft - (containerWidth / 2) + (itemWidth / 2);
+
+                                        scrollContainer.scrollTo({
+                                            left: targetScroll,
+                                            behavior: 'smooth'
+                                        });
+                                    }
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+
+                            // Highlight drawer links
+                            drawerLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(section => observer.observe(section));
+            }
+
+            // Circular Scroll Progress calculation
+            const circle = document.querySelector('.progress-ring__circle');
+            if (circle) {
+                const radius = circle.r.baseVal.value;
+                const circumference = radius * 2 * Math.PI;
+
+                circle.style.strokeDasharray = `${circumference} ${circumference}`;
+                circle.style.strokeDashoffset = circumference;
+
+                const setProgress = (percent) => {
+                    const offset = circumference - (percent / 100) * circumference;
+                    circle.style.strokeDashoffset = offset;
+                };
+
+                const contentArea = document.querySelector('.content-area');
+                if (contentArea) {
+                    const calcProgress = () => {
+                        const rect = contentArea.getBoundingClientRect();
+                        const contentTop = rect.top + window.scrollY;
+                        const contentHeight = rect.height;
+                        const viewportHeight = window.innerHeight;
+                        const scrollTop = window.scrollY - contentTop;
+                        const scrollHeight = contentHeight - viewportHeight;
+
+                        let percent = 0;
+                        if (scrollHeight > 0) {
+                            percent = Math.max(0, Math.min(100, (scrollTop / scrollHeight) * 100));
+                        } else {
+                            percent = window.scrollY >= contentTop ? 100 : 0;
+                        }
+
+                        setProgress(percent);
+                    };
+
+                    window.addEventListener('scroll', calcProgress);
+                    calcProgress();
+                }
+            }
+        });
+    </script>
+    <script>
+        // Route Planner: Open Google Maps Directions
+        function openGoogleMapsDirections() {
+            const fromInput = document.getElementById('route-from');
+            const origin = fromInput.value.trim();
+            const destination = 'Malhargad Fort, Maharashtra';
+
+            if (!origin) {
+                fromInput.focus();
+                fromInput.style.borderColor = '#ef4444';
+                fromInput.setAttribute('placeholder', 'Please enter a starting location...');
+                setTimeout(() => {
+                    fromInput.style.borderColor = '';
+                    fromInput.setAttribute('placeholder', 'Enter starting location...');
+                }, 2500);
+                return;
+            }
+
+            const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
+            window.open(url, '_blank');
+        }
+
+        // Allow Enter key to trigger directions
+        document.getElementById('route-from').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                openGoogleMapsDirections();
+            }
+        });
+    </script>
+</body>
+
+</html>

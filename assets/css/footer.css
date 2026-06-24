@@ -1,4 +1,4 @@
-﻿/* Footer Base */
+/* Footer Base */
 footer {
     padding: 80px 0 40px;
     border-top: 1px solid var(--border-glass);
@@ -12,7 +12,15 @@ footer {
 }
 
 .footer-logo {
+    display: inline-block;
     margin-bottom: 24px;
+}
+
+.footer-logo img.logo-img {
+    transform: none !important;
+    width: 140px !important;
+    height: auto !important;
+    margin-left: 0 !important;
 }
 
 .footer-about p {

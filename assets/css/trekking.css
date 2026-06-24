@@ -384,7 +384,7 @@ body.light-mode .filter-card::-webkit-scrollbar-thumb:hover {
 
 .sort-select-sidebar {
     width: 100%;
-    background: var(--bg-card);
+    background-color: var(--bg-card);
     border: 1px solid var(--border-glass);
     color: var(--text-main);
     padding: 10px 14px;
@@ -394,6 +394,8 @@ body.light-mode .filter-card::-webkit-scrollbar-thumb:hover {
     font-weight: 500;
     cursor: pointer;
     outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     transition: var(--transition-smooth);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2300D2FF' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
@@ -998,4 +1000,26 @@ body.light-mode .page-btn-v8.active {
 
 .district-icon {
     color: var(--primary);
+}
+
+.apply-filters-btn {
+    background: none;
+    color: var(--primary);
+    border: none;
+    padding: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: inherit;
+}
+
+.apply-filters-btn:hover {
+    opacity: 0.8;
+    text-decoration: underline;
 }
