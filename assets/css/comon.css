@@ -665,7 +665,6 @@ body.light-mode .index-link.active {
 
 .essential-info-card:hover {
     transform: none !important;
-    border-color: var(--primary) !important;
 }
 
 .card-padding-large {
@@ -1421,6 +1420,8 @@ section.hero p {
     margin-bottom: 25px !important;
     text-align: center !important;
     text-transform: none !important;
+    border-bottom: 1px solid !important;
+    border-image: linear-gradient(to right, var(--gradient-start, #FFFFFF) 0%, var(--primary) 100%) 1 !important;
 }
 
 .guide-section h2 .gradient-text {
@@ -1430,13 +1431,7 @@ section.hero p {
 }
 
 .guide-section h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 1px;
-    background: var(--royal-gold);
-    margin: 18px auto 0;
-    opacity: 0.8;
+    display: none !important;
 }
 
 .section-desc {
@@ -1456,6 +1451,7 @@ section.hero p {
 }
 
 /* Elegant drop cap on the very first paragraph of content sections */
+/*
 .guide-section .glowing-card>p:first-of-type::first-letter,
 .about-fort-section p:first-of-type::first-letter {
     font-family: 'Playfair Display', serif !important;
@@ -1467,6 +1463,7 @@ section.hero p {
     color: var(--royal-gold) !important;
     font-weight: 700 !important;
 }
+*/
 
 /* About Fort Section overrides */
 .about-fort-grid {
@@ -1916,7 +1913,6 @@ section.hero p {
     border-radius: 0 !important;
     box-shadow: none !important;
     padding: 0 !important;
-    border-bottom: 1px solid var(--royal-border-gold) !important;
     padding-bottom: 25px !important;
 }
 
